@@ -10,21 +10,38 @@ class WatchesSpider(scrapy.Spider):
         "www.hodinky-koscom.cz"
     ]
 
+    pagination_format = "https://www.hodinky.cz/citizen/?page="
+
     start_urls = [
         "https://www.hodinky.cz/citizen/",
     ]
 
-    products_limit = 10
+    products_per_page_limit = 2
+    product_collection_pages_limit = 2
+
+    crawled_pages = 0
     crawled_products = 0
 
     def parse(self, response):
         product_urls = response.css("#productList > div > div > a::attr(href)").getall()
         for product_url in product_urls:
-            if self.crawled_products >= self.products_limit:
-                return
+            if self.crawled_products >= self.products_per_page_limit:
+                self.crawled_products = 0
+                break
+
             self.crawled_products = self.crawled_products + 1
             normalized_url = response.urljoin(product_url)
+
             yield response.follow(normalized_url, callback=self.parse_watch_product)
+
+        is_next_page_available = response.xpath("//*[@aria-label='Následující stránka']")
+
+        self.crawled_pages = self.crawled_pages + 1
+        if is_next_page_available is not None and self.crawled_pages < self.product_collection_pages_limit:
+            yield scrapy.Request(
+                self.pagination_format + str(self.crawled_pages + 1),
+                callback=self.parse,
+            )
 
     def parse_watch_product(self, response):
         item = WatchItem()
