@@ -1,1 +1,32 @@
-= HW1 - TBD!
+
+1. gonna crawl hodinky.cz for a few categories e.g. /citizen /senko
+    - there is global robots.txt
+        - allows bots
+        - provides sitemap with all product links (for seek of demo, not using it)
+        - no specific bot headers in responses
+
+2. handle pagination and product link extraction
+3. product extraction
+    - on each product page there is robots tags inside of html, allowed for indexing
+    - there is Opengraph tags on the page but their information is limited
+        - op:description: contains very short description of product page (not sufficient to judge product)
+        - op:image: contains link to main product image
+        - op:title: contains title of page (tab), apart from product name has website name listed
+    - there is JSON LD data
+        - information is not full and not consistent between pages (can be missing, or have missing fields)
+        - does not contain specification only price and name of product
+
+    - fields
+        [image, price, title, product variants, Materiál pouzdra, Materiál řemínku, Barva řemínku/tahu, Barva ciferníku]
+        [set of additional function]
+    - [important] have to deduplicate by product variants
+        - product variant has to have
+            - colors/materials of pouzdra, reminku, ciferniku
+            - link to it
+
+4. For each extracted product, try to scrap short product information from other websites
+    - https://www.hodinky-koscom.cz/filterSearch?q=H.%20Moser%20
+    - https://www.helveti.cz/Vyhledavani?fraze=Series+8+831+Automatic+NB6050-51W
+
+    - sites allow bots, provide sitemaps, no specific bot headers in http responses
+    - extract price, product page link,
