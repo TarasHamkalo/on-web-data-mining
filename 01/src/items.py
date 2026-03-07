@@ -26,4 +26,4 @@ class WatchItem(BaseWatchItem):
     functions = Field()
     variants = Field()
 
-    _variants_remaining = Field()
+    _variant_urls = Field()
