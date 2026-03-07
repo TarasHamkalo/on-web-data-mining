@@ -19,10 +19,11 @@ class HodinkyParser():
     "variants": "Barevná provedení"
   }
 
-  pagination_format = "https://www.hodinky.cz/citizen/?page="
+  pagination_format = "/?page="
 
-  def __init__(self):
+  def __init__(self, base_url):
     self.current_page = 1
+    self.base_url = base_url
 
   def has_next_page(self, response) -> bool:
     is_next_page_available = response.xpath("//*[@aria-label='Následující stránka']").get()
@@ -30,7 +31,7 @@ class HodinkyParser():
 
   def next_page_url(self) -> str:
     self.current_page += 1
-    return self.pagination_format + str(self.current_page)
+    return self.base_url + self.pagination_format + str(self.current_page)
 
   def parse_product_urls(self, response):
     """
