@@ -41,6 +41,15 @@ class WatchesSpider(scrapy.Spider):
         self.stop_serving_new_requests = False
 
     def parse(self, response: Response) -> any:
+        """
+        Extracts product links from the page and populates urls queue. Separate not scrapy
+        related queue used to limit amount of concurrent request and
+        simplify deduplication of products.
+
+        :param response: scrapy response object for watches collection page
+        :return: yields single request to new product
+        """
+
         product_urls = self.hodinky_parser.parse_product_urls(response)
         for product_url in product_urls:
             self.product_url_queue.put(product_url)
@@ -53,6 +62,10 @@ class WatchesSpider(scrapy.Spider):
         yield from self.create_single_request()
 
     def parse_watch_product(self, response):
+        """
+        :param response: scrapy response object for watch product page
+        :return: yields item, requests to product variants, request to new product (in order)
+        """
         is_variant = response.meta.get("is_variant")
         if not is_variant:
             self.crawled_products += 1
@@ -74,6 +87,10 @@ class WatchesSpider(scrapy.Spider):
             yield from self.create_single_request()
 
     def create_single_request(self):
+        """
+        :return: yields single request either to download new product or collection of products
+        """
+
         if self.stop_serving_new_requests:
             return
 
@@ -101,6 +118,10 @@ class WatchesSpider(scrapy.Spider):
         return
 
     def create_next_page_request(self):
+        """
+        Creates request to download next page of products, in case that there are
+        pages on web and limit was not hit
+        """
         if self.crawled_pages < self.product_collection_pages_limit:
             self.crawled_products = 0
             self.product_url_queue = Queue() #TODO: init new one? or clean?
