@@ -22,11 +22,16 @@ USER_AGENT = "Crawler FIT/CVUT (student project)"
 ROBOTSTXT_OBEY = True
 
 # Concurrency and throttling settings
-CONCURRENT_REQUESTS = 3
-CONCURRENT_REQUESTS_PER_DOMAIN = 3
-DOWNLOAD_DELAY = 1
+CONCURRENT_REQUESTS = 1
+CONCURRENT_REQUESTS_PER_DOMAIN = 1
+DOWNLOAD_DELAY = 2
 
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
+
+EXTENSIONS = {
+   'src.extensions.log_file_extension.LogFileExtension': 500,
+}
+
 #TELNETCONSOLE_ENABLED = False
 
 # Configure item pipelines
