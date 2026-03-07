@@ -25,7 +25,7 @@ class WatchesSpider(scrapy.Spider):
         super().__init__(name, **kwargs)
 
         self.products_per_page_limit = 2
-        self.product_collection_pages_limit = 1
+        self.product_collection_pages_limit = 2
 
         self.crawled_pages = 0
         self.crawled_products = 0
@@ -95,7 +95,7 @@ class WatchesSpider(scrapy.Spider):
             return
 
         if (self.crawled_products >= self.products_per_page_limit or
-              self.product_url_queue.empty()):
+          self.product_url_queue.empty()):
             self.logger.info("Products per page limit reached or product queue is empty")
             yield from self.create_next_page_request()
             return
@@ -115,6 +115,8 @@ class WatchesSpider(scrapy.Spider):
 
             break
 
+        return
+
     def create_next_page_request(self):
         """
         Creates request to download next page of products, in case that there are
@@ -128,7 +130,6 @@ class WatchesSpider(scrapy.Spider):
                 self.hodinky_parser.next_page_url(),
                 callback=self.parse,
             )
-
             return
 
         self.logger.info("Pages limit reached no new pages gonna be crawled")
