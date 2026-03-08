@@ -175,3 +175,6 @@ podle formátu stránkování
 * `src.spiders.watches_spider.py`
 ** Obsahuje hlavní logiku crawleru.
 ** Určuje pořadí procházení stránek a výběr produktů (např. ignorování duplicit a variant).
+
+// TODO: add data section and metric spec
+// TODO: add running section

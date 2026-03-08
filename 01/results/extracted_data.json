@@ -1,0 +1,575 @@
+[
+  {
+    "url": "https://www.hodinky.cz/hodinky/casio-edifice-efr-574d-2avuef-198-1.html",
+    "currency": "Kč",
+    "price": 2160,
+    "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-edifice-efr-574d-2avuef-198_14931724063221.jpg",
+    "case_material": "ocel",
+    "strap_material": "ocel",
+    "strap_color": "stříbrná",
+    "dial_color": "modrá",
+    "title": "Edifice EFR-574D-2AVUEF (198)",
+    "brand": "Casio",
+    "functions": [
+      "stopky",
+      "vodotěsnost",
+      "ukazatel data"
+    ],
+    "variants": [
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-edifice-efr-574d-1avuef-198-1.html",
+        "currency": "Kč",
+        "price": 2272,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-edifice-efr-574d-1avuef-198_14931721055419.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "černá",
+        "title": "Edifice EFR-574D-1AVUEF (198)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-automatic-nj0150-81l.html",
+    "currency": "Kč",
+    "price": 7800,
+    "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-automatic-nj0150-81l_14890009125009.jpg",
+    "case_material": "ocel",
+    "strap_material": "ocel",
+    "strap_color": "stříbrná",
+    "dial_color": "modrá",
+    "title": "Elegant Tsuyosa Automatic NJ0150-81L",
+    "brand": "Citizen",
+    "functions": [
+      "luminiscence",
+      "vodotěsnost",
+      "ukazatel data"
+    ],
+    "variants": [
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-37-mm-automatic-nj0200-50l.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-37-mm-automatic-nj0200-50l_14995015083247.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "modrá",
+        "title": "Elegant Tsuyosa 37 mm Automatic NJ0200-50L",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-37-mm-automatic-nj0200-50x-1.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-37-mm-automatic-nj0200-50x_14995011074602.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "zelená",
+        "title": "Elegant Tsuyosa 37 mm Automatic NJ0200-50X",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-37-mm-automatic-nj0200-50z.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-37-mm-automatic-nj0200-50z_14995003072332.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "růžová",
+        "title": "Elegant Tsuyosa 37 mm Automatic NJ0200-50Z",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-automatic-nj0153-82x.html",
+        "currency": "Kč",
+        "price": 8800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-automatic-nj0153-82x_14908194131247.jpg",
+        "case_material": "ocel; pozlaceno",
+        "strap_material": "ocel; pozlaceno",
+        "strap_color": "růžové zlato",
+        "dial_color": "červená",
+        "title": "Elegant Tsuyosa Automatic NJ0153-82X",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-automatic-nj0151-88x.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-automatic-nj0151-88x_14908193130103.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "modrá; tyrkysová",
+        "title": "Elegant Tsuyosa Automatic NJ0151-88X",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-automatic-nj0151-88m.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-automatic-nj0151-88m_14908182115602.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "tyrkysová",
+        "title": "Elegant Tsuyosa Automatic NJ0151-88M",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-automatic-nj0150-81z.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-automatic-nj0150-81z_14890007123047.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "žlutá",
+        "title": "Elegant Tsuyosa Automatic NJ0150-81Z",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-automatic-nj0150-81x.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-automatic-nj0150-81x_14890003122228.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "zelená",
+        "title": "Elegant Tsuyosa Automatic NJ0150-81X",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-elegant-tsuyosa-automatic-nj0150-81e.html",
+        "currency": "Kč",
+        "price": 7800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-elegant-tsuyosa-automatic-nj0150-81e_14889995115940.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "černá",
+        "title": "Elegant Tsuyosa Automatic NJ0150-81E",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://www.hodinky.cz/hodinky/citizen-eco-drive-sport-bm8476-07ee.html",
+    "currency": "Kč",
+    "price": 3800,
+    "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-eco-drive-sport-bm8476-07ee_14791224062833.jpg",
+    "case_material": "ocel",
+    "strap_material": "kůže",
+    "strap_color": "hnědá",
+    "dial_color": "černá",
+    "title": "Eco-Drive Sport BM8476-07EE",
+    "brand": "Citizen",
+    "functions": [
+      "luminiscence",
+      "vodotěsnost",
+      "ukazatel data"
+    ],
+    "variants": [
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-eco-drive-bm8476-23ee.html",
+        "currency": "Kč",
+        "price": 3800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-eco-drive-bm8476-23ee_14833945064237.jpg",
+        "case_material": "ocel",
+        "strap_material": "kůže; textil",
+        "strap_color": "zelená",
+        "dial_color": "černá",
+        "title": "Eco-Drive BM8476-23EE",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/citizen-eco-drive-sport-bm8470-11ee.html",
+        "currency": "Kč",
+        "price": 3800,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-eco-drive-sport-bm8470-11ee_14776111055331.jpg",
+        "case_material": "ocel",
+        "strap_material": "nylon",
+        "strap_color": "zelená",
+        "dial_color": "černá",
+        "title": "Eco-Drive Sport BM8470-11EE",
+        "brand": "Citizen",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://www.hodinky.cz/hodinky/casio-g-shock-dw-5600ep-4er-322-energy-pack-series-1.html",
+    "currency": "Kč",
+    "price": 1699,
+    "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-dw-5600ep-4er-322-energy-pack-series_14968190053128.jpg",
+    "case_material": "plast",
+    "strap_material": "plast",
+    "strap_color": "červená",
+    "dial_color": "šedá",
+    "title": "G-Shock DW-5600EP-4ER (322) Energy Pack Series",
+    "brand": "Casio",
+    "functions": [
+      "stopky",
+      "timer",
+      "vodotěsnost",
+      "ukazatel data",
+      "alarm",
+      "12/24 hodinový režim",
+      "nárazuvzdorné",
+      "osvětlení"
+    ],
+    "variants": [
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-g-shock-origami-series-dw-5600rgm-1er-322.html",
+        "currency": "Kč",
+        "price": 3790,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-origami-series-dw-5600rgm-1er-322_15022045093359.jpg",
+        "case_material": "plast",
+        "strap_material": "plast",
+        "strap_color": "černá",
+        "dial_color": "šedá",
+        "title": "G-Shock Origami Series DW-5600RGM-1ER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "12/24 hodinový režim",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-g-shock-white-on-white-dw-5600ww-7er-322.html",
+        "currency": "Kč",
+        "price": 1914,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-dw-5600ww-7er-322_15002980065327.jpg",
+        "case_material": "plast",
+        "strap_material": "plast",
+        "strap_color": "bílá",
+        "dial_color": "bílá",
+        "title": "G-Shock White on White DW-5600WW-7ER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-set-g-shock-the-origin-dwe-5600jb-1a9er-j-balvin-collaboration-nahradni-reminek-a-luneta-322.html",
+        "currency": "Kč",
+        "price": 4818,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-set-g-shock-the-origin-dwe-5600jb-1a9er-322_14992449081230.jpg",
+        "case_material": "plast",
+        "strap_material": "plast",
+        "strap_color": "černá; zelená",
+        "dial_color": "šedá",
+        "title": "SET G-SHOCK The Origin DWE-5600JB-1A9ER J. Balvin Collaboration (+ náhradní řemínek a luneta) (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-g-shock-dw-5600rl-1er-322-1.html",
+        "currency": "Kč",
+        "price": 2590,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-dw-5600rl-1er-322_14986292092819.jpg",
+        "case_material": "plast",
+        "strap_material": "plast",
+        "strap_color": "černá",
+        "dial_color": "šedá",
+        "title": "G-Shock DW-5600RL-1ER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "12/24 hodinový režim",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-g-shock-origin-revival-made-in-japan-dw-5000r-1aer-322-1.html",
+        "currency": "Kč",
+        "price": 4990,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-origin-revival-dw-5000r-1aer-322_14986288084324.jpg",
+        "case_material": "plast",
+        "strap_material": "plast",
+        "strap_color": "černá; šedá",
+        "dial_color": "šedá",
+        "title": "G-SHOCK Origin Revival Made in Japan DW-5000R-1AER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "12/24 hodinový režim",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-g-shock-rainbow-brick-wall-series-dw-5600rw-1er-322.html",
+        "currency": "Kč",
+        "price": 1899,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-rainbow-brick-wall-series-dw-5600rw-1er-322_14970066055814.jpg",
+        "case_material": "plast",
+        "strap_material": "plast",
+        "strap_color": "černá",
+        "dial_color": "šedá",
+        "title": "G-Shock Rainbow Brick Wall Series DW-5600RW-1ER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "12/24 hodinový režim",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-g-shock-dw-5600tl-7er-322.html",
+        "currency": "Kč",
+        "price": 2099,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-dw-5600tl-7er-322_14960007065358.jpg",
+        "case_material": "plast",
+        "strap_material": "plast",
+        "strap_color": "bílá",
+        "dial_color": "vícebarevná",
+        "title": "G-Shock DW-5600TL-7ER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-set-g-shock-the-origin-40th-anniversary-remaster-black-dwe-5657re-1er-322.html",
+        "currency": "Kč",
+        "price": 2690,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-set-g-shock-the-origin-dwe-5657re-1er-000_14923054122152.jpg",
+        "case_material": "pryskyřice",
+        "strap_material": "pryskyřice",
+        "strap_color": "černá",
+        "dial_color": "šedá",
+        "title": "SET G-SHOCK The Origin 40th Anniversary REMASTER BLACK DWE-5657RE-1ER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "12/24 hodinový režim",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-g-shock-dw-5600ff-8er-322.html",
+        "currency": "Kč",
+        "price": 1769,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-g-shock-dw-5600ff-8er-322_14923047114109.jpg",
+        "case_material": "pryskyřice",
+        "strap_material": "pryskyřice",
+        "strap_color": "šedá",
+        "dial_color": "šedá",
+        "title": "G-Shock DW-5600FF-8ER (322)",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-the-g-g-shock-dw-5600bb-1er.html",
+        "currency": "Kč",
+        "price": 2590,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/g-shock-dw-5600bb-1_14159803.jpg",
+        "case_material": "pryskyřice",
+        "strap_material": "pryskyřice",
+        "strap_color": "černá",
+        "dial_color": null,
+        "title": "The G/G-SHOCK DW-5600BB-1ER",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "12/24 hodinový režim",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      },
+      {
+        "url": "https://www.hodinky.cz/hodinky/casio-the-g-g-shock-dw-5600ue-1er.html",
+        "currency": "Kč",
+        "price": 2399,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CA/casio-the-g-g-shock-dw-5600e-1ver_14097326110300.jpg",
+        "case_material": "ocel; pryskyřice",
+        "strap_material": "plast",
+        "strap_color": "černá",
+        "dial_color": null,
+        "title": "The G/G-SHOCK DW-5600UE-1ER",
+        "brand": "Casio",
+        "functions": [
+          "stopky",
+          "timer",
+          "vodotěsnost",
+          "ukazatel data",
+          "alarm",
+          "12/24 hodinový režim",
+          "nárazuvzdorné",
+          "osvětlení"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "https://www.hodinky.cz/hodinky/seiko-solar-sne527p1.html",
+    "currency": "Kč",
+    "price": 8290,
+    "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/SI/seiko-solar-sne527p1_14603412084457.jpg",
+    "case_material": "ocel",
+    "strap_material": "ocel",
+    "strap_color": "stříbrná",
+    "dial_color": "černá",
+    "title": "Solar SNE527P1",
+    "brand": "Seiko",
+    "functions": [
+      "vodotěsnost"
+    ]
+  },
+  {
+    "url": "https://www.hodinky.cz/hodinky/seiko-quartz-sur449p1.html",
+    "currency": "Kč",
+    "price": 7390,
+    "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/SI/seiko-quartz-sur449p1_14820375131205.jpg",
+    "case_material": "ocel",
+    "strap_material": "kůže",
+    "strap_color": "hnědá",
+    "dial_color": "zelená",
+    "title": "Quartz SUR449P1",
+    "brand": "Seiko",
+    "functions": [
+      "luminiscence",
+      "vodotěsnost",
+      "ukazatel data"
+    ],
+    "variants": [
+      {
+        "url": "https://www.hodinky.cz/hodinky/quartz-sur341p1.html",
+        "currency": "Kč",
+        "price": 7990,
+        "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/SI/seiko-quartz-sur341p1_1469562920200805104220.jpg",
+        "case_material": "ocel",
+        "strap_material": "ocel",
+        "strap_color": "stříbrná",
+        "dial_color": "modrá",
+        "title": "Quartz SUR341P1",
+        "brand": "Seiko",
+        "functions": [
+          "luminiscence",
+          "vodotěsnost",
+          "ukazatel data"
+        ]
+      }
+    ]
+  }
+]
