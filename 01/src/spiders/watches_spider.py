@@ -33,15 +33,14 @@ class WatchesSpider(scrapy.Spider):
 
     start_urls = [
         "https://www.hodinky.cz/citizen",
-        "https://www.hodinky.cz/hodinky/designove-hodinky/automat-natahovani-pohybem-ruky"
+        # "https://www.hodinky.cz/hodinky/designove-hodinky/automat-natahovani-pohybem-ruky"
     ]
-
 
     def __init__(self, name: str | None = None, **kwargs: Any):
         super().__init__(name, **kwargs)
 
         self.products_per_page_limit = 2
-        self.product_collection_pages_limit = 2
+        self.product_collection_pages_limit = 1
         self.products_ignore_set = set()
 
     def start_requests(self):
@@ -87,11 +86,15 @@ class WatchesSpider(scrapy.Spider):
         ctx: CategoryContext = response.meta["ctx"]
         is_variant = response.meta.get("is_variant", False)
 
+        stats = self.crawler.stats
 
         if is_variant:
             self.logger.info(f"Parsing variant: {response.url}")
+            stats.inc_value("variants_scraped")
         else:
             self.logger.info(f"Parsing product: {response.url}")
+            stats.inc_value("products_scraped")
+
         if not is_variant:
             ctx.crawled_products += 1
             self.logger.info(

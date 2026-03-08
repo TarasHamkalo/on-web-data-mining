@@ -17,7 +17,8 @@ class LogFileExtension:
         os.makedirs(log_dir, exist_ok=True)
 
         # Generate a dynamic log file name
-        log_file_name = f"{log_dir}/{spider.name}_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
+        log_file_name =\
+            f"{log_dir}/{spider.name}_{datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
 
         # Set up logging to the file
         file_handler = logging.FileHandler(log_file_name, mode="w")
@@ -30,5 +31,6 @@ class LogFileExtension:
         logger = logging.getLogger()
         logger.addHandler(file_handler)
 
+        spider.log_file = log_file_name
         # Debugging message
         print(f"Log file for spider {spider.name} set to: {log_file_name}")

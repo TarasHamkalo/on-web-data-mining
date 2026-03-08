@@ -29,6 +29,8 @@ class VariantMergingPipeline():
 
         self.logger.addHandler(handler)
 
+        spider.variant_pipeline_log = log_file
+
         self.logger.info("VariantMergingPipeline started")
 
     def process_item(self, item, spider):

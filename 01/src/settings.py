@@ -7,18 +7,15 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "ddw"
+BOT_NAME = "watches"
 
 SPIDER_MODULES = ["src.spiders"]
 NEWSPIDER_MODULE = "src.spiders"
 
 ADDONS = {}
 
-
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = "Crawler FIT/CVUT (student project)"
-
-# Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
 # Concurrency and throttling settings
@@ -29,13 +26,10 @@ DOWNLOAD_DELAY = 2
 COOKIES_ENABLED = False
 
 EXTENSIONS = {
-   'src.extensions.log_file_extension.LogFileExtension': 500,
+   'src.extensions.log_file_extension.LogFileExtension': 300,
+   'src.extensions.ml_flow_extension.MLflowExtension': 500,
 }
 
-#TELNETCONSOLE_ENABLED = False
-
-# Configure item pipelines
-# See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    "src.pipelines.variant_merging_pipeline.VariantMergingPipeline": 300,
 }
