@@ -1,33 +1,32 @@
 == Úkol 1 -- Data Acquisition - Web Crawler/Scraper
+V tomto úkolu bylo cílem implementovat crawler/scraper pro vybraný web.
+V této práci byl zvolen internetový obchod `hodinky.cz`, kde cílem scrapingu
+je sběr informací o dostupných hodinkách různých značek.
 
-У цьому завданні ціллю було імплементувати crawler/scraper для обраного вебсайту.
-У цій роботі було обрано веб-магазин `hodinky.cz`, де метою скрапінгу є збір інформації
-про наявні годинники різних брендів.
+=== Formulace úkolu, popis zdroje
 
-=== Формуляція завдання, опис ресурсу
+Cílem je vytvořit scraper, který na základě sady odkazů na kolekce hodinek
+(podle kategorií, např. `{base}/citizen`, `{base}/seiko`) získá definovaný počet
+produktů (například: zpracovat 5 stránek, po 4 produktech na každé).
 
-Ціллю є створення скрапера, який на основі набору посилань на колекції годинників
-(відносно категорій, напр. `{base}/citizen`, `{base}/seiko`) збере визначену кількість
-продуктів (наприклад: обробити 5 сторінок, по 4 продукти на кожній).
+Hlavním zdrojem dat je internetový obchod `hodinky.cz`, protože poskytuje široký výběr
+hodinek různých značek a má srozumitelnou hierarchickou strukturu stránek.
 
-Головним джерелом даних є веб-магазин `hodinky.cz`, оскільки він надає широкий вибір
-годинників різних брендів та має зрозумілу ієрархічну структуру сторінок.
+Hlavní stránky používané při scrapingu jsou:
 
-Основними сторінками, що використовуються під час скрапінгу, є:
+- stránky kolekcí (kategorií), které obsahují seznam produktů
+- stránky konkrétních produktů, které obsahují detailní informace o hodinkách
+a možné varianty (například různé barvy ciferníku)
 
-- сторінки колекцій (категорій), які містять список продуктів
-- сторінки конкретних продуктів, що містять детальну інформацію про годинник
-та можливі варіанти (наприклад, різні кольори циферблата)
+Na základě struktury webu proces sběru dat probíhá následovně:
 
-На основі структури сайту процес збору даних виглядає наступним чином:
-
-1. для кожної `start_url` (напр. `/seiko`) отримати список продуктів зі сторінки колекції (див. рис. <<#img:collection-page-ann, 1>>)
-2. обрати продукт зі списку та зробити запит на його сторінку
-3. на сторінці продукту (рис. <<#img:product-page-ann, 2>>) знайти доступні варіанти (наприклад різні кольори) та зробити запити на них
-4. після отримання інформації про продукт і всі його варіанти відфільтрувати список продуктів
-(оскільки варіанти можуть також з'являтися у списку продуктів на сторінці колекції)
-5. після досягнення ліміту продуктів для поточної сторінки колекції перейти на наступну сторінку
-6. після досягнення ліміту сторінок колекції завершити роботу краулера
+1. pro každou `start_url` (např. `/seiko`) získat seznam produktů ze stránky kolekce (viz obr. <<#img:collection-page-ann, 1>>)
+2. vybrat produkt ze seznamu a odeslat požadavek na jeho stránku
+3. na stránce produktu (obr. <<#img:product-page-ann, 2>>) najít dostupné varianty (např. různé barvy) a odeslat požadavky na ně
+4. po získání informací o produktu a všech jeho variantách filtrovat seznam produktů
+(protože varianty se mohou také objevit v seznamu produktů na stránce kolekce)
+5. po dosažení limitu produktů pro aktuální stránku kolekce přejít na další stránku
+6. po dosažení limitu počtu stránek kolekce ukončit běh crawleru
 
 
 .Příklad stránky kolekce produktů
@@ -38,48 +37,48 @@ image::resources/images/collection-page-annotated.png[Příklad stránky kolekce
 [#img:product-page-ann]
 image::resources/images/product-page-annotated.png[Příklad stránky produktu, width="600"]
 
-=== Правила сайту
-На сайті доступний файл `robots.txt`. У ньому заборонені лише деякі сторінки,
-пов'язані з користувацькими діями (наприклад `kosik`, `mailing`).
-Обмеження для скрапінгу категорій продуктів або сторінок товарів відсутні.
+=== Pravidla stranky (policies)
+Na webu je dostupný soubor `robots.txt`. V něm jsou zakázány pouze některé stránky
+spojené s uživatelskými akcemi (například `kosik`, `mailing`).
+Omezení pro scraping kategorií produktů nebo stránek produktů zde nejsou.
 
-У файлі `robots.txt` також не вказані спеціальні параметри для ботів
-(наприклад crawl-delay). Додатково сайт надає файл `sitemap.xml`.
+V souboru `robots.txt` také nejsou uvedeny speciální parametry pro boty
+(například crawl-delay). Web navíc poskytuje soubor `sitemap.xml`.
 
-На деяких сторінках продуктів також використовуються HTML meta теги `robots`,
-які дозволяють індексацію сторінок (`index`).
+Na některých stránkách produktů se také používají HTML meta tagy `robots`,
+které povolují indexaci stránky (`index`).
 
-=== Можливості отримання даних
-Сайт надає розширений файл `sitemap.xml`, який містить посилання на всі
-категорії продуктів та окремі сторінки товарів. У межах цієї роботи
-ця інформація не використовується, оскільки crawler отримує сторінки
-через навігацію по категоріях.
+=== Možnosti získání dat
+Web poskytuje rozsáhlý soubor `sitemap.xml`, který obsahuje odkazy na všechny
+kategorie produktů i jednotlivé stránky produktů. V rámci této práce
+tato informace není využita, protože crawler získává stránky
+pomocí navigace v kategoriích.
 
-На сторінках продуктів також присутні додаткові машинно-читані дані:
+Na stránkách produktů jsou také přítomna další strojově čitelná data:
 
-- **OpenGraph теги**
+- **OpenGraph tagy**
 
-- `og:description` — короткий опис сторінки продукту
-- `og:image` — посилання на головне зображення продукту
-- `og:title` — назва сторінки (містить назву продукту та назву сайту)
+- `og:description` — krátký popis stránky produktu
+- `og:image` — odkaz na hlavní obrázek produktu
+- `og:title` — název stránky (obsahuje název produktu a název webu)
 
-  Однак ці дані є обмеженими та не містять детальної інформації про продукт.
+  Tyto informace jsou však omezené a neobsahují detailní informace o produktu.
 
-- **JSON-LD дані**
+- **JSON-LD data**
 
-  На деяких сторінках присутні структуровані дані у форматі JSON-LD.
-  На жаль, вони не є повними (частина полів може бути відсутня) та загалом поля різняться між сторінками.
+  Na některých stránkách jsou přítomna strukturovaná data ve formátu JSON-LD.
+  Bohužel nejsou úplná (některá pole mohou chybět) a obecně se pole mezi stránkami liší.
+
+Z tohoto důvodu je hlavní informace o produktu získávána přímo
+z HTML struktury stránky.
 
 
-З оглядом на це, основна інформація про продукт отримується безпосередньо
-з HTML структури сторінки.
+=== Výstupní data (struktura)
 
-
-=== Вихідні дані (структура)
-Список продуктів, зібраний поміж усіма `start_url`.
-Кожен продукт містить основну інформацію (назву, бренд, ціну, матеріали, функції),
-а також список можливих варіантів, які відрізняються окремими характеристиками
-(наприклад кольором циферблата).
+Seznam produktů získaný napříč všemi `start_url`.
+Každý produkt obsahuje základní informace (název, značku, cenu, materiály, funkce)
+a také seznam možných variant, které se liší některými vlastnostmi
+(například barvou ciferníku).
 
 ```json
 {
@@ -116,29 +115,63 @@ image::resources/images/product-page-annotated.png[Příklad stránky produktu, 
 }
 ```
 
+=== Implementace a diskuse
 
-=== a
-1. gonna crawl hodinky.cz for a few categories e.g. /citizen /senko
-    - there is global robots.txt
-        - allows bots
-        - provides sitemap with all product links (for seek of demo, not using it)
-        - no specific bot headers in responses
+Pro implementaci řešení je použit programovací jazyk `Python`
+a knihovna `Scrapy`.
 
-2. handle pagination and product link extraction
-3. product extraction
-    - on each product page there is robots tags inside of html, allowed for indexing
-    - there is Opengraph tags on the page but their information is limited
-        - op:description: contains very short description of product page (not sufficient to judge product)
-        - op:image: contains link to main product image
-        - op:title: contains title of page (tab), apart from product name has website name listed
-    - there is JSON LD data
-        - information is not full and not consistent between pages (can be missing, or have missing fields)
-        - does not contain specification only price and name of product
+Největším problémem během implementace bylo korektní zpracování
+variant produktů a omezení počtu získaných produktů.
+Na stránce kolekce je obvykle přítomno několik variant jednoho
+a téhož produktu (například různé barvy ciferníku), ale
+informaci o tom, které produkty jsou variantami,
+je možné získat až po načtení stránky konkrétního produktu.
 
-    - fields
-        [image, price, title, product variants, Materiál pouzdra, Materiál řemínku, Barva řemínku/tahu, Barva ciferníku]
-        [set of additional function]
-    - [important] have to deduplicate by product variants
-        - product variant has to have
-            - colors/materials of pouzdra, reminku, ciferniku
-            - link to it
+Za účelem snížení počtu provedených požadavků bylo rozhodnuto
+implementovat vlastní frontu produktů (na které ještě nebyly
+odeslány požadavky) a postupně vytvářet požadavky pouze
+pro unikátní produkty a jejich varianty. Tímto způsobem crawler
+nejprve načte stránku produktu, získá seznam jeho variant
+a poté vytvoří požadavky pro jejich stažení.
+
+Získané produkty procházejí dodatečným zpracováním v `VariantMergingPipeline`,
+kde dochází k dočasnému uložení produktu do momentu,
+než jsou získány všechny jeho varianty. Poté jsou informace
+sloučeny do finální struktury.
+
+Hlavní informace o produktech jsou získávány pomocí
+CSS a XPath selektorů. Jednou ze zvláštností stranky je to,
+že mnoho elementů nemá specifické CSS selektory
+(například třídy nebo id), proto je značná část dat
+extrahována pomocí XPath a anchor textů
+(například text `Barevná provedení` se používá
+k nalezení odkazů na varianty produktu).
+
+Také přechod mezi stránkami je na webu realizován pomocí
+JavaScriptu, bez přímého poskytnutí odkazů na další stránky.
+V implementaci crawler kontroluje přítomnost tlačítka
+další stránky, po čemž je vytvořena nová URL adresa
+podle formátu stránkování
+(například `/?page=5`).
+
+=== Adresáře projektu a vybrané skripty
+
+* `src.extensions`
+** Balík obsahující rozšíření pro `scrapy.spider` (např. nastavení logování).
+
+* `src.items.py`
+** Obsahuje definici datového modelu (na základě `scrapy.Item`).
+
+* `src.settings.py`
+** Obsahuje nastavení `Scrapy` crawleru (např. `DOWNLOAD_DELAY`, `CONCURRENT_REQUESTS`).
+
+* `src.pipelines.variant_merging_pipeline.py`
+** Skript implementující logiku zpracování variant produktů.
+** Dočasně ukládá produkt, dokud nejsou staženy všechny jeho varianty.
+
+* `src.parsers.hodinky_parser.py`
+** Parser zapouzdřuje logiku extrakce dat pro hodinky (pomocí CSS/XPath selektorů) ze stránek `hodinky.cz`.
+
+* `src.spiders.watches_spider.py`
+** Obsahuje hlavní logiku crawleru.
+** Určuje pořadí procházení stránek a výběr produktů (např. ignorování duplicit a variant).
