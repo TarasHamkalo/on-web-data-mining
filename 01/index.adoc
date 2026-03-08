@@ -154,6 +154,119 @@ další stránky, po čemž je vytvořena nová URL adresa
 podle formátu stránkování
 (například `/?page=5`).
 
+=== Metriky běhu crawleru (MLflow)
+
+Během běhu crawleru jsou zaznamenávány základní metriky, které popisují průběh scrapingu a množství získaných dat.
+Tyto metriky jsou uvedeny v tabulce níže. Všechny jsou během provádění experimentu ukládány do MLflow.
+
+[cols="1,3"]
+|===
+|Metrika |Popis
+
+|products_scraped
+|Počet unikátních produktů, které byly úspěšně zpracovány crawlerem.
+
+|variants_scraped
+|Celkový počet nalezených variant produktů (například různé barvy).
+
+|total_items
+|Celkový počet výsledných položek, které byly odeslány do pipeline.
+
+|total_requests
+|Celkový počet HTTP požadavků, které crawler během běhu odeslal.
+
+|total_responses
+|Celkový počet HTTP odpovědí přijatých crawlerem.
+
+|crawl_duration_seconds
+|Celková doba běhu crawleru v sekundách.
+|===
+
+
+=== Parametry běhu crawleru (MLflow)
+
+Crawler je konfigurován pomocí několika parametrů. Jejich seznam je uveden níže a jejich hodnoty
+jsou během experimentu zaznamenávány do MLflow.
+
+[cols="1,3"]
+|===
+|Parametr |Popis
+
+|start_urls
+|Počáteční URL adresy kategorií, ze kterých crawler začíná sběr dat.
+
+|start_time
+|Čas spuštění crawleru.
+
+|products_per_page_limit
+|Maximální počet produktů, které crawler zpracuje na jedné stránce kolekce (pro každou `start_url` zvlášť).
+
+|collection_page_limit
+|Maximální počet stránek kolekce, které crawler projde (pro každou `start_url` zvlášť).
+
+|concurrent_requests
+|Maximální počet současných HTTP požadavků.
+
+|download_delay
+|Zpoždění mezi jednotlivými požadavky (v sekundách).
+
+|concurrent_requests_per_domain
+|Maximální počet současných požadavků na jednu doménu.
+|===
+
+=== Výsledky
+
+Bylo provedeno několik spuštění crawleru. Artefakty jeho běhu
+(tabulka <<#tab:artifacts-mlflow>>), metriky, a konfigurace crawleru
+jsou uloženy v MLflow.
+
+Příklad výsledných dat je přiložen v souboru `results/extracted_data.json`,
+konfigurace spuštění je uvedena v tabulce <<#tab:run-config>>.
+
+
+.Artefakty v MLflow
+[#tab:artifacts-mlflow]
+[cols="1,3"]
+|===
+|Cesta k artefaktu v MLflow |Popis
+
+|data/extracted_data.json
+|Výsledný dataset obsahující získané produkty a jejich varianty
+ve formátu JSON.
+
+|logs/watches_*.log
+|Log soubor crawleru (dotazy na produkty/varianty)
+
+|logs/variant_pipeline_*.log
+|Log soubor, který zaznamenává zpracování a slučování variant produktů.
+
+|===
+
+.Konfigurace spuštění crawleru
+[#tab:run-config]
+[cols="1,1"]
+|===
+|Parametr | Hodnota
+
+|start_urls
+|https://www.hodinky.cz/citizen, https://www.hodinky.cz/casio, https://www.hodinky.cz/seiko
+
+|products_per_page_limit
+|2
+
+|collection_page_limit
+|1
+
+|concurrent_requests
+|1
+
+|download_delay
+|2.0
+
+|concurrent_requests_per_domain
+|1
+|===
+
 === Adresáře projektu a vybrané skripty
 
 * `src.extensions`
@@ -176,5 +289,26 @@ podle formátu stránkování
 ** Obsahuje hlavní logiku crawleru.
 ** Určuje pořadí procházení stránek a výběr produktů (např. ignorování duplicit a variant).
 
-// TODO: add data section and metric spec
-// TODO: add running section
+=== Spuštění
+
+Pro nastavení prostředí:
+
+[source,bash]
+----
+pyenv install 3.10.11
+pyenv local 3.10.11
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+----
+
+Pro spuštění crawleru:
+
+[source,bash]
+----
+scrapy crawl watches -o extracted_data.json
+----
+
+IMPORTANT: MLflow musí být dostupný na adrese `http://localhost:5000/`.
+
+IMPORTANT: Výsledný soubor musí být pojmenován `extracted_data.json`, aby mohl být uložen do MLflow.
