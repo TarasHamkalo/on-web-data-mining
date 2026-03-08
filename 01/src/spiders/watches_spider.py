@@ -33,6 +33,8 @@ class WatchesSpider(scrapy.Spider):
 
     start_urls = [
         "https://www.hodinky.cz/citizen",
+        "https://www.hodinky.cz/casio",
+        "https://www.hodinky.cz/seiko/"
         # "https://www.hodinky.cz/hodinky/designove-hodinky/automat-natahovani-pohybem-ruky"
     ]
 
@@ -40,7 +42,7 @@ class WatchesSpider(scrapy.Spider):
         super().__init__(name, **kwargs)
 
         self.products_per_page_limit = 2
-        self.product_collection_pages_limit = 1
+        self.product_collection_pages_limit = 2
         self.products_ignore_set = set()
 
     def start_requests(self):
