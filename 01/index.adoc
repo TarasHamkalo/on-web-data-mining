@@ -1,3 +1,83 @@
+== Úkol 1 -- Data Acquisition - Web Crawler/Scraper
+
+У цьому завданні ціллю було імплементувати crawler/scraper для обраного вебсайту.
+У цій роботі було обрано веб-магазин `hodinky.cz`, де метою скрапінгу є збір інформації
+про наявні годинники різних брендів.
+
+=== Формуляція завдання, опис ресурсу
+
+Ціллю є створення скрапера, який на основі набору посилань на колекції годинників
+(відносно категорій, напр. `{base}/citizen`, `{base}/seiko`) збере визначену кількість
+продуктів (наприклад: обробити 5 сторінок, по 4 продукти на кожній).
+
+Головним джерелом даних є веб-магазин `hodinky.cz`, оскільки він надає широкий вибір
+годинників різних брендів та має зрозумілу ієрархічну структуру сторінок.
+
+Основними сторінками, що використовуються під час скрапінгу, є:
+
+- сторінки колекцій (категорій), які містять список продуктів
+- сторінки конкретних продуктів, що містять детальну інформацію про годинник
+та можливі варіанти (наприклад, різні кольори циферблата)
+
+На основі структури сайту процес збору даних виглядає наступним чином:
+
+1. для кожної `start_url` (напр. `/seiko`) отримати список продуктів зі сторінки колекції (див. рис. <<#img:collection-page-ann, 1>>)
+2. обрати продукт зі списку та зробити запит на його сторінку
+3. на сторінці продукту (рис. <<#img:product-page-ann, 2>>) знайти доступні варіанти (наприклад різні кольори) та зробити запити на них
+4. після отримання інформації про продукт і всі його варіанти відфільтрувати список продуктів
+(оскільки варіанти можуть також з'являтися у списку продуктів на сторінці колекції)
+5. після досягнення ліміту продуктів для поточної сторінки колекції перейти на наступну сторінку
+6. після досягнення ліміту сторінок колекції завершити роботу краулера
+
+=== Вихідні дані (структура)
+Кожен продукт містить основну інформацію (назву, бренд, ціну, матеріали, функції),
+а також список можливих варіантів, які відрізняються окремими характеристиками
+(наприклад кольором циферблата).
+
+```json
+{
+  "url": "https://www.hodinky.cz/hodinky/citizen-eco-drive-classic-fe2110-81a.html",
+  "currency": "Kč",
+  "price": 3456,
+  "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-eco-drive-classic-fe2110-81a_14908872084452.jpg",
+  "case_material": "ocel",
+  "strap_material": "ocel",
+  "strap_color": "stříbrná",
+  "dial_color": "stříbrná",
+  "title": "Eco-Drive Classic FE2110-81A",
+  "brand": "Citizen",
+  "functions": [
+    "vodotěsnost"
+  ],
+  "variants": [
+    {
+      "url": "https://www.hodinky.cz/hodinky/citizen-eco-drive-classic-fe2110-81l.html",
+      "currency": "Kč",
+      "price": 3664,
+      "image_url": "https://img.vivantiscdn.net/photos/w400_h400_fN/h/_orig/CI/citizen-eco-drive-classic-fe2110-81l_14908987081513.jpg",
+      "case_material": "ocel",
+      "strap_material": "ocel",
+      "strap_color": "stříbrná",
+      "dial_color": "modrá",
+      "title": "Eco-Drive Classic FE2110-81L",
+      "brand": "Citizen",
+      "functions": [
+        "vodotěsnost"
+      ]
+    }
+  ]
+}
+```
+
+
+.Příklad stránky kolekce produktů
+[#img:collection-page-ann]
+image::resources/images/collection-page-annotated.png[Příklad stránky kolekce produktů, width="600"]
+
+.Příklad stránky produktu
+[#img:product-page-ann]
+image::resources/images/product-page-annotated.png[Příklad stránky produktu, width="600"]
+
 
 1. gonna crawl hodinky.cz for a few categories e.g. /citizen /senko
     - there is global robots.txt
@@ -23,10 +103,3 @@
         - product variant has to have
             - colors/materials of pouzdra, reminku, ciferniku
             - link to it
-
-4. For each extracted product, try to scrap short product information from other websites
-    - https://www.hodinky-koscom.cz/filterSearch?q=H.%20Moser%20
-    - https://www.helveti.cz/Vyhledavani?fraze=Series+8+831+Automatic+NB6050-51W
-
-    - sites allow bots, provide sitemaps, no specific bot headers in http responses
-    - extract price, product page link,
