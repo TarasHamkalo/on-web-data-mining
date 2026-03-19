@@ -1,9 +1,55 @@
-= HW2 - TBD!
+== 2. Ukol -- Text Mining/NLP
 
-== Does not work without
+=== Sentiment analysis
+Hodnocení tónu bylo prováděno na větách vybraných ze clanků BBC.
+Byly testovány dva přístupy: tradiční analyzátor VADER a model Transformer trénovaný na příspěvcích z Twitteru.
+
+Celkově jsou výsledky poměrně nejednoznačné – žádný z přístupů neposkytl očekávanou klasifikaci pro vše věty.
+V obou případech se věty často považují za pozitivní/negativní, a to i při použití neutrálního stylu vyjadřování – při citování faktů (viz níže uvedené příklady).
+
+[cols="7",options="header"]
+|=======================================================================================================================================================================================================================================
+| sentence                                                                                                                                                | neg_model    | neu_model  | pos_model  | neg_vader | neu_vader | pos_vader
+| Michael Moore's controversial documentary Fahrenheit 9/11 won the best documentary, while A Very Long Engagement won best foreign film.                 | 0.026161596  | 0.3389656  | 0.63487285 | 0.055     | 0.365     | 0.58
+| The CFCA awarded Thomas Haden Church the best supporting actor prize and Virginia Madsen the best supporting actress award for their roles in the film. | 0.004318552  | 0.27714488 | 0.7185366  | 0.0       | 0.432     | 0.568
+| The History Boys also won the best new comedy title at the Theatregoers' Choice Awards.                                                                 | 0.0017879391 | 0.08180275 | 0.91640925 | 0.0       | 0.451     | 0.549
+| Orange Prize winner Andrea Levy has seen her book Small Island win the Whitbread Novel of the Year Award.                                               | 0.0018191353 | 0.16049145 | 0.8376894  | 0.0       | 0.456     | 0.544
+| Hailey's health began to deteriorate in recent years, twice undergoing heart surgery.                                                                   | 0.9371789   | 0.060361084 | 0.0024599545 | 0.0    | 1.0       | 0.0
+| The show's director Richard Eyre issued a warning earlier in the week that the show was unsuitable for children under seven, while under-threes are barred. | 0.89361566 | 0.10245169   | 0.0039327056 | 0.094          | 0.906     | 0.0
+|=======================================================================================================================================================================================================================================
+
+Pro model VADER stačí přítomnost jednotlivých slov s pozitivní nebo negativní polaritou (například „won“, „best“, „winner“), aby bylo možné větu klasifikovat jako pozitivní.
+Tento přístup nezohledňuje širší kontext.
+
+Model Transformer naopak zohledňuje kontext a hodnotí celkovou „polaritu události“.
+Například získání ceny je interpretováno jako pozitivní událost, i když je věta pouze faktickým sdělením.
+
+Situaci výrazně zhoršuje složitost dané domény.
+V oblasti zpravodajství zahrnuje hodnocení sentimentu zjevně dva dílčí úkoly:
+
+- hodnocení události (dobré/špatné)
+- hodnocení tónu textu (objektivní/subjektivní)
+
+Žádná z použitých metod nerozlišuje tyto dva aspekty, takže klasifikace tónu často není správnou.
+
+=== Spuštění
+
+Pro nastavení prostředí:
+
+[source,bash]
+----
+pyenv install 3.10.11
+pyenv local 3.10.11
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
 python -m spacy download en_core_web_sm
+----
 
-== Data sources
+Pro spuštění použijte Jupyter notebooks v adresaře `notebooks`.
 
-- url: https://www.kaggle.com/datasets/banuprakashv/news-articles-classification-dataset-for-nlp-and-ml
-- url: https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive
+=== Zdroje
+
+Jako zdroj dat jsou pozite clanky z BBC z kategorii zábava/entertainment, dostpune
+https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive[tady]
