@@ -1,6 +1,9 @@
 = HW2 - TBD!
 
+== Does not work without
+python -m spacy download en_core_web_sm
 
-== Data source
+== Data sources
 
 - url: https://www.kaggle.com/datasets/banuprakashv/news-articles-classification-dataset-for-nlp-and-ml
+- url: https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive
