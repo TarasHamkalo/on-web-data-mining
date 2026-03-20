@@ -137,6 +137,13 @@ Výsledky jsou ve většině případů smysluplné, avšak kvalita klasifikace 
 
 Dalším pozorovaným jevem je nižší jistota modelu – v mnoha případech je maximální pravděpodobnost pod 50 %. To naznačuje, že žádná z definovaných kategorií plně neodpovídá danému textu. V takových případech je vhodné výsledek považovat za nejistý nebo větu z klasifikace vyřadit.
 
+
+=== Text summarization
+Pro sumarizaci textu byl použit model „facebook/bart-large-cnn“. Model byl aplikován na vybrané články z BBC a generoval zkrácené verze původních textů.
+
+Výsledné shrnutí jsou ve většině případů srozumitelné a zachovávají hlavní informaci původního textu.
+Ukázky jsou uvedené v souboře "results/summaries.csv"
+
 === Spuštění
 
 Pro nastavení prostředí:
