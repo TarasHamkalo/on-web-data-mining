@@ -69,6 +69,15 @@ Spomenuté příklady jsou uvedeny v tabulce níže:
 
 |===
 
+=== Entity classification
+
+Klasifikace entit byla prováděna pomocí stejných nástrojů jako rozpoznávání entit (NLTK a model RoBERTa). Výsledná kvalita klasifikace je proto přímo závislá na správnosti detekce samotných entit.
+
+Model RoBERTa poskytuje obecně přesnější výsledky, protože lépe identifikuje celé entity (lepší kontext při klasifikace).
+Používá však omezenou množinu tříd (PER, ORG, LOC, MISC).
+
+Naopak NLTK nabízí jemnější rozdělení do kategorií, což může vést k přesnější klasifikaci v případech, kdy je entita správně rozpoznána.
+
 === Spuštění
 
 Pro nastavení prostředí:
