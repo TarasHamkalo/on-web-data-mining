@@ -78,6 +78,65 @@ Používá však omezenou množinu tříd (PER, ORG, LOC, MISC).
 
 Naopak NLTK nabízí jemnější rozdělení do kategorií, což může vést k přesnější klasifikaci v případech, kdy je entita správně rozpoznána.
 
+=== Zero-shot classification
+
+Klasifikace byla prováděna na větách vybraných z článků BBC. Byly definovány následující cílové kategorie:
+"film", "television", "music", "theatre", "books", "celebrity", "awards", "art".
+
+Pro klasifikaci byl použit model „facebook/bart-large-mnli“. Zpracování 730 vět trvalo přibližně 58 sekund.
+
+Vybrané výsledky klasifikace jsou uvedeny níže:
+
+[cols="1,1,1", options="header"]
+|===
+| Sentence | Category | Score
+
+| Denmark is holding a three-day celebration of the life of the fairy-tale author, with a concert at Parken stadium on 2 April.
+| music
+| 0.4328
+
+| Other stars are expected to join the line-up in the coming months, and the Danish royal family will attend.
+| celebrity
+| 0.8931
+
+| "Christian Andersen's fairy tales are timeless and universal," said Jarre.
+| art
+| 0.6419
+
+| "For all of us, at any age there is always - beyond the pure enjoyment of the tale - a message to learn."
+| books
+| 0.2051
+
+| There are year-long celebrations planned across the world to celebrate Andersen and his work, which includes The Emperor's New Clothes and The Little Mermaid.
+| art
+| 0.6131
+
+| Denmark's Crown Prince Frederik and Crown Princess Mary visited New York on Monday to help promote the festivities.
+| celebrity
+| 0.2698
+
+| "The pair were at a Manhattan library to honour US literary critic Harold Bloom 'the international icon we thought we knew so well'."
+| celebrity
+| 0.4526
+
+| "Bloom recognizes the darker aspects of Andersen's authorship," Prince Frederik said.
+| celebrity
+| 0.2563
+
+| Bloom is to be formally presented with the Hans Christian Andersen Award this spring in Anderson's hometown of Odense.
+| awards
+| 0.7394
+
+| "The royal couple also visited the Hans Christian Anderson School complex, where Queen Mary read The Ugly Duckling to the young audience."
+| books
+| 0.5092
+
+|===
+
+Výsledky jsou ve většině případů smysluplné, avšak kvalita klasifikace je ovlivněna omezeným počtem kategorií. Jednotlivé věty často obsahují více témat (např. kombinace literatury, událostí a osobností), což nelze přesně vyjádřit jednou třídou.
+
+Dalším pozorovaným jevem je nižší jistota modelu – v mnoha případech je maximální pravděpodobnost pod 50 %. To naznačuje, že žádná z definovaných kategorií plně neodpovídá danému textu. V takových případech je vhodné výsledek považovat za nejistý nebo větu z klasifikace vyřadit.
+
 === Spuštění
 
 Pro nastavení prostředí:
