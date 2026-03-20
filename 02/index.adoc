@@ -32,6 +32,43 @@ V oblasti zpravodajství zahrnuje hodnocení sentimentu zjevně dva dílčí úk
 
 Žádná z použitých metod nerozlišuje tyto dva aspekty, takže klasifikace tónu často není správnou.
 
+=== Named entity recognition
+Rozpoznávání entit bylo prováděno na větách vybraných ze clanků BBC. Byly testovány dvě
+varianty: tradiční přístup s NLTK a model RoBERTa „Jean-Baptiste/roberta-large-ner-english“
+
+V tomto úkolu si oba přístupy vedly mnohem lépe než při analýze sentimentu a dokázaly identifikovat relevantní entity.
+Přesto se mezi nimi objevují zásadní rozdíly.
+
+Při použití přístupu nltk je patrný silný vliv tokenizace a problémy s agregací entit s velkým počtem tokenů.
+S ohledem na to mohou být entity s jmény obsahujícími speciální znaky, jako např. „Jean-Michel Jarre“, v závislosti na tokenizaci ignorovány nebo rozděleny
+na několik entit.
+
+Naopak model RoBERTa poskytuje výrazně přesnější výsledky. Rozpoznávají se složitá jména typu „Philip van Doren Stern“
+nebo nebo názvy děl bez kontextových nápověd
+jako „It's a Wonderful Life“.
+
+Zpracování textu pomocí daného modelu bylo také mnohem rychlejší, přibližně 6 sekund, zatímco nltk pracoval více než 4 minuty (730 vět).
+
+Spomenuté příklady jsou uvedeny v tabulce níže:
+
+[cols="1,1,1", options="header"]
+|===
+| sentence | NE model | NE nltk
+
+| French musician Jean-Michel Jarre is to perform at a concert in Copenhagen to mark the bicentennial of the birth of writer Hans Christian Andersen.
+| [' French', ' Jean-Michel Jarre', ' Copenhagen', ' Hans Christian Andersen']
+| ['French', 'Jean', 'Michel Jarre', 'Copenhagen']
+
+| "It's a Wonderful Life was based on a short story, The Greatest Gift, by Philip van Doren Stern."
+| [" It's a Wonderful Life", ' The Greatest Gift', ' Philip van Doren Stern']
+| ['Greatest Gift', 'Philip', 'Doren Stern']
+
+| "The Producers was named best musical, Victoria Hamilton was best actress for Suddenly Last Summer and Festen's Rufus Norris was named best director."
+| [' The Producers', ' Victoria Hamilton', ' Suddenly Last Summer', ' Festen', ' Rufus Norris']
+| ['Victoria Hamilton', 'Suddenly', 'Festen', 'Rufus Norris']
+
+|===
+
 === Spuštění
 
 Pro nastavení prostředí:
