@@ -1,30 +1,33 @@
 == 2. Ukol -- Text Mining/NLP
-Для вирішення завдання використовувались "clanky" з BBC, категорії entertainment.
-Локальна версія доступна у файлі "resources/bcc-news-entertainment.csv", що представляє
-вибірку з цілого дасету доступного https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive[тут]
-
+Pro řešení úkolu byly použity članky z BBC, kategorie entertainment.
+Lokální verze je dostupná v souboru `resources/bcc-news-entertainment.csv`, který představuje
+výběr z celého datasetu dostupného na https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive[Kaggle].
 
 === Sentiment analysis
 Hodnocení tónu bylo prováděno na větách vybraných ze clanků BBC.
 Byly testovány dva přístupy: tradiční analyzátor VADER a model Transformer trénovaný na příspěvcích z Twitteru.
 
-В загальному обидва методи надали змістовний результат, причому в більшості конзистетний (обидва вибрали однаковий клас).
-VADER аналізатор, має більші проблеми з розпізнаванням сарказму, артистичності та сильно помітний вплив
-конкретних слів. Наприклад для речення нижче модель вибрала pos, а vader negative (.
+Celkově obě metody poskytly smysluplné výsledky, přičemž ve většině
+byly konzistentní (obě zvolily stejnou třídu).
+VADER analyzátor má větší problémy s rozpoznáváním sarkasmu, uměleckého vyjadřování a je silně ovlivněn
+konkrétními slovy. Například pro větu níže model zvolil positive, zatímco vader negative.
 
+----
 Airport (1968) arguably remains Hailey's best-loved work and prompted the disaster movie genre.
+----
 
-Модель ж на другу сторону, розуміє контекст краще. Проте й з цим є проблема, модель більше оціює саму подію (хороша/погана),
-що в для даної домени (новини) може бути небажаним залежно від завдання.
+Model na druhou stranu lépe rozumí kontextu. Nicméně i zde je problém, model více hodnotí samotnou událost (dobrá/špatná),
+což v této doméně (zprávy) může být nežádoucí v závislosti na úloze.
 
-==== Висновок
-Для оцінти тону в домені новин, потрібно чітко визначити завдання оцінки, або оцінка події або оцінка субєктивності.
-Використання моделей дає зазвичай релевантнішу класифікацію та мала б бути змога легкого навчання
-на розпізнавання субєктивності тексту.
+==== Závěr
+Pro hodnocení tónu v doméně zpráv je nutné jasně definovat úlohu hodnocení, zda jde o hodnocení události nebo hodnocení subjektivity.
+Použití modelů obvykle poskytuje relevantnější klasifikaci a měla by být možnost snadného trénování
+na rozpoznávání subjektivity textu.
 
-==== Вибрані результати
+==== Vybrané výsledky
+Níže uvedené někteře příklady hodnocení tónu, je vidět že v obou případech se věty často považují za pozitivní/negativní,
+a to i při použití neutrálního stylu vyjadřování – při citování faktů.
 
-V obou případech se věty často považují za pozitivní/negativní, a to i při použití neutrálního stylu vyjadřování – při citování faktů (viz níže uvedené příklady).
 [cols="5",options="header"]
 |=======================================================================================================================================================================================================================================
 | sentence                                                                                                                                                | neg_model    | neu_model  | pos_model  | compound_vader
@@ -36,8 +39,8 @@ V obou případech se věty často považují za pozitivní/negativní, a to i p
 | The show's director Richard Eyre issued a warning earlier in the week that the show was unsuitable for children under seven, while under-threes are barred. | 0.89361566 | 0.10245169   | 0.0039327056 | 0.0
 |=======================================================================================================================================================================================================================================
 
-Усі результати можна знайти у файлі `results/sentiment_analysis_nltk_vs_model.csv`
-Код відносно даної секції знаходиться `notebooks/sentiment_analysis.ipynb` та
+Všechny výsledky lze nalézt v souboru `results/sentiment_analysis_nltk_vs_model.csv`
+Kód vztahující se k této sekci se nachází v `notebooks/sentiment_analysis.ipynb` a
 `src/{standard|model}/sentiment_analysis.py`
 
 === Named entity recognition
@@ -54,7 +57,7 @@ jako "It's a Wonderful Life".
 
 Zpracování textu pomocí daného modelu bylo také mnohem rychlejší, přibližně 6 sekund, zatímco nltk pracoval více než 4 minuty (730 vět).
 
-==== Вибрані результати
+==== Vybrané výsledky
 
 Spomenuté příklady jsou uvedeny v tabulce níže:
 
@@ -76,8 +79,8 @@ Spomenuté příklady jsou uvedeny v tabulce níže:
 
 |===
 
-Усі результати можна знайти у файлі `results/ne_binary_nltk_vs_model.csv`
-Код відносно даної секції знаходиться `notebooks/ner.ipynb` та
+Všechny výsledky lze nalézt v souboru `results/ne_binary_nltk_vs_model.csv`
+Kód vztahující se k této sekci se nachází v `notebooks/ner.ipynb` a
 `src/{standard|model}/named_entities.py`
 
 === Entity classification
@@ -90,8 +93,8 @@ Používá však omezenou množinu tříd (PER, ORG, LOC, MISC).
 Naopak NLTK nabízí jemnější rozdělení do kategorií, což může vést k přesnější klasifikaci v případech, kdy je entita správně rozpoznána.
 
 ==== Вибрані результати
-Усі результати можна знайти у файлі `results/ne_classification_nltk_vs_model.csv`
-Код відносно даної секції знаходиться `notebooks/ne_classification.ipynb` та
+Všechny výsledky lze nalézt v souboru `results/ne_classification_nltk_vs_model.csv`
+Kód vztahující se k této sekci se nachází v `notebooks/ne_classification.ipynb` a
 `src/{standard|model}/named_entities.py`
 
 === Zero-shot classification
@@ -157,18 +160,18 @@ Výsledky klasifikace jsou uvedeny níže:
 
 |===
 
-Усі результати можна знайти у файлі `results/zero_shot_classification.csv.csv`
-Код відносно даної секції знаходиться `notebooks/zero_shot_classification.ipynb` та
+Všechny výsledky lze nalézt v souboru `results/zero_shot_classification.csv.csv`
+Kód vztahující se k této sekci se nachází v `notebooks/zero_shot_classification.ipynb` a
 `src/model/zero_shot_classification.py`
 
 === Text summarization
 Pro sumarizaci textu byl použit model "facebook/bart-large-cnn".
 Model byl aplikován na vybrané články z BBC a generoval zkrácené verze původních textů.
 
-Výsledné shrnutí jsou ve většině případů srozumitelné a zachovávají hlavní informaci původního textu.
+Výsledná sumarizace je ve většině případů srozumitelná a zachovávají hlavní informaci původního textu.
 Ukázky jsou uvedené v souboře `results/summaries.csv`
 
-=== Spuštění
+=== Spuštění a MlFlow
 
 Pro nastavení prostředí:
 
@@ -183,11 +186,13 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ----
 
-Pro spuštění použijte Jupyter soubory podle jednotlívých sekcí v adresaři `notebooks`.
-Příadně spoustite MLflow variantu dle příkazu dole
+Pro spuštění použijte Jupyter soubory podle jednotlivých sekcí v adresáři `notebooks`.
+Případně spusťte MLflow variantu dle příkazu níže
 
 [source, bash]
 ----
 python -m src.main
 ----
 IMPORTANT: MLflow musí být dostupný na adrese `http://localhost:5000/`.
+
+
