@@ -60,7 +60,7 @@ def run_nec(dataset):
             tagged = nltk.pos_tag(tokens)
             ne_chunked = nltk.ne_chunk(tagged, binary=False)
             continuous_chunk = get_continuous_chunks(ne_chunked)
-            print(continuous_chunk)
+            # print(continuous_chunk)
             classified = [(e[0], e[1]) for e in continuous_chunk if e[1] is not None]
 
             recognized_classes.update([c for _, c in classified])
