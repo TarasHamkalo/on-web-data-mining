@@ -1,53 +1,60 @@
 == 2. Ukol -- Text Mining/NLP
+Для вирішення завдання використовувались "clanky" з BBC, категорії entertainment.
+Локальна версія доступна у файлі "resources/bcc-news-entertainment.csv", що представляє
+вибірку з цілого дасету доступного https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive[тут]
+
 
 === Sentiment analysis
 Hodnocení tónu bylo prováděno na větách vybraných ze clanků BBC.
 Byly testovány dva přístupy: tradiční analyzátor VADER a model Transformer trénovaný na příspěvcích z Twitteru.
 
-Celkově jsou výsledky poměrně nejednoznačné – žádný z přístupů neposkytl očekávanou klasifikaci pro vše věty.
+В загальному обидва методи надали змістовний результат, причому в більшості конзистетний (обидва вибрали однаковий клас).
+VADER аналізатор, має більші проблеми з розпізнаванням сарказму, артистичності та сильно помітний вплив
+конкретних слів. Наприклад для речення нижче модель вибрала pos, а vader negative (.
+
+Airport (1968) arguably remains Hailey's best-loved work and prompted the disaster movie genre.
+
+Модель ж на другу сторону, розуміє контекст краще. Проте й з цим є проблема, модель більше оціює саму подію (хороша/погана),
+що в для даної домени (новини) може бути небажаним залежно від завдання.
+
+==== Висновок
+Для оцінти тону в домені новин, потрібно чітко визначити завдання оцінки, або оцінка події або оцінка субєктивності.
+Використання моделей дає зазвичай релевантнішу класифікацію та мала б бути змога легкого навчання
+на розпізнавання субєктивності тексту.
+
+==== Вибрані результати
+
 V obou případech se věty často považují za pozitivní/negativní, a to i při použití neutrálního stylu vyjadřování – při citování faktů (viz níže uvedené příklady).
-
-[cols="7",options="header"]
+[cols="5",options="header"]
 |=======================================================================================================================================================================================================================================
-| sentence                                                                                                                                                | neg_model    | neu_model  | pos_model  | neg_vader | neu_vader | pos_vader
-| Michael Moore's controversial documentary Fahrenheit 9/11 won the best documentary, while A Very Long Engagement won best foreign film.                 | 0.026161596  | 0.3389656  | 0.63487285 | 0.055     | 0.365     | 0.58
-| The CFCA awarded Thomas Haden Church the best supporting actor prize and Virginia Madsen the best supporting actress award for their roles in the film. | 0.004318552  | 0.27714488 | 0.7185366  | 0.0       | 0.432     | 0.568
-| The History Boys also won the best new comedy title at the Theatregoers' Choice Awards.                                                                 | 0.0017879391 | 0.08180275 | 0.91640925 | 0.0       | 0.451     | 0.549
-| Orange Prize winner Andrea Levy has seen her book Small Island win the Whitbread Novel of the Year Award.                                               | 0.0018191353 | 0.16049145 | 0.8376894  | 0.0       | 0.456     | 0.544
-| Hailey's health began to deteriorate in recent years, twice undergoing heart surgery.                                                                   | 0.9371789   | 0.060361084 | 0.0024599545 | 0.0    | 1.0       | 0.0
-| The show's director Richard Eyre issued a warning earlier in the week that the show was unsuitable for children under seven, while under-threes are barred. | 0.89361566 | 0.10245169   | 0.0039327056 | 0.094          | 0.906     | 0.0
+| sentence                                                                                                                                                | neg_model    | neu_model  | pos_model  | compound_vader
+| Michael Moore's controversial documentary Fahrenheit 9/11 won the best documentary, while A Very Long Engagement won best foreign film.                 | 0.026161596  | 0.3389656  | 0.63487285 | 0.96
+| The CFCA awarded Thomas Haden Church the best supporting actor prize and Virginia Madsen the best supporting actress award for their roles in the film. | 0.004318552  | 0.27714488 | 0.7185366  | 0.9741
+| The History Boys also won the best new comedy title at the Theatregoers' Choice Awards.                                                                 | 0.0017879391 | 0.08180275 | 0.91640925 | 0.8126
+| Orange Prize winner Andrea Levy has seen her book Small Island win the Whitbread Novel of the Year Award.                                               | 0.0018191353 | 0.16049145 | 0.8376894  | 0.9493
+| Hailey's health began to deteriorate in recent years, twice undergoing heart surgery.                                                                   | 0.9371789   | 0.060361084 | 0.0024599545 | 0.0
+| The show's director Richard Eyre issued a warning earlier in the week that the show was unsuitable for children under seven, while under-threes are barred. | 0.89361566 | 0.10245169   | 0.0039327056 | 0.0
 |=======================================================================================================================================================================================================================================
 
-Pro model VADER stačí přítomnost jednotlivých slov s pozitivní nebo negativní polaritou (například „won“, „best“, „winner“), aby bylo možné větu klasifikovat jako pozitivní.
-Tento přístup nezohledňuje širší kontext.
-
-Model Transformer naopak zohledňuje kontext a hodnotí celkovou „polaritu události“.
-Například získání ceny je interpretováno jako pozitivní událost, i když je věta pouze faktickým sdělením.
-
-Situaci výrazně zhoršuje složitost dané domény.
-V oblasti zpravodajství zahrnuje hodnocení sentimentu zjevně dva dílčí úkoly:
-
-- hodnocení události (dobré/špatné)
-- hodnocení tónu textu (objektivní/subjektivní)
-
-Žádná z použitých metod nerozlišuje tyto dva aspekty, takže klasifikace tónu často není správnou.
+Усі результати можна знайти у файлі `results/sentiment_analysis_nltk_vs_model.csv`
+Код відносно даної секції знаходиться `notebooks/sentiment_analysis.ipynb` та
+`src/{standard|model}/sentiment_analysis.py`
 
 === Named entity recognition
 Rozpoznávání entit bylo prováděno na větách vybraných ze clanků BBC. Byly testovány dvě
-varianty: tradiční přístup s NLTK a model RoBERTa „Jean-Baptiste/roberta-large-ner-english“
-
-V tomto úkolu si oba přístupy vedly mnohem lépe než při analýze sentimentu a dokázaly identifikovat relevantní entity.
-Přesto se mezi nimi objevují zásadní rozdíly.
+varianty: tradiční přístup s NLTK a model RoBERTa "Jean-Baptiste/roberta-large-ner-english"
 
 Při použití přístupu nltk je patrný silný vliv tokenizace a problémy s agregací entit s velkým počtem tokenů.
-S ohledem na to mohou být entity s jmény obsahujícími speciální znaky, jako např. „Jean-Michel Jarre“, v závislosti na tokenizaci ignorovány nebo rozděleny
+S ohledem na to mohou být entity s jmény obsahujícími speciální znaky, jako např. "Jean-Michel Jarre", v závislosti na tokenizaci ignorovány nebo rozděleny
 na několik entit.
 
-Naopak model RoBERTa poskytuje výrazně přesnější výsledky. Rozpoznávají se složitá jména typu „Philip van Doren Stern“
+Naopak model RoBERTa poskytuje výrazně přesnější výsledky. Rozpoznávají se složitá jména typu "Philip van Doren Stern"
 nebo nebo názvy děl bez kontextových nápověd
-jako „It's a Wonderful Life“.
+jako "It's a Wonderful Life".
 
 Zpracování textu pomocí daného modelu bylo také mnohem rychlejší, přibližně 6 sekund, zatímco nltk pracoval více než 4 minuty (730 vět).
+
+==== Вибрані результати
 
 Spomenuté příklady jsou uvedeny v tabulce níže:
 
@@ -69,6 +76,10 @@ Spomenuté příklady jsou uvedeny v tabulce níže:
 
 |===
 
+Усі результати можна знайти у файлі `results/ne_binary_nltk_vs_model.csv`
+Код відносно даної секції знаходиться `notebooks/ner.ipynb` та
+`src/{standard|model}/named_entities.py`
+
 === Entity classification
 
 Klasifikace entit byla prováděna pomocí stejných nástrojů jako rozpoznávání entit (NLTK a model RoBERTa). Výsledná kvalita klasifikace je proto přímo závislá na správnosti detekce samotných entit.
@@ -78,14 +89,27 @@ Používá však omezenou množinu tříd (PER, ORG, LOC, MISC).
 
 Naopak NLTK nabízí jemnější rozdělení do kategorií, což může vést k přesnější klasifikaci v případech, kdy je entita správně rozpoznána.
 
+==== Вибрані результати
+Усі результати можна знайти у файлі `results/ne_classification_nltk_vs_model.csv`
+Код відносно даної секції знаходиться `notebooks/ne_classification.ipynb` та
+`src/{standard|model}/named_entities.py`
+
 === Zero-shot classification
 
 Klasifikace byla prováděna na větách vybraných z článků BBC. Byly definovány následující cílové kategorie:
 "film", "television", "music", "theatre", "books", "celebrity", "awards", "art".
 
-Pro klasifikaci byl použit model „facebook/bart-large-mnli“. Zpracování 730 vět trvalo přibližně 58 sekund.
+Pro klasifikaci byl použit model "facebook/bart-large-mnli". Zpracování 730 vět trvalo přibližně 58 sekund.
 
-Vybrané výsledky klasifikace jsou uvedeny níže:
+Výsledky jsou ve většině případů smysluplné, avšak kvalita klasifikace je ovlivněna omezeným počtem kategorií.
+Jednotlivé věty často obsahují více témat (např. kombinace literatury, událostí a osobností), což nelze přesně vyjádřit jednou třídou.
+
+Dalším pozorovaným jevem je nižší jistota modelu – v mnoha případech je maximální pravděpodobnost pod 50 %. T
+o taky naznačuje, že žádná z definovaných kategorií plně neodpovídá danému textu.
+V takových případech je vhodné výsledek považovat za nejistý nebo větu z klasifikace vyřadit.
+
+== Vybrané výsledky
+Výsledky klasifikace jsou uvedeny níže:
 
 [cols="1,1,1", options="header"]
 |===
@@ -133,16 +157,16 @@ Vybrané výsledky klasifikace jsou uvedeny níže:
 
 |===
 
-Výsledky jsou ve většině případů smysluplné, avšak kvalita klasifikace je ovlivněna omezeným počtem kategorií. Jednotlivé věty často obsahují více témat (např. kombinace literatury, událostí a osobností), což nelze přesně vyjádřit jednou třídou.
-
-Dalším pozorovaným jevem je nižší jistota modelu – v mnoha případech je maximální pravděpodobnost pod 50 %. To naznačuje, že žádná z definovaných kategorií plně neodpovídá danému textu. V takových případech je vhodné výsledek považovat za nejistý nebo větu z klasifikace vyřadit.
-
+Усі результати можна знайти у файлі `results/zero_shot_classification.csv.csv`
+Код відносно даної секції знаходиться `notebooks/zero_shot_classification.ipynb` та
+`src/model/zero_shot_classification.py`
 
 === Text summarization
-Pro sumarizaci textu byl použit model „facebook/bart-large-cnn“. Model byl aplikován na vybrané články z BBC a generoval zkrácené verze původních textů.
+Pro sumarizaci textu byl použit model "facebook/bart-large-cnn".
+Model byl aplikován na vybrané články z BBC a generoval zkrácené verze původních textů.
 
 Výsledné shrnutí jsou ve většině případů srozumitelné a zachovávají hlavní informaci původního textu.
-Ukázky jsou uvedené v souboře "results/summaries.csv"
+Ukázky jsou uvedené v souboře `results/summaries.csv`
 
 === Spuštění
 
@@ -159,9 +183,11 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 ----
 
-Pro spuštění použijte Jupyter notebooks v adresaře `notebooks`.
+Pro spuštění použijte Jupyter soubory podle jednotlívých sekcí v adresaři `notebooks`.
+Příadně spoustite MLflow variantu dle příkazu dole
 
-=== Zdroje
-
-Jako zdroj dat jsou pozite clanky z BBC z kategorii zábava/entertainment, dostpune
-https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive[tady]
+[source, bash]
+----
+python -m src.main
+----
+IMPORTANT: MLflow musí být dostupný na adrese `http://localhost:5000/`.
