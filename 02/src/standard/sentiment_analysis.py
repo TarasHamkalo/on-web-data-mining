@@ -11,13 +11,12 @@ def run_sentiment(dataset):
             scores = vader_analyzer.polarity_scores(sentence.text)
 
             # argmax over neg/neu/pos
-            label = max(
-                ("neg", scores["neg"]),
-                ("neu", scores["neu"]),
-                ("pos", scores["pos"]),
-                key=lambda x: x[1]
-            )[0]
-
+            if scores['compound'] >= 0.5:
+                label = "pos"
+            elif scores['compound'] <= -0.5:
+                label = "neg"
+            else:
+                label = "neu"
             counts[label] += 1
 
     # metrics
