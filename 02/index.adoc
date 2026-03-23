@@ -1,11 +1,13 @@
-== 2. Ukol -- Text Mining/NLP
+== 2. Úkol -- Text Mining/NLP
 Pro řešení úkolu byly použity članky z BBC, kategorie entertainment.
 Lokální verze je dostupná v souboru `resources/bcc-news-entertainment.csv`, který představuje
 výběr z celého datasetu dostupného na https://www.kaggle.com/datasets/hgultekin/bbcnewsarchive[Kaggle].
 
+IMPORTANT: V každém podúkolu se používaly první 50 članků z `resources/bcc-news-entertainment.csv`.
+
 === Sentiment analysis
 Hodnocení tónu bylo prováděno na větách vybraných ze clanků BBC.
-Byly testovány dva přístupy: tradiční analyzátor VADER a model Transformer trénovaný na příspěvcích z Twitteru.
+Byly testovány dva přístupy: tradiční analyzátor VADER a model Transformer trénovaný na příspěvcích z Twitteru ("cardiffnlp/twitter-roberta-base-sentiment").
 
 Celkově obě metody poskytly smysluplné výsledky, přičemž ve většině
 byly konzistentní (obě zvolily stejnou třídu).
@@ -20,12 +22,12 @@ Model na druhou stranu lépe rozumí kontextu. Nicméně i zde je problém, mode
 což v této doméně (zprávy) může být nežádoucí v závislosti na úloze.
 
 ==== Závěr
-Pro hodnocení tónu v doméně zpráv je nutné jasně definovat úlohu hodnocení, zda jde o hodnocení události nebo hodnocení subjektivity.
+Pro hodnocení tónu v doméně zpráv je nutné jasně definovat úlohu hodnocení, zda jde o hodnocení události nebo hodnocení subjektivity autora.
 Použití modelů obvykle poskytuje relevantnější klasifikaci a měla by být možnost snadného trénování
-na rozpoznávání subjektivity textu.
+na rozpoznávání subjektivity.
 
 ==== Vybrané výsledky
-Níže uvedené někteře příklady hodnocení tónu, je vidět že v obou případech se věty často považují za pozitivní/negativní,
+Níže jsou uvedené někteře příklady hodnocení tónu, je vidět že v obou případech se věty často považují za pozitivní/negativní,
 a to i při použití neutrálního stylu vyjadřování – při citování faktů.
 
 [cols="5",options="header"]
@@ -39,7 +41,7 @@ a to i při použití neutrálního stylu vyjadřování – při citování fak
 | The show's director Richard Eyre issued a warning earlier in the week that the show was unsuitable for children under seven, while under-threes are barred. | 0.89361566 | 0.10245169   | 0.0039327056 | 0.0
 |=======================================================================================================================================================================================================================================
 
-Všechny výsledky lze nalézt v souboru `results/sentiment_analysis_nltk_vs_model.csv`
+Všechny výsledky lze nalézt v souboru `results/sentiment_analysis_nltk_vs_model.csv`.
 Kód vztahující se k této sekci se nachází v `notebooks/sentiment_analysis.ipynb` a
 `src/{standard|model}/sentiment_analysis.py`
 
@@ -52,7 +54,7 @@ S ohledem na to mohou být entity s jmény obsahujícími speciální znaky, jak
 na několik entit.
 
 Naopak model RoBERTa poskytuje výrazně přesnější výsledky. Rozpoznávají se složitá jména typu "Philip van Doren Stern"
-nebo nebo názvy děl bez kontextových nápověd
+nebo názvy děl bez kontextových nápověd
 jako "It's a Wonderful Life".
 
 Zpracování textu pomocí daného modelu bylo také mnohem rychlejší, přibližně 6 sekund, zatímco nltk pracoval více než 4 minuty (730 vět).
@@ -79,7 +81,7 @@ Spomenuté příklady jsou uvedeny v tabulce níže:
 
 |===
 
-Všechny výsledky lze nalézt v souboru `results/ne_binary_nltk_vs_model.csv`
+Všechny výsledky lze nalézt v souboru `results/ne_binary_nltk_vs_model.csv`.
 Kód vztahující se k této sekci se nachází v `notebooks/ner.ipynb` a
 `src/{standard|model}/named_entities.py`
 
@@ -92,8 +94,9 @@ Používá však omezenou množinu tříd (PER, ORG, LOC, MISC).
 
 Naopak NLTK nabízí jemnější rozdělení do kategorií, což může vést k přesnější klasifikaci v případech, kdy je entita správně rozpoznána.
 
-==== Вибрані результати
-Všechny výsledky lze nalézt v souboru `results/ne_classification_nltk_vs_model.csv`
+==== Vybrané výsledky
+
+Všechny výsledky lze nalézt v souboru `results/ne_classification_nltk_vs_model.csv`.
 Kód vztahující se k této sekci se nachází v `notebooks/ne_classification.ipynb` a
 `src/{standard|model}/named_entities.py`
 
@@ -160,7 +163,7 @@ Výsledky klasifikace jsou uvedeny níže:
 
 |===
 
-Všechny výsledky lze nalézt v souboru `results/zero_shot_classification.csv.csv`
+Všechny výsledky lze nalézt v souboru `results/zero_shot_classification.csv.csv`.
 Kód vztahující se k této sekci se nachází v `notebooks/zero_shot_classification.ipynb` a
 `src/model/zero_shot_classification.py`
 
