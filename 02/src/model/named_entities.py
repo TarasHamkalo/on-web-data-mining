@@ -13,7 +13,8 @@ def run_ner_model(dataset):
         "ner",
         model=model,
         tokenizer=tokenizer,
-        aggregation_strategy="simple"
+        aggregation_strategy="simple",
+        device=0
     )
 
     recognized_entities_count = 0
@@ -51,7 +52,8 @@ def run_nec_model(dataset):
         "ner",
         model=model,
         tokenizer=tokenizer,
-        aggregation_strategy="simple"
+        aggregation_strategy="simple",
+        device=0
     )
 
     unique_entities = set()
