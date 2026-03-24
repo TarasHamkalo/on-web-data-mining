@@ -199,3 +199,13 @@ python -m src.main
 IMPORTANT: MLflow musí být dostupný na adrese `http://localhost:5000/`.
 
 
+Do MLflow byly přidány artefakty pro každý podúkol (např. nltk_sentiment obsahuje CSV všech klasifikovaných vět).
+
+Do MLflow byly zaznamenány oddělené časy pro vykonávání NER/NEC/sentimentu pomocí NLTK a modelů, stejně jako časy potřebné pro sumarizaci a zero-shot klasifikaci.
+
+Pro NER jsou přidány počty entit a unikátních entit, při NEC jsou uvedeny i počty výskytů jednotlivých tříd.
+Při sentiment analýze jsou zaznamenány počty jednotlivých klasifikací.
+
+Pro zero-shot klasifikaci jsou zaznamenány počty výskytů jednotlivých tříd.
+Při sumarizaci je zaznamenán průměrný compression ratio podle vztahu len(summary) / len(content).
+
