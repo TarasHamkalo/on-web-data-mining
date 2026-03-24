@@ -44,5 +44,5 @@ def run_sentiment(dataset):
         classified_sentences_df.to_csv(f, index=False)
         temp_path = f.name
 
-    mlflow.log_artifact(temp_path, artifact_path="nltk_sentiment.csv")
+    mlflow.log_artifact(temp_path, artifact_path="nltk_sentiment")
 

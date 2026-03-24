@@ -6,4 +6,3 @@ def run_standard(dataset):
     run_ner(dataset)
     run_nec(dataset)
     run_sentiment(dataset)
-
