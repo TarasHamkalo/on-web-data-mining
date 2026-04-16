@@ -265,3 +265,28 @@ Takže přestože graf obsahuje jednu dominantní komponentu zahrnující více 
 do menších, relativně těsně propojených skupin.
 
 Obrazky nebyly pridane pro velikost komunit.
+
+### Kevin bacon number
+
+image::results/images/distance-distribution.png[Kevin Bacon, align=center]
+
+Z grafu výše, je patrné, že většina herců má Kevin Bacon číslo mezi 2 a 4, přičemž nejčastější hodnota je 3. To potvrzuje tzv. small-world vlastnost sítě, kdy jsou uzly propojeny přes relativně krátké cesty.
+
+Maximální nalezená vzdálenost je 7. Mezi nejvzdálenější herce patří:
+
+[cols="2,1", options="header"]
+|===
+| Herec | Vzdálenost
+
+| Haren Chatterjee
+| 7
+
+| Haradhan Banerjee
+| 7
+
+| Kazuo Hasegawa
+| 7
+
+|===
+
+Tyto uzly se nacházejí na okraji sítě a pravděpodobně patří do slabě propojených nebo geograficky či žánrově odlišných částí grafu.
