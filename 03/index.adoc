@@ -246,6 +246,22 @@ Každý z přístupů poskytuje mírně odlišné výsledky, přičemž v top 10
 
 Z výsledků degree a closeness centrality je vidět, že i když má herec mnoho přímých spojení, mohou stále existovat části sítě, které jsou od něj relativně vzdálené (např. Humphrey Bogart).
 
-Naopak closeness a betweenness centralita mají mezi sebou větší shodu, což odpovídá intuitivní představě, že uzly, kterými prochází více nejkratších cest, bývají zároveň „blíže“ ostatním uzlům v síti.
+Naopak closeness a betweenness centralita mají mezi sebou větší shodu, což odpovídá intuitivní představě, že uzly, kterými prochází více nejkratších cest, bývají zároveň "blíže" ostatním uzlům v síti.
 
 Největší odlišnost vykazuje eigenvector centralita, která zohledňuje nejen počet spojení, ale i jejich význam. Přesto i zde dominují uzly s vysokým stupněm.
+
+### Top komunity
+
+Pro detekci komunit byl použit algoritmus Louvain, který optimalizuje modularitu grafu a efektivně identifikuje hustě propojené skupiny uzlů.
+Alternativní metody, jako například Kernighan–Lin algoritmus nebo Clique Percolation Method, protoze jsou citlive na vyber parametrů (hloubka rekuze, rozmer kliky).
+
+Graf je rozdělen celkově do 788 komunit (oproti 731 souvislým komponentám). Vetsinu z nich tvori komunity pod 10 herců,
+Většinu z nich tvoří malé komunity o velikosti do 10 herců, které často odpovídají samostatným souvislým komponentám (viz sekce o komponentách).
+
+Současně se v grafu nachází několik výrazně větších komunit, konkretně 4 komunity s více než 1000 uzly a 13 komunit s více než 100 uzl.
+
+Takze sice graf obsahuje "giganskou" komponentu obsahujici vice nez 80% uzlu, stale herci tesne komunikuji jen ve svem okoli (v ramce par filmů).
+Takže přestože graf obsahuje jednu dominantní komponentu zahrnující více než 80 % uzlů, výsledky ukazují, že herci jsou ve skutečnosti organizováni
+do menších, relativně těsně propojených skupin.
+
+Obrazky nebyly pridane pro velikost komunit.
