@@ -14,5 +14,46 @@ protože většina herců spolu nikdy nehrála.
 
 Průměrný koeficient klastrování dosahuje hodnoty 0.717. To naznačuje,
 že pokud dva herci spolupracovali se stejným hercem, je vysoká pravděpodobnost,
-že spolu hráli i přímo.
-Tento jev je taky očekavan s ohledem na konstrukce grafu (plne propojeni v ramci jednoho filmu)
+že spolu hráli i přímo. Tento jev je taky očekavan s ohledem na konstrukce grafu (plne propojeni v ramci jednoho filmu).
+
+Graf je rozdelen do 731 komponent, udaje o rozdeleni uzlu dle komponent je videt v tabulce nize.
+Je videt ze nejvetsi kopmonenta obsahuje 0.89 vsech uzlu grafu, coz naznacuje ze vse herci tvori velkou propojenou komunitu.
+Vetsinu tohoto poctu tvori komponenty s poctem uzlu do deseti, to muze odpovidat napr. lokalnim filmam
+z Europy. Druhu polovicu poctu tvori singletonove komponenty, ktere odpovida napr. bibliographie nebo jsou jinak soustredene na jednem cloveku (teda "staring").
+Pro priklad, Thais s hercem Thais Galizky je sole surviving Italian Futurist film.
+
+===== Komponenty
+
+[cols="2,1", options="header"]
+|===
+| Metrika | Hodnota
+
+| Počet komponent
+| 731
+
+| Velikost největší komponenty
+| 14 062
+
+| Podíl největší komponenty
+| 0.887 (≈ 88.7 %)
+
+| Počet singletonů (velikost 1)
+| 322
+
+| Počet malých komponent (2–10 uzlů)
+| 400
+
+| Počet středních komponent (11–100 uzlů)
+| 8
+
+| Počet velkých komponent (>100 uzlů, mimo největší)
+| 0
+
+|===
+
+Graf je rozdělen do 731 komponent, přičemž rozdělení jejich velikostí je uvedeno v tabulce výše.
+
+Největší komponenta obsahuje přibližně 88.7 % všech uzlů, což naznačuje, že většina herců tvoří jednu velkou propojenou síť (což odpovída očekavaní).
+Zbytek grafu tvoří převážně malé komponenty. Největší část z nich představují komponenty o velikosti do 10 uzlů, které mohou odpovídat například menším nebo lokálním filmovým produkcím.
+
+Významnou část tvoří také singletony (322 uzlů), tedy herci bez vazeb na ostatní. Ty mohou reprezentovat například izolované záznamy, specifické projekty zaměřené na jednoho herce nebo neúplná data.
