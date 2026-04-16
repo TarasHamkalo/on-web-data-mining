@@ -1,0 +1,1135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d1" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d0" for="node" attr.name="name" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="leslie howard">
+      <data key="d0">Leslie Howard</data>
+    </node>
+    <node id="wendy hiller">
+      <data key="d0">Wendy Hiller</data>
+    </node>
+    <node id="wilfrid lawson">
+      <data key="d0">Wilfrid Lawson</data>
+    </node>
+    <node id="scott sunderland">
+      <data key="d0">Scott Sunderland</data>
+    </node>
+    <node id="marie lohr">
+      <data key="d0">Marie Lohr</data>
+    </node>
+    <node id="david tree">
+      <data key="d0">David Tree</data>
+    </node>
+    <node id="esme percy">
+      <data key="d0">Esme Percy</data>
+    </node>
+    <node id="everley gregg">
+      <data key="d0">Everley Gregg</data>
+    </node>
+    <node id="jean cadell">
+      <data key="d0">Jean Cadell</data>
+    </node>
+    <node id="ray milland">
+      <data key="d0">Ray Milland</data>
+    </node>
+    <node id="ellen drew">
+      <data key="d0">Ellen Drew</data>
+    </node>
+    <node id="guy middleton">
+      <data key="d0">Guy Middleton</data>
+    </node>
+    <node id="ronald culver">
+      <data key="d0">Ronald Culver</data>
+    </node>
+    <node id="margaret lockwood">
+      <data key="d0">Margaret Lockwood</data>
+    </node>
+    <node id="derek farr">
+      <data key="d0">Derek Farr</data>
+    </node>
+    <node id="marjorie fielding">
+      <data key="d0">Marjorie Fielding</data>
+    </node>
+    <node id="athene seyler">
+      <data key="d0">Athene Seyler</data>
+    </node>
+    <node id="peggy ashcroft">
+      <data key="d0">Peggy Ashcroft</data>
+    </node>
+    <node id="margaretta scott">
+      <data key="d0">Margaretta Scott</data>
+    </node>
+    <node id="bernard miles">
+      <data key="d0">Bernard Miles</data>
+    </node>
+    <node id="michael redgrave">
+      <data key="d0">Michael Redgrave</data>
+    </node>
+    <node id="michael denison">
+      <data key="d0">Michael Denison</data>
+    </node>
+    <node id="edith evans">
+      <data key="d0">Edith Evans</data>
+    </node>
+    <node id="margaret rurtherford">
+      <data key="d0">Margaret Rurtherford</data>
+    </node>
+    <node id="jaen greenwood">
+      <data key="d0">Jaen Greenwood</data>
+    </node>
+    <node id="miles malleson">
+      <data key="d0">Miles Malleson</data>
+    </node>
+    <node id="doroty tutin">
+      <data key="d0">Doroty Tutin</data>
+    </node>
+    <node id="walter hudd">
+      <data key="d0">Walter Hudd</data>
+    </node>
+    <node id="dirk bogarde">
+      <data key="d0">Dirk Bogarde</data>
+    </node>
+    <node id="olivia dehavilland">
+      <data key="d0">Olivia deHavilland</data>
+    </node>
+    <node id="paul massie">
+      <data key="d0">Paul Massie</data>
+    </node>
+    <node id="wilfrid hyde white">
+      <data key="d0">Wilfrid Hyde White</data>
+    </node>
+    <node id="robert morley">
+      <data key="d0">Robert Morley</data>
+    </node>
+    <node id="anthony dawson">
+      <data key="d0">Anthony Dawson</data>
+    </node>
+    <node id="richard wattis">
+      <data key="d0">Richard Wattis</data>
+    </node>
+    <node id="martin miller">
+      <data key="d0">Martin Miller</data>
+    </node>
+    <node id="millicent martin">
+      <data key="d0">Millicent Martin</data>
+    </node>
+    <node id="peter sellers">
+      <data key="d0">Peter Sellers</data>
+    </node>
+    <node id="sophia loren">
+      <data key="d0">Sophia Loren</data>
+    </node>
+    <node id="alastair sim">
+      <data key="d0">Alastair Sim</data>
+    </node>
+    <node id="vittorio desics">
+      <data key="d0">Vittorio deSics</data>
+    </node>
+    <node id="dennis price">
+      <data key="d0">Dennis Price</data>
+    </node>
+    <node id="gary raymond">
+      <data key="d0">Gary Raymond</data>
+    </node>
+    <node id="alfie bass">
+      <data key="d0">Alfie Bass</data>
+    </node>
+    <node id="richard burton">
+      <data key="d0">Richard Burton</data>
+    </node>
+    <node id="elizabeth taylor">
+      <data key="d0">Elizabeth Taylor</data>
+    </node>
+    <node id="maggie smith">
+      <data key="d0">Maggie Smith</data>
+    </node>
+    <node id="rod taylor">
+      <data key="d0">Rod Taylor</data>
+    </node>
+    <node id="margaret rutherford">
+      <data key="d0">Margaret Rutherford</data>
+    </node>
+    <node id="louis jordon">
+      <data key="d0">Louis Jordon</data>
+    </node>
+    <node id="elsa martinelli">
+      <data key="d0">Elsa Martinelli</data>
+    </node>
+    <node id="orson welles">
+      <data key="d0">Orson Welles</data>
+    </node>
+    <node id="linda chistian">
+      <data key="d0">Linda Chistian</data>
+    </node>
+    <node id="david frost">
+      <data key="d0">David Frost</data>
+    </node>
+    <node id="robert coote">
+      <data key="d0">Robert Coote</data>
+    </node>
+    <node id="joan benham">
+      <data key="d0">Joan Benham</data>
+    </node>
+    <node id="michael hodern">
+      <data key="d0">Michael Hodern</data>
+    </node>
+    <node id="lance percival">
+      <data key="d0">Lance Percival</data>
+    </node>
+    <node id="michael palin">
+      <data key="d0">Michael Palin</data>
+    </node>
+    <node id="denholm elliott">
+      <data key="d0">Denholm Elliott</data>
+    </node>
+    <node id="richard griffiths">
+      <data key="d0">Richard Griffiths</data>
+    </node>
+    <node id="tony haygarth">
+      <data key="d0">Tony Haygarth</data>
+    </node>
+    <node id="liz smith">
+      <data key="d0">Liz Smith</data>
+    </node>
+    <node id="john normington">
+      <data key="d0">John Normington</data>
+    </node>
+    <node id="s a">
+      <data key="d0">s a</data>
+    </node>
+    <edge source="leslie howard" target="wendy hiller">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="leslie howard" target="wilfrid lawson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="leslie howard" target="scott sunderland">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="leslie howard" target="marie lohr">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="leslie howard" target="david tree">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="leslie howard" target="esme percy">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="leslie howard" target="everley gregg">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="leslie howard" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wendy hiller" target="wilfrid lawson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wendy hiller" target="scott sunderland">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wendy hiller" target="marie lohr">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wendy hiller" target="david tree">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wendy hiller" target="esme percy">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wendy hiller" target="everley gregg">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wendy hiller" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid lawson" target="scott sunderland">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid lawson" target="marie lohr">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid lawson" target="david tree">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid lawson" target="esme percy">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid lawson" target="everley gregg">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid lawson" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="scott sunderland" target="marie lohr">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="scott sunderland" target="david tree">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="scott sunderland" target="esme percy">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="scott sunderland" target="everley gregg">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="scott sunderland" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marie lohr" target="david tree">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marie lohr" target="esme percy">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marie lohr" target="everley gregg">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marie lohr" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="david tree" target="esme percy">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="david tree" target="everley gregg">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="david tree" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="esme percy" target="everley gregg">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="esme percy" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="everley gregg" target="jean cadell">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="ray milland" target="ellen drew">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="ray milland" target="guy middleton">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="ray milland" target="ronald culver">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="ellen drew" target="guy middleton">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="ellen drew" target="ronald culver">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="guy middleton" target="ronald culver">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret lockwood" target="derek farr">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret lockwood" target="marjorie fielding">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret lockwood" target="athene seyler">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret lockwood" target="peggy ashcroft">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret lockwood" target="margaretta scott">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret lockwood" target="bernard miles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="derek farr" target="marjorie fielding">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="derek farr" target="athene seyler">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="derek farr" target="peggy ashcroft">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="derek farr" target="margaretta scott">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="derek farr" target="bernard miles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marjorie fielding" target="athene seyler">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marjorie fielding" target="peggy ashcroft">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marjorie fielding" target="margaretta scott">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="marjorie fielding" target="bernard miles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="athene seyler" target="peggy ashcroft">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="athene seyler" target="margaretta scott">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="athene seyler" target="bernard miles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peggy ashcroft" target="margaretta scott">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peggy ashcroft" target="bernard miles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaretta scott" target="bernard miles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael redgrave" target="michael denison">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael redgrave" target="edith evans">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael redgrave" target="margaret rurtherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael redgrave" target="jaen greenwood">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael redgrave" target="miles malleson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael redgrave" target="doroty tutin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael redgrave" target="walter hudd">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael denison" target="edith evans">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael denison" target="margaret rurtherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael denison" target="jaen greenwood">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael denison" target="miles malleson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael denison" target="doroty tutin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael denison" target="walter hudd">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="edith evans" target="margaret rurtherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="edith evans" target="jaen greenwood">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="edith evans" target="miles malleson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="edith evans" target="doroty tutin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="edith evans" target="walter hudd">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rurtherford" target="jaen greenwood">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rurtherford" target="miles malleson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rurtherford" target="doroty tutin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rurtherford" target="walter hudd">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="jaen greenwood" target="miles malleson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="jaen greenwood" target="doroty tutin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="jaen greenwood" target="walter hudd">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="miles malleson" target="doroty tutin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="miles malleson" target="walter hudd">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="doroty tutin" target="walter hudd">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="olivia dehavilland">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="paul massie">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="wilfrid hyde white">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="robert morley">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="anthony dawson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="richard wattis">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="martin miller">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dirk bogarde" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="olivia dehavilland" target="paul massie">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="olivia dehavilland" target="wilfrid hyde white">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="olivia dehavilland" target="robert morley">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="olivia dehavilland" target="anthony dawson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="olivia dehavilland" target="richard wattis">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="olivia dehavilland" target="martin miller">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="olivia dehavilland" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="paul massie" target="wilfrid hyde white">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="paul massie" target="robert morley">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="paul massie" target="anthony dawson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="paul massie" target="richard wattis">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="paul massie" target="martin miller">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="paul massie" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid hyde white" target="robert morley">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid hyde white" target="anthony dawson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid hyde white" target="richard wattis">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid hyde white" target="martin miller">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="wilfrid hyde white" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="robert morley" target="anthony dawson">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="robert morley" target="richard wattis">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="robert morley" target="martin miller">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="robert morley" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="anthony dawson" target="richard wattis">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="anthony dawson" target="martin miller">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="anthony dawson" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="martin miller">
+      <data key="d1">2</data>
+    </edge>
+    <edge source="richard wattis" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="richard burton">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="elizabeth taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="maggie smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="rod taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="margaret rutherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="dennis price">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard wattis" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="millicent martin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="richard burton">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="elizabeth taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="maggie smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="rod taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="margaret rutherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="dennis price">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="martin miller" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peter sellers" target="sophia loren">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peter sellers" target="alastair sim">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peter sellers" target="vittorio desics">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peter sellers" target="dennis price">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peter sellers" target="gary raymond">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="peter sellers" target="alfie bass">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="sophia loren" target="alastair sim">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="sophia loren" target="vittorio desics">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="sophia loren" target="dennis price">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="sophia loren" target="gary raymond">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="sophia loren" target="alfie bass">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="alastair sim" target="vittorio desics">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="alastair sim" target="dennis price">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="alastair sim" target="gary raymond">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="alastair sim" target="alfie bass">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="vittorio desics" target="dennis price">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="vittorio desics" target="gary raymond">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="vittorio desics" target="alfie bass">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="gary raymond">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="alfie bass">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="richard burton">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="elizabeth taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="maggie smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="rod taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="margaret rutherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="dennis price" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="gary raymond" target="alfie bass">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="elizabeth taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="maggie smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="rod taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="margaret rutherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard burton" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="maggie smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="rod taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="margaret rutherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elizabeth taylor" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="rod taylor">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="margaret rutherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="michael palin">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="denholm elliott">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="richard griffiths">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="tony haygarth">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="liz smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="john normington">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="maggie smith" target="s a">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="margaret rutherford">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="rod taylor" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="louis jordon">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="margaret rutherford" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="elsa martinelli">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="louis jordon" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elsa martinelli" target="orson welles">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elsa martinelli" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elsa martinelli" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elsa martinelli" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elsa martinelli" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elsa martinelli" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="elsa martinelli" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="orson welles" target="linda chistian">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="orson welles" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="orson welles" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="orson welles" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="orson welles" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="orson welles" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="linda chistian" target="david frost">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="linda chistian" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="linda chistian" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="linda chistian" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="linda chistian" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="david frost" target="robert coote">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="david frost" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="david frost" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="david frost" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="robert coote" target="joan benham">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="robert coote" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="robert coote" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="joan benham" target="michael hodern">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="joan benham" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael hodern" target="lance percival">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael palin" target="denholm elliott">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael palin" target="richard griffiths">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael palin" target="tony haygarth">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael palin" target="liz smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael palin" target="john normington">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="michael palin" target="s a">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="denholm elliott" target="richard griffiths">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="denholm elliott" target="tony haygarth">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="denholm elliott" target="liz smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="denholm elliott" target="john normington">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="denholm elliott" target="s a">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard griffiths" target="tony haygarth">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard griffiths" target="liz smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard griffiths" target="john normington">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="richard griffiths" target="s a">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="tony haygarth" target="liz smith">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="tony haygarth" target="john normington">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="tony haygarth" target="s a">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="liz smith" target="john normington">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="liz smith" target="s a">
+      <data key="d1">1</data>
+    </edge>
+    <edge source="john normington" target="s a">
+      <data key="d1">1</data>
+    </edge>
+  </graph>
+</graphml>

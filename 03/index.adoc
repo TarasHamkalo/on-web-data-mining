@@ -1,1 +1,18 @@
-= HW3 - TBD!
+== 3. Social Network Analysis
+
+Pro splnění úkolu byl použit movie dataset dostupný na adrese  https://archive.ics.uci.edu/ml/datasets/Movie:[Movie dataset].
+Konkrétně byla použita data o filmech a hercích dostupná v souboru `casts.html`.
+Graf tedy obsahuje uzly představující herce a hrany spojují herce, kteří hráli ve stejném filmu
+(pokud měl herec více rolí ve stejném filmu, "self" hrana se nevytváří).
+
+Extrakci a vytvoření grafu naleznete v souboru `src/actors_graph.py`.
+
+=== Základní statistika
+Vytvořený graf obsahuje 15849 uzlů a 144084 hran.
+Hustota grafu je 0.00115, teda siť je velmi řídka, což odpovídá očekávání,
+protože většina herců spolu nikdy nehrála.
+
+Průměrný koeficient klastrování dosahuje hodnoty 0.717. To naznačuje,
+že pokud dva herci spolupracovali se stejným hercem, je vysoká pravděpodobnost,
+že spolu hráli i přímo.
+Tento jev je taky očekavan s ohledem na konstrukce grafu (plne propojeni v ramci jednoho filmu)

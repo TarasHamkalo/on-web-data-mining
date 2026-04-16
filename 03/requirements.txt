@@ -1,0 +1,6 @@
+beautifulsoup4
+html5lib
+networkx[default]
+matplotlib
+pygraphviz # CFLAGS="-Wno-error=incompatible-pointer-types", also local system should contain graphviz
+pyvis
