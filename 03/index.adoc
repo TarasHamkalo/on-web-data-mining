@@ -91,3 +91,161 @@ Níže jsou uvedeny top 5 uzlů dle stupně, všechny představují známé herc
 Graf obsahuje celkově 438 mostů. Většinou se však jedná o mosty prvního stupně (tedy připojují listy). Mostů mezi uzly s vyšším stupněm je pouze 7; graf jednoho z nich je uveden níže.
 
 image::results/images/bridges.png[Bridge, align=center]
+
+
+=== Centralita
+.Degree centralita
+[cols="2,1", options="header"]
+|===
+| Herec | Hodnota metriky
+
+| Humphrey Bogart
+| 0.02599861172461665
+
+| Gary Cooper
+| 0.022591026692749417
+
+| James Stewart
+| 0.022527923266233357
+
+| John Gielgud
+| 0.022464819839717296
+
+| John Carradine
+| 0.02233861298668518
+
+| Peter Lorre
+| 0.0218337855745567
+
+| C. Aubrey Smith
+| 0.020571717044235504
+
+| Henry Fonda
+| 0.019688269073010665
+
+| Burt Lancaster
+| 0.019057234807850067
+
+| David Niven
+| 0.018931027954817947
+
+|===
+
+.Closeness centralita
+[cols="2,1", options="header"]
+|===
+| Herec | Hodnota metriky
+
+| Charlton Heston
+| 0.3444204686806322
+
+| John Gielgud
+| 0.3437277752290057
+
+| Burt Lancaster
+| 0.3431038983991206
+
+| Henry Fonda
+| 0.34006451857520775
+
+| John Carradine
+| 0.33975891335985464
+
+| David Niven
+| 0.3383675162043616
+
+| James Stewart
+| 0.3374158118100179
+
+| Robert Mitchum
+| 0.33645129867556284
+
+| Robert De Niro
+| 0.33513181093497424
+
+| Laurence Olivier
+| 0.33512280903293723
+
+|===
+
+.Betweenness Centralita
+[cols="2,1", options="header"]
+|===
+| Herec | Hodnota metriky
+
+| Robert De Niro
+| 0.011315137095846394
+
+| John Carradine
+| 0.01086691513863796
+
+| Vincent Price
+| 0.010764103931666874
+
+| Humphrey Bogart
+| 0.010686893357448995
+
+| Burt Lancaster
+| 0.01057764571087529
+
+| Gene Hackman
+| 0.009937017131140062
+
+| John Gielgud
+| 0.009453148331635056
+
+| Charlton Heston
+| 0.009323707105524007
+
+| Jack Nicholson
+| 0.00887439303377209
+
+| James Stewart
+| 0.008032388751603566
+
+|===
+
+.Eigenvector Centralita
+[cols="2,1", options="header"]
+|===
+| Herec | Hodnota metriky
+
+| C. Aubrey Smith
+| 0.10485028886498275
+
+| John Carradine
+| 0.09881481860018791
+
+| Peter Lorre
+| 0.09295870749885816
+
+| James Stewart
+| 0.09258502168958771
+
+| John Gielgud
+| 0.09131177574071166
+
+| Gary Cooper
+| 0.09023493963125748
+
+| David Niven
+| 0.08839774672650973
+
+| Basil Rathbone
+| 0.08822845125407812
+
+| Andy Devine
+| 0.08588618791107584
+
+| Henry Fonda
+| 0.08437356735112676
+
+|===
+
+Každý z přístupů poskytuje mírně odlišné výsledky, přičemž v top 10 se ve všech metrikách objevují pouze tři herci – James Stewart, John Carradine a John Gielgud.
+
+Z výsledků degree a closeness centrality je vidět, že i když má herec mnoho přímých spojení, mohou stále existovat části sítě, které jsou od něj relativně vzdálené (např. Humphrey Bogart).
+
+Naopak closeness a betweenness centralita mají mezi sebou větší shodu, což odpovídá intuitivní představě, že uzly, kterými prochází více nejkratších cest, bývají zároveň „blíže“ ostatním uzlům v síti.
+
+Největší odlišnost vykazuje eigenvector centralita, která zohledňuje nejen počet spojení, ale i jejich význam. Přesto i zde dominují uzly s vysokým stupněm.
