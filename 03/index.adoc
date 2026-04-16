@@ -22,7 +22,7 @@ Vetsinu tohoto poctu tvori komponenty s poctem uzlu do deseti, to muze odpovidat
 z Europy. Druhu polovicu poctu tvori singletonove komponenty, ktere odpovida napr. bibliographie nebo jsou jinak soustredene na jednem cloveku (teda "staring").
 Pro priklad, Thais s hercem Thais Galizky je sole surviving Italian Futurist film.
 
-===== Komponenty
+==== Komponenty
 
 [cols="2,1", options="header"]
 |===
@@ -56,4 +56,38 @@ Graf je rozdělen do 731 komponent, přičemž rozdělení jejich velikostí je 
 Největší komponenta obsahuje přibližně 88.7 % všech uzlů, což naznačuje, že většina herců tvoří jednu velkou propojenou síť (což odpovída očekavaní).
 Zbytek grafu tvoří převážně malé komponenty. Největší část z nich představují komponenty o velikosti do 10 uzlů, které mohou odpovídat například menším nebo lokálním filmovým produkcím.
 
-Významnou část tvoří také singletony (322 uzlů), tedy herci bez vazeb na ostatní. Ty mohou reprezentovat například izolované záznamy, specifické projekty zaměřené na jednoho herce nebo neúplná data.
+Významnou část tvoří také singletony (322 uzlů), tedy herci bez vazeb na ostatní. Ty mohou reprezentovat například bibliografie, specifické projekty zaměřené na jednoho herce nebo neúplná data.
+V datech se například vyskytuje film "Thais" s herečkou Thais Galizky (film soustreden na jedne pani).
+
+==== Stupně uzlů, mosty
+image::results/images/degree-distribution.png[Degree distribution, align=center]
+
+Na obrázku výše je uvedeno rozdělení stupně uzlů. Je vidět, že většina uzlů má malý stupeň (typicky do deseti), zatímco pouze malé množství uzlů dosahuje vysokých hodnot (nad 100).
+Toto chování odpovídá rozdělení typu *power law*.
+
+Níže jsou uvedeny top 5 uzlů dle stupně, všechny představují známé herce z období tvorby datasetu.
+
+[cols="2,1", options="header"]
+|===
+| Herec | Stupeň
+
+| Humphrey Bogart
+| 412
+
+| Gary Cooper
+| 358
+
+| James Stewart
+| 357
+
+| John Gielgud
+| 356
+
+| John Carradine
+| 354
+
+|===
+
+Graf obsahuje celkově 438 mostů. Většinou se však jedná o mosty prvního stupně (tedy připojují listy). Mostů mezi uzly s vyšším stupněm je pouze 7; graf jednoho z nich je uveden níže.
+
+image::results/images/bridges.png[Bridge, align=center]
