@@ -268,11 +268,11 @@ a efektivně identifikuje hustě propojené skupiny uzlů.
 Alternativní metody, jako například Kernighan–Lin algoritmus nebo Clique Percolation Method,
 jsou citlivé na výběr parametrů (hloubka rekuze, rozmer kliky).
 
-Graf je rozdělen celkově do 788 komunit (oproti 731 komponentám).
+Graf je rozdělen celkově do 793 komunit (oproti 731 komponentám).
 Většinu z nich tvoří malé komunity o velikosti do 10 herců.
 
 Současně se v grafu nachází několik větších komunit, konkrétně 4 komunity
-s více než 1000 uzly a 13 komunit s více než 100 uzly.
+s více než 1000 uzly a 12 komunit s více než 100 uzly.
 
 Příklad jedné z komunit do 100 uzlů (konkreně 95) je uveden níže.
 
