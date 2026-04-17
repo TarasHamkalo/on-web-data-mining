@@ -396,3 +396,5 @@ Při graph embeddingu byly zaznamenány také velikosti průniků sousedů Kevin
 Samotný model je uložen v artefaktech.
 
 Ohledně vizualizace jsou do artefaktů při spuštění zaznamenána rozdělení délek/stupňů, grafy a PCA zmíněné během reportu.
+
+NOTE: Grafy mohou vypadat různě mezi spuštěními, ale data by měly byt stejné. Např. při nalezení komunit je použit seed 41 pro Louvain algoritmus, takže komunity by měly být stejné.
