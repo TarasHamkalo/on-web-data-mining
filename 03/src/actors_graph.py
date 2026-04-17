@@ -97,7 +97,7 @@ class ActorsGraph:
             "nodes_count": len(self.g.nodes),
             "edges_count": len(self.g.edges),
             "density": nx.density(self.g),
-            "clustering_coefficient": nx.average_clustering(self.g),
+            "avg_clustering": nx.average_clustering(self.g),
             "bridges": list(nx.bridges(self.g)),
             "local_bridges": list(nx.local_bridges(self.g)),
             "degree_histogram": nx.degree_histogram(self.g),

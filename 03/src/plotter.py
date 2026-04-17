@@ -90,6 +90,7 @@ class Plotter:
         x_label="",
         y_label="",
         label="",
+        output_file="",
     ):
 
         def handler(ax):
@@ -134,7 +135,7 @@ class Plotter:
             return title, x_label, local_y_label
 
         self._plot_around(
-            handler, size, y_major_locator=None, x_major_locator=None, x_minor_locator=False
+            handler, size, y_major_locator=None, x_major_locator=None, x_minor_locator=False, output_file=output_file
         )
 
 
@@ -148,6 +149,7 @@ class Plotter:
         label="",
         max_distance=7,
         log_y_scale=False,
+        output_file=None
     ):
         def handler(ax):
             local_y_label = y_label
@@ -187,5 +189,6 @@ class Plotter:
             size,
             y_major_locator=None,
             x_major_locator=None,
-            x_minor_locator=False
+            x_minor_locator=False,
+            output_file=output_file
         )

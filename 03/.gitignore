@@ -255,3 +255,12 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+!/results/actor_graph.gexf
+
+!/results/actor_graph.graphml
+
+!/results/full-dataset.graphml
+
+!/results/graph.csv
+
+!/results/subset.graphml
