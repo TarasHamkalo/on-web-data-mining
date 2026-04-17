@@ -1,26 +1,23 @@
 == 3. Social Network Analysis
 
-Pro splnění úkolu byl použit movie dataset dostupný na adrese  https://archive.ics.uci.edu/ml/datasets/Movie:[Movie dataset].
+Pro splnění úkolu byl použit movie dataset dostupný na adrese https://archive.ics.uci.edu/ml/datasets/Movie:[Movie dataset].
 Konkrétně byla použita data o filmech a hercích dostupná v souboru `casts.html`.
 Graf tedy obsahuje uzly představující herce a hrany spojují herce, kteří hráli ve stejném filmu
 (pokud měl herec více rolí ve stejném filmu, "self" hrana se nevytváří).
 
 Extrakci a vytvoření grafu naleznete v souboru `src/actors_graph.py`.
+Celý postup práce je zaznamenán v souboru `notebooks/sna.ipynb` a variantě pro MLflow `notebooks/mlflow-sna.ipynb`.
 
 === Základní statistika
-Vytvořený graf obsahuje 15849 uzlů a 144084 hran.
-Hustota grafu je 0.00115, teda siť je velmi řídka, což odpovídá očekávání,
+
+Vytvořený graf obsahuje 15 849 uzlů a 144 084 hran.
+Hustota grafu je 0.00115, tedy síť je velmi řídká, což odpovídá očekávání,
 protože většina herců spolu nikdy nehrála.
 
 Průměrný koeficient klastrování dosahuje hodnoty 0.717. To naznačuje,
 že pokud dva herci spolupracovali se stejným hercem, je vysoká pravděpodobnost,
-že spolu hráli i přímo. Tento jev je taky očekavan s ohledem na konstrukce grafu (plne propojeni v ramci jednoho filmu).
-
-Graf je rozdelen do 731 komponent, udaje o rozdeleni uzlu dle komponent je videt v tabulce nize.
-Je videt ze nejvetsi kopmonenta obsahuje 0.89 vsech uzlu grafu, coz naznacuje ze vse herci tvori velkou propojenou komunitu.
-Vetsinu tohoto poctu tvori komponenty s poctem uzlu do deseti, to muze odpovidat napr. lokalnim filmam
-z Europy. Druhu polovicu poctu tvori singletonove komponenty, ktere odpovida napr. bibliographie nebo jsou jinak soustredene na jednem cloveku (teda "staring").
-Pro priklad, Thais s hercem Thais Galizky je sole surviving Italian Futurist film.
+že spolu hráli i přímo. Tento jev je také očekávaný s ohledem na konstrukci grafu
+(úplné propojení v rámci jednoho filmu).
 
 ==== Komponenty
 
@@ -53,17 +50,23 @@ Pro priklad, Thais s hercem Thais Galizky je sole surviving Italian Futurist fil
 
 Graf je rozdělen do 731 komponent, přičemž rozdělení jejich velikostí je uvedeno v tabulce výše.
 
-Největší komponenta obsahuje přibližně 88.7 % všech uzlů, což naznačuje, že většina herců tvoří jednu velkou propojenou síť (což odpovída očekavaní).
-Zbytek grafu tvoří převážně malé komponenty. Největší část z nich představují komponenty o velikosti do 10 uzlů, které mohou odpovídat například menším nebo lokálním filmovým produkcím.
+Největší komponenta obsahuje přibližně 88.7 % všech uzlů, což naznačuje,
+že většina herců tvoří jednu velkou propojenou síť (což odpovídá očekávání).
+Zbytek grafu tvoří převážně malé komponenty. Největší část z nich představují komponenty
+o velikosti do 10 uzlů, které mohou odpovídat menším nebo lokálním filmovým produkcím.
 
-Významnou část tvoří také singletony (322 uzlů), tedy herci bez vazeb na ostatní. Ty mohou reprezentovat například bibliografie, specifické projekty zaměřené na jednoho herce nebo neúplná data.
-V datech se například vyskytuje film "Thais" s herečkou Thais Galizky (film soustreden na jedne pani).
+Významnou část tvoří také singletony (322 uzlů), tedy herci bez vazeb na ostatní.
+Ty mohou reprezentovat například bibliografie, specifické projekty zaměřené na jednoho herce
+nebo neúplná data. V datech se například vyskytuje film `Thais` s herečkou Thais Galizky
+(film soustředěný na jednu osobu).
 
 ==== Stupně uzlů, mosty
+
 image::results/images/degree-distribution.png[Degree distribution, align=center]
 
-Na obrázku výše je uvedeno rozdělení stupně uzlů. Je vidět, že většina uzlů má malý stupeň (typicky do deseti), zatímco pouze malé množství uzlů dosahuje vysokých hodnot (nad 100).
-Toto chování odpovídá rozdělení typu *power law*.
+Na obrázku výše je uvedeno rozdělení stupně uzlů. Je vidět, že většina uzlů má malý stupeň
+(typicky do deseti), zatímco pouze malé množství uzlů dosahuje vysokých hodnot (nad 100).
+Toto chování odpovídá rozdělení typu "power law".
 
 Níže jsou uvedeny top 5 uzlů dle stupně, všechny představují známé herce z období tvorby datasetu.
 
@@ -88,13 +91,14 @@ Níže jsou uvedeny top 5 uzlů dle stupně, všechny představují známé herc
 
 |===
 
-Graf obsahuje celkově 438 mostů. Většinou se však jedná o mosty prvního stupně (tedy připojují listy).
-Mostů mezi uzly s vyšším stupněm je pouze 7, graf jednoho z nich je uveden níže.
+Graf obsahuje celkově 438 mostů. Většinou se však jedná o mosty prvního stupně
+(tedy připojují listy). Mostů mezi uzly s vyšším stupněm je pouze 7,
+graf jednoho z nich je uveden níže.
 
 image::results/images/bridges.png[Bridge, align=center]
 
-
 === Centralita
+
 .Degree centralita
 [cols="2,1", options="header"]
 |===
@@ -169,7 +173,7 @@ image::results/images/bridges.png[Bridge, align=center]
 
 |===
 
-.Betweenness Centralita
+.Betweenness centralita
 [cols="2,1", options="header"]
 |===
 | Herec | Hodnota metriky
@@ -206,7 +210,7 @@ image::results/images/bridges.png[Bridge, align=center]
 
 |===
 
-.Eigenvector Centralita
+.Eigenvector centralita
 [cols="2,1", options="header"]
 |===
 | Herec | Hodnota metriky
@@ -243,26 +247,32 @@ image::results/images/bridges.png[Bridge, align=center]
 
 |===
 
-Každý z přístupů poskytuje mírně odlišné výsledky, přičemž v top 10 se ve všech metrikách objevují pouze tři herci – James Stewart, John Carradine a John Gielgud.
+Každý z přístupů poskytuje mírně odlišné výsledky, přičemž v top 10
+se ve všech metrikách objevují pouze tři herci -- James Stewart,
+John Carradine a John Gielgud.
 
-Z výsledků degree a closeness centrality je vidět, že i když má herec mnoho přímých spojení, mohou stále existovat části sítě, které jsou od něj relativně vzdálené (např. Humphrey Bogart).
+Z výsledků degree a closeness centrality je vidět, že i když má herec
+mnoho přímých spojení, mohou stále existovat části sítě, které jsou od něj
+relativně vzdálené (např. Humphrey Bogart).
 
-Naopak closeness a betweenness centralita mají mezi sebou větší shodu, což odpovídá intuitivní představě, že uzly, kterými prochází více nejkratších cest, bývají zároveň "blíže" ostatním uzlům v síti.
+Naopak closeness a betweenness centralita mají mezi sebou větší shodu, což odpovídá intuitivní představě,
+že uzly, kterými prochází více nejkratších cest, bývají zároveň "blíže" ostatním uzlům v síti.
 
-Největší odlišnost vykazuje eigenvector centralita, která zohledňuje nejen počet spojení, ale i jejich význam. Přesto i zde dominují uzly s vysokým stupněm.
+Největší odlišnost vykazuje eigenvector centralita, která zohledňuje nejen počet spojení, ale i jejich význam.
+Přesto i zde dominují uzly s vysokým stupněm.
 
 === Top komunity
 
-Pro detekci komunit byl použit algoritmus Louvain, který optimalizuje modularitu grafu a efektivně identifikuje hustě propojené skupiny uzlů.
-Alternativní metody, jako například Kernighan–Lin algoritmus nebo Clique Percolation Method, protoze jsou citlive na vyber parametrů (hloubka rekuze, rozmer kliky).
+Pro detekci komunit byl použit algoritmus Louvain, který optimalizuje modularitu grafu
+a efektivně identifikuje hustě propojené skupiny uzlů.
+Alternativní metody, jako například Kernighan–Lin algoritmus nebo Clique Percolation Method,
+jsou citlivé na výběr parametrů (hloubka rekuze, rozmer kliky).
 
-Graf je rozdělen celkově do 788 komunit (oproti 731 souvislým komponentám). Vetsinu z nich tvori komunity pod 10 herců,
-Většinu z nich tvoří malé komunity o velikosti do 10 herců, které často odpovídají samostatným souvislým komponentám (viz sekce o komponentách).
+Graf je rozdělen celkově do 788 komunit (oproti 731 komponentám).
+Většinu z nich tvoří malé komunity o velikosti do 10 herců.
 
-Současně se v grafu nachází několik výrazně větších komunit, konkretně 4 komunity s více než 1000 uzly a 13 komunit s více než 100 uzl.
-
-Takže přestože graf obsahuje jednu dominantní komponentu zahrnující více než 80 % uzlů, výsledky ukazují, že herci jsou ve skutečnosti organizováni
-do menších, relativně těsně propojených skupin.
+Současně se v grafu nachází několik větších komunit, konkrétně 4 komunity
+s více než 1000 uzly a 13 komunit s více než 100 uzly.
 
 Příklad jedné z komunit do 100 uzlů (konkreně 95) je uveden níže.
 
@@ -272,7 +282,8 @@ image::results/images/demo-community.png[Demo komunity, align=center]
 
 image::results/images/distance-distribution.png[Kevin Bacon Number, align=center]
 
-Z grafu výše, je patrné, že většina herců má Kevin Bacon číslo mezi 2 a 4, přičemž nejčastější hodnota je 3. To potvrzuje tzv. small-world vlastnost sítě, kdy jsou uzly propojeny přes relativně krátké cesty.
+Z grafu výše, je patrné, že většina herců má Kevin Bacon číslo mezi 2 a 4, přičemž nejčastější hodnota je 3 (avg=3.15).
+To potvrzuje tzv. small-world vlastnost sítě, kdy jsou uzly propojeny přes relativně krátké cesty.
 
 Maximální nalezená vzdálenost je 7. Mezi nejvzdálenější herce patří:
 
@@ -293,12 +304,11 @@ Maximální nalezená vzdálenost je 7. Mezi nejvzdálenější herce patří:
 
 Tyto uzly se nacházejí na okraji sítě a pravděpodobně patří do slabě propojených nebo geograficky či žánrově odlišných částí grafu.
 
-
-Taky Kevin Bacon přímo spolupracoval s 53 herci, ego graph obsahujici tyto herce je uveden niže.
+Taky Kevin Bacon přímo spolupracoval s 53 herci, ego graph obsahující tyto herce je uveden niže.
 
 image::results/images/kevin-bacon-neigboors.png[Kevin Bacon ego, align=center]
 
-=== Embeddings
+=== Graph Embeddings
 Při trénování modelu Node2Vec byly použity parametry demonstrované na cvičeních, bez dalšího ladění.
 
 .Top 10 nejpodobnějších uzlů ke Kevin Bacon
@@ -344,7 +354,8 @@ To je v souladu s konstrukcí grafu i samotného modelu -- Kevin Bacon a
 jeho sousedé sdílejí podobný "kontext", tedy často se vyskytují ve
 stejných nebo podobných skupinách herců.
 
-Zajímavé je, že ani při rozšíření seznamu (např. top 53 uzlů, kde minimální podobnost je přibližně 60 %) nejsou zahrnuti všichni jeho sousedé -- objevuje se pouze 36 z celkových 53.
+Zajímavé je, že při rozšíření seznamu (např. top 53 uzlů, kde minimální podobnost je přibližně 60 %) nejsou zahrnuti všichni jeho sousedé --
+objevuje se pouze 36 z možných 53.
 Tento rozdíl lze vysvětlit tím, že někteří herci spolu s Kevinem Baconem hráli pouze v omezeném počtu filmů nebo
 ve filmech s menším počtem herců.
 V důsledku toho mají méně společných kontextů, což vede k nižší podobnosti ve vektorovém prostoru.
@@ -369,11 +380,9 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ----
 
-Pro spuštění použijte Jupyter soubory podle jednotlivých sekcí v adresáři `notebooks`.
+Pro spuštění použijte Jupyter soubory v adresáři `notebooks`.
 
-IMPORTANT: Při spuštění MLflow varianty (`mlflow-sna.ipynb`) musí být MLflow dostupný na adrese `http://localhost:5000/`.
-
-Do MLflow byly přidány metriky pro každý podúkol (např. základní statistika obsahuje počty uzlů, mostů, koeficient klastrování, hustotu a další metriky prezentované během reportu).
+IMPORTANT: Při spuštění `mlflow-sna.ipynb` musí být MLflow dostupný na `http://localhost:5000/`.
 
 Ohledně počtu mostů jsou zaznamenány mosty, ve kterých oba uzly mají stupeň větší než jedna (tedy odstraňují se singletony).
 
