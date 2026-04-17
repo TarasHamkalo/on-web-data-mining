@@ -4,3 +4,8 @@ networkx[default]
 matplotlib
 pygraphviz # CFLAGS="-Wno-error=incompatible-pointer-types", also local system should contain graphviz
 pyvis
+pandas
+node2vec
+scikit-learn
+gensim
+adjustText
