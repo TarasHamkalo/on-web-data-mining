@@ -351,6 +351,7 @@ V důsledku toho mají méně společných kontextů, což vede k nižší podob
 
 Embeddings tak poskytují jemnější pohled na strukturu sítě než samotný graf, napr. obrazek niže
 ukazuje přímych sousedů Kevina ve vektrovem prostoru. Ne vsichni sousede jsou blizko němu, vyjadrujuc "sílu" vztáhu.
-
+Pri interpretaci je vsak potreba myslet na chyby/aproximace pri prevedeni z 50D to 2D a podobne, napr.
+i uzly s vice nec 90% podobnosit nejsou primo "vedle" jak by to bylo mozne ocekavat.
 
 image::results/images/kevin-embeddings.png[Kevin Bacon Embeddings, align=center]
