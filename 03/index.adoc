@@ -88,7 +88,8 @@ Níže jsou uvedeny top 5 uzlů dle stupně, všechny představují známé herc
 
 |===
 
-Graf obsahuje celkově 438 mostů. Většinou se však jedná o mosty prvního stupně (tedy připojují listy). Mostů mezi uzly s vyšším stupněm je pouze 7; graf jednoho z nich je uveden níže.
+Graf obsahuje celkově 438 mostů. Většinou se však jedná o mosty prvního stupně (tedy připojují listy).
+Mostů mezi uzly s vyšším stupněm je pouze 7, graf jednoho z nich je uveden níže.
 
 image::results/images/bridges.png[Bridge, align=center]
 
@@ -264,11 +265,13 @@ Takze sice graf obsahuje "giganskou" komponentu obsahujici vice nez 80% uzlu, st
 Takže přestože graf obsahuje jednu dominantní komponentu zahrnující více než 80 % uzlů, výsledky ukazují, že herci jsou ve skutečnosti organizováni
 do menších, relativně těsně propojených skupin.
 
-Obrazky nebyly pridane pro velikost komunit.
+Příklad jedné z komunit do 100 uzlů (konkreně 95) je uveden níže.
+
+image::results/images/demo-community.png[Demo komunity, align=center]
 
 ### Kevin bacon number
 
-image::results/images/distance-distribution.png[Kevin Bacon, align=center]
+image::results/images/distance-distribution.png[Kevin Bacon Number, align=center]
 
 Z grafu výše, je patrné, že většina herců má Kevin Bacon číslo mezi 2 a 4, přičemž nejčastější hodnota je 3. To potvrzuje tzv. small-world vlastnost sítě, kdy jsou uzly propojeny přes relativně krátké cesty.
 
@@ -290,3 +293,8 @@ Maximální nalezená vzdálenost je 7. Mezi nejvzdálenější herce patří:
 |===
 
 Tyto uzly se nacházejí na okraji sítě a pravděpodobně patří do slabě propojených nebo geograficky či žánrově odlišných částí grafu.
+
+
+Taky Kevin Bacon přímo spolupracoval s 53 herci, ego graph obsahujici tyto herce je uveden niže.
+
+image::results/images/kevin-bacon-neigboors.png[Kevin Bacon ego, align=center]

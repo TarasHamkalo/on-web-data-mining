@@ -136,3 +136,56 @@ class Plotter:
         self._plot_around(
             handler, size, y_major_locator=None, x_major_locator=None, x_minor_locator=False
         )
+
+
+    def plot_distance_distribution(
+        self,
+        sequence: List[int],
+        size=(20, 6),
+        title="Distance Distribution",
+        x_label="Distance",
+        y_label="Count",
+        label="",
+        max_distance=7,
+        log_y_scale=False,
+    ):
+        def handler(ax):
+            local_y_label = y_label
+
+            counts = np.array(sequence)
+
+            # count occurrences (0..max_distance)
+            values = np.arange(0, max_distance + 1)
+            freq = np.array([(counts == v).sum() for v in values])
+
+            ax.bar(
+                values,
+                freq,
+                width=0.8,
+                alpha=0.7,
+                edgecolor="black",
+                linewidth=0.9,
+                label=label
+            )
+
+            ax.set_xticks(values)
+
+            if log_y_scale:
+                ax.set_yscale("log", nonpositive="clip")
+                ax.yaxis.set_major_locator(LogLocator(base=10, subs=(1.0,)))
+                ax.yaxis.set_major_formatter(LogFormatter())
+                ax.set_ylim(bottom=1)
+                local_y_label = y_label + "(log scale)"
+            else:
+                step = max(1, freq.max() // 10)
+                ax.yaxis.set_major_locator(MultipleLocator(step))
+
+            return title, x_label, local_y_label
+
+        self._plot_around(
+            handler,
+            size,
+            y_major_locator=None,
+            x_major_locator=None,
+            x_minor_locator=False
+        )
