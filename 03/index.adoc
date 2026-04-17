@@ -356,9 +356,7 @@ i uzly s vice nec 90% podobnosit nejsou primo "vedle" jak by to bylo mozne oceka
 
 image::results/images/kevin-embeddings.png[Kevin Bacon Embeddings, align=center]
 
-
-
-=== Spuštění a MlFlow
+=== Spuštění a MLflow
 
 Pro nastavení prostředí:
 
@@ -373,21 +371,19 @@ pip install -r requirements.txt
 
 Pro spuštění použijte Jupyter soubory podle jednotlivých sekcí v adresáři `notebooks`.
 
-IMPORTANT: Pri spustění MLflow varianty (`mlflow-sna.ipynb`) MLflow musí být dostupný na adrese `http://localhost:5000/`.
+IMPORTANT: Při spuštění MLflow varianty (`mlflow-sna.ipynb`) musí být MLflow dostupný na adrese `http://localhost:5000/`.
 
+Do MLflow byly přidány metriky pro každý podúkol (např. základní statistika obsahuje počty uzlů, mostů, koeficient klastrování, hustotu a další metriky prezentované během reportu).
 
-Do MLflow byly přidány metriky pro každý podúkol (např. zakládní statistika obsahuje počty uzlů, mostů, koeficient klastrovani, hustotu a dalsi metriky prezentovane behem reportu)
+Ohledně počtu mostů jsou zaznamenány mosty, ve kterých oba uzly mají stupeň větší než jedna (tedy odstraňují se singletony).
 
-Ohledne poctu mostů, jsou zaznamenane mosty ve kterych oba uzly maji stupen vetsi nez jedna (teda odtranuji se singletony).
+Pro komponenty jsou zaznamenány počty dle velikosti komponent a poměr uzlů v největší komponentě.
 
-Pro komponenty jsou zaznamenany pocty dle velikosti komponenty a pomer uzlu ve nejvetsi komponente.
+Pro nalezení komunit se využíval algoritmus Louvain a také se zaznamenaly počty dle velikosti.
 
-Pro nalezeni komunit se vyuzival algoritm Louvain, a taky se zaznamenaly pocty dle velikosti.
+Při výpočtu centralit jsou zaznamenáni top 10 herci a uloženi do artefaktů ve formátu JSON.
 
-Pro NER jsou přidány počty entit a unikátních entit, při NEC jsou uvedeny i počty výskytů jednotlivých tříd.
-Při sentiment analýze jsou zaznamenány počty jednotlivých klasifikací.
+Při graph embeddingu byly zaznamenány také velikosti průniků sousedů Kevina Bacona a top 10/53 získaných dle podobnosti.
+Samotný model je uložen v artefaktech.
 
-Pri graph embedding, byly zaznamenane taky velikosti pruniků sousedů Kevina Bacona a top 10/53 ziskanych dle podobnosti.
-Samotny model je ulozen v artefaktach.
-
-Ohledne vizualizace, do artefaktů jsou pri spusteni zaznamenane rozdeleni delek/stupnů, grafy a pca zminene behem reportu.
+Ohledně vizualizace jsou do artefaktů při spuštění zaznamenána rozdělení délek/stupňů, grafy a PCA zmíněné během reportu.
