@@ -7,13 +7,6 @@ import networkx as nx
 NAME_REGEX = re.compile(r"^[^\W_ .,'`\-]+([ .,'`\-][^\W_]+)*$", re.UNICODE)
 REJECT_REGEX = re.compile(r"^s\s?a$", re.UNICODE) # unknown actor
 
-class ComponentStat:
-    components: List[Any]
-    size_histogram: List[int]
-    # singletons_count: int
-    # middle_region_count: int
-    # giants_count: int
-
 class ActorsGraph:
     def __init__(self, path="../resources/movie/data/casts.html", tables_count=None):
         self.tables_count = tables_count
