@@ -97,9 +97,9 @@ graf jednoho z nich je uveden níže.
 
 image::results/images/bridges.png[Bridge, align=center]
 
-=== Centralita
+=== Top herců dle centralit
 
-.Degree centralita
+.Top 10 herců dle degree centrality
 [cols="2,1", options="header"]
 |===
 | Herec | Hodnota metriky
@@ -136,7 +136,7 @@ image::results/images/bridges.png[Bridge, align=center]
 
 |===
 
-.Closeness centralita
+.Top 10 herců dle closeness centrality
 [cols="2,1", options="header"]
 |===
 | Herec | Hodnota metriky
@@ -173,7 +173,7 @@ image::results/images/bridges.png[Bridge, align=center]
 
 |===
 
-.Betweenness centralita
+.Top 10 herců dle betweenness centrality
 [cols="2,1", options="header"]
 |===
 | Herec | Hodnota metriky
@@ -210,7 +210,7 @@ image::results/images/bridges.png[Bridge, align=center]
 
 |===
 
-.Eigenvector centralita
+.Top 10 herců dle eigenvector centrality
 [cols="2,1", options="header"]
 |===
 | Herec | Hodnota metriky
@@ -266,7 +266,7 @@ Přesto i zde dominují uzly s vysokým stupněm.
 Pro detekci komunit byl použit algoritmus Louvain, který optimalizuje modularitu grafu
 a efektivně identifikuje hustě propojené skupiny uzlů.
 Alternativní metody, jako například Kernighan–Lin algoritmus nebo Clique Percolation Method,
-jsou citlivé na výběr parametrů (hloubka rekuze, rozmer kliky).
+nebyly vyzkoušené, protože jsou citlivé na výběr parametrů (hloubka rekurze, velikost kliky).
 
 Graf je rozdělen celkově do 793 komunit (oproti 731 komponentám).
 Většinu z nich tvoří malé komunity o velikosti do 10 herců.
