@@ -1,1 +1,118 @@
-= HW4 - TBD!
+== 4. Web Analytics/Web Usage Mining
+
+Для виконання завдання було використано наданий датасет https://courses.fit.cvut.cz/NI-DDW/hw/04/files/wum-dataset-hw.zip[wum-dataset-hw.zip].
+
+Датасет містить три таблиці даних:
+
+* clicks:
+** містить інформації про віданні сторінки в рамці сесії
+** має інформацію по типу PageName, Категорії, Час відвідування та подібне.
+* visits:
+** список збережених сесій (відповідає clicks)
+** містить інормації про час та к-ть відвіданих сторінок
+* search_engine_map
+** містить інформацію про те, як користувач дістався до першої сторінки сесії
+
+
+
+=== Аналіз даних, вибір релевантних
+Дані надають інформацію про 15_559 сесій, з 38_451 к-ті інтеракцій користувачів.
+
+Ключовими даними відносно інтеракції є "VisitId" -- ід сесії та атрибути "PageName", "CatName", "ExtCatName", "TopicName", "SequenceNumber".
+До кожного з перечислених атрибутів надано внутр ід, усі вони не надають корисної інформації відносно правил, тому при обробці видаляються.
+Також в записах ведеться LocalId - інтеракції, для нас також не несе змістовного значення.
+
+Атрибут "PageName" містить глобальні імена сторінки, з приблизно 800 унікальних значень. Дану інформацію через велику к-ть
+значень не вийде використати для позначення інтеракції користувача при екстракції правил (малий support).
+Проте з даного поля можна ідентифікувати основні конверсії наведені нижче.
+
+Було ідентифіковано 2 макро конверсії - перегляд сторінки Application та Catalog та 6 допоміжних конверсій що надають інформацію відносно організації та про доступні знижки в каталозі.
+
+PAGE_TO_APRIORI_CONVERSION = {
+"APPLICATION": "VIEW_APPLICATION", # macro
+"CATALOG": "VIEW_CATALOG",
+"INSURANCE": "VIEW_INSURANCE", # micro
+"DISCOUNT": "VIEW_DISCOUNT",
+"WHOWEARE": "VIEW_WHOWEARE",
+"HOWTOJOIN": "VIEW_HOWTOJOIN",
+
+"LASTMINUTE": "VIEW_LASTMINUTE"
+}
+
+Атрибут CatName та ExtCatName містять категорії сторінок, проте CatName містить занадто мало категорій (наведено нижче 5)
+А ExtCatName хоч і наводить більше категорій, наведено 6, та половина з них присутня до 100 разів в clicks а інші
+можна ідентифікувати за глобальним імям сторінки (вони якраз відповідають основним конверсіям).
+
+5: 'Info', 'Search', 'Trip', 'Application', 'undetected'
+6:# Data notes
+page categories -> ['Info', 'Search', 'Trip', 'Application', 'undetected']
+- some more detailed:
+- array(['homepage',
+'Application', -- corresponds to application page
+'Insurance' -- corresponds to insurance page
+'Catalog' - (corresponds to search page)
+'Send catalog' -- (corresponds to CATALOG page)...
+'Sales' -- catalog of discounted trips (DISCOUNT page)
+'Who we are' -- corresponds to WHOWEARE ...
+'sends news', -- 103 clicks, not sure, but probably a nice thing to track (probably subscription)
+'extension', -- not sure what, i would say useless but a lot of clicks
+- example
+tours and holiday comes into hotel,Search,2,extension,3,In general,1000,60,167
+tours and holiday comes into hotel,Search,2,extension,3,In general,1000,60,156
+tours and holiday comes into hotel,Search,2,extension,3,In general,1000,30,83
+tours and holiday comes into hotel,Search,2,extension,3,In general,1000,60,101
+tours and holiday comes into hotel,Search,2,extension,3,In general,1000,60,101
+
+        'undetected',  -- ignore
+
+       -- pretty much also
+       'list_tour' -- 99  occurancnes (n sheet tours, CKP sheet, two values of pagenames)
+
+        -- also useless
+       'KW', -- 40 clicks, no info provided, "In general" topic, only searches page name
+       'Country', -- strange searches for 21 countries.. N countries searches -- trash
+
+
+       -- these are useless (below 20 occurances)
+       'dir',
+       'Photo competition', 'blade', 'list_new', 'story', 'lastminute',
+       'detail406', 'default', 'top2', 'travel_agency', 'tour',
+       'detail184'], dtype=object)
+
+
+Отже, ані Catname ані ExtCatName не приносить корисної (унікальної) інформації про інтеракцію в при знанні PageName.
+
+Цікавим ж є поле TopicName, його унікальні значення наведено в 7. Він містить лише декілька загальних категорій
+та багато специфічних що чітко пояснюють intent користувача.
+
+
+7:        'In general' -- this corresponds to only info pages like insurance, who we are...
+'Neni', -- drop ambigous
+'Tourism', 'Hiking', 'VHT', 'Water', 'rafting',
+'exotica', 'Corsica', 'Stays with trips', 'hotelbuses',
+'Lastminute', 'Tours with accommodation', 'challenging expedition',
+'Ski', 'Lipari', 'cyclo', 'Bulgaria',
+'Tours with lightweight tourism', 'School tours',
+'Holiday Shipping', 'Tourist', 'climbing school', 'undetected',
+'Montenegro', 'Alps', 'Golf'], dtype=object)
+
+
+З цього випливає що для створення асоціацій цікавими є поля PageName (саме ті що відповідають мікро) та TopicName,
+з наслідковими конверсіями відповідаючим APPLICATION/Catalog
+
+
+==== Кількісні характеристики та час
+Час інтеракції/сесії користувача можна обрахувати як зі суми часів на кожній сторінці так і прямо з visits.
+Ці дані в загальному не є конзистентними між собою, як джрелео правди використовується visits.
+
+Більшість відвідувань, а саме 9_992 мають тривалість ("Length_Seconds") рівну 0. Інтерпретую це так, що
+дані користувачі відкрили декілька табів чи просто були неактивними на сторінках та загальний час вийшов на 0.
+Водночас другою мірою часу сесії є к-ть відвіданих сторінок, за нею сесій при яких відвано хоча б 2 сторінки є
+приблизно 6600 (приблизно 1000 з них мають час відвідування 0).
+
+Вирішено відфільтрувати сесії до тих, при яких к-ть відвіданих сторінок більше однієї (задля стоврення асоціацій) та к-ть
+часу більша нуля.
+
+
+Після такого фільтрування, к-ть сесій при яких відвідано APPLICATION становить всього 16 та тих відвало CATALOGUE 455.
+
