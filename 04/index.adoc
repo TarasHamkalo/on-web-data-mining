@@ -87,12 +87,7 @@ PAGE_TO_APRIORI_CONVERSION = {
 [cols="1"]
 |===
 |CatName
-
-|Info
-|Search
-|Trip
-|Application
-|undetected
+| Info, Search, Trip, Application, undetected
 |===
 
 Недоліки:
@@ -110,18 +105,7 @@ PAGE_TO_APRIORI_CONVERSION = {
 |===
 |ExtCatName
 
-|homepage
-|Application
-|Insurance
-|Catalog
-|Send catalog
-|Sales
-|Who we are
-|extension
-|list_tour
-|KW
-|Country
-|...
+|homepage, Application, Insurance Catalog, Send catalog, Sales, Who we are, extension, list_tour, KW, Country ...
 |===
 
 Проблеми:
@@ -130,61 +114,26 @@ PAGE_TO_APRIORI_CONVERSION = {
 * частина є технічними або незрозумілими (`extension`, `KW`)
 * значна частина дублює інформацію з PageName
 
-Висновок:
 
-[quote]
-CatName та ExtCatName не додають суттєвої інформації при наявності PageName і не використовуються далі.
+
+Отже, CatName та ExtCatName не додають суттєвої інформації при наявності PageName і не використовуються далі.
 
 ---
 
 === Аналіз TopicName
 
-TopicName є найбільш інформативним атрибутом, що відображає *intent користувача*.
+TopicName є найбільш інформативним атрибутом, що відображає ціль користувача.
 
-Унікальні значення:
+Список релевантних значень:
 
-[cols="1"]
-|===
-|TopicName
+* Tourism, Hiking, VHT, Water, rafting, exotica, Corsica, Stays with trips, hotelbuses, Lastminute, Tours with accommodation, challenging expedition, Ski, Lipari, cyclo, Bulgaria, Tours with lightweight tourism, School tours, Holiday Shipping, Tourist, climbing school, Montenegro, Alps, Golf.
 
-|Tourism
-|Hiking
-|VHT
-|Water
-|rafting
-|exotica
-|Corsica
-|Stays with trips
-|hotelbuses
-|Lastminute
-|Tours with accommodation
-|challenging expedition
-|Ski
-|Lipari
-|cyclo
-|Bulgaria
-|Tours with lightweight tourism
-|School tours
-|Holiday Shipping
-|Tourist
-|climbing school
-|Montenegro
-|Alps
-|Golf
-|===
+Видалені (неінформативні):
 
-Видалені значення:
-
-[cols="1"]
-|===
-|Видалені
-
-|In general
-|Neni
-|undetected
-|===
+* In general, Neni, undetected.
 
 Причина:
+
 * не несуть чіткого змісту
 * відповідають інформаційним або шумовим сторінкам
 
