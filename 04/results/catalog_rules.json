@@ -1,0 +1,461 @@
+[
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.6363636363636365,
+    "lift": 8.703650680028634
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.46153846153846156,
+    "lift": 6.312537855844942
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0017271157167530224,
+    "confidence": 0.45,
+    "lift": 6.154724409448819
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "VIEW_LASTMINUTE",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.42857142857142855,
+    "lift": 5.86164229471316
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPICS>=6"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.33333333333333337,
+    "lift": 4.559055118110236
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.33333333333333337,
+    "lift": 4.559055118110236
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.33333333333333337,
+    "lift": 4.559055118110236
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.32558139534883723,
+    "lift": 4.453030580479766
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "VIEW_LASTMINUTE",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.001535213970447131,
+    "confidence": 0.32,
+    "lift": 4.376692913385827
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPICS>=1",
+      "SEARCH>=2"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.31578947368421056,
+    "lift": 4.319104848736013
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "SEARCH>=6"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.001535213970447131,
+    "confidence": 0.30769230769230765,
+    "lift": 4.208358570563294
+  },
+  {
+    "antecedents": [
+      "SEARCH>=3",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.2916666666666667,
+    "lift": 3.9891732283464565
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.008251775091153329,
+    "confidence": 0.2885906040268456,
+    "lift": 3.9471014109813445
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.28571428571428575,
+    "lift": 3.907761529808774
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0017271157167530224,
+    "confidence": 0.28125,
+    "lift": 3.8467027559055116
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_TOURISM",
+      "VIEW_LASTMINUTE",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.27272727272727276,
+    "lift": 3.730136005726557
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURISM",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0017271157167530224,
+    "confidence": 0.2727272727272727,
+    "lift": 3.7301360057265565
+  },
+  {
+    "antecedents": [
+      "SEARCH>=6",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.2692307692307693,
+    "lift": 3.6823137492428835
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPICS>=6"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.25,
+    "lift": 3.419291338582677
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.25,
+    "lift": 3.419291338582677
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.25,
+    "lift": 3.419291338582677
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPICS>=1"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.24615384615384614,
+    "lift": 3.3666868564506354
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0019190174630589138,
+    "confidence": 0.2439024390243902,
+    "lift": 3.3358939888611476
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "VIEW_LASTMINUTE",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.24000000000000002,
+    "lift": 3.28251968503937
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPICS>=2"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0017271157167530224,
+    "confidence": 0.23684210526315788,
+    "lift": 3.2393286365520093
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "SEARCH>=1"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.23636363636363636,
+    "lift": 3.232784538296349
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPICS>=1",
+      "SEARCH>=1"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.001535213970447131,
+    "confidence": 0.2352941176470588,
+    "lift": 3.218156553960166
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPICS>=4",
+      "SEARCH>=4"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.23333333333333334,
+    "lift": 3.191338582677165
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.23076923076923078,
+    "lift": 3.156268927922471
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "SEARCH>=2"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0017271157167530224,
+    "confidence": 0.23076923076923075,
+    "lift": 3.1562689279224707
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "SEARCH>=5"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.22580645161290325,
+    "lift": 3.0883921767843536
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_CORSICA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.22580645161290325,
+    "lift": 3.0883921767843536
+  },
+  {
+    "antecedents": [
+      "SEARCH>=5",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.21428571428571427,
+    "lift": 2.93082114735658
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "SEARCH>=6"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.2058823529411765,
+    "lift": 2.8158869847151458
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_TOURISM",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0013433122241412398,
+    "confidence": 0.2058823529411765,
+    "lift": 2.8158869847151458
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "SEARCH>=8",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.2,
+    "lift": 2.735433070866142
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0011514104778353484,
+    "confidence": 0.2,
+    "lift": 2.735433070866142
+  }
+]

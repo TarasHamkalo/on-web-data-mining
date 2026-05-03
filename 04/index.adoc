@@ -344,3 +344,125 @@ support = 0.0286, confidence = 0.289, lift = 3.95
 
 Наприклад, комбінація інтересу до Альп та перегляду сторінки "Про нас"
 дає ймовірність переходу до каталогу понад 60%, що значно вище за середнє значення.
+
+Усі правила додану до `results/catalog_rules.json`
+
+=== Кластеризація сесій
+Додатково вирішено зробити кластеризацію сесій на основі поля топіків що в ній зявляються.
+
+Для кластеризації використовується k-mean, як домену ознак вибрано використовувати TimeOnPage, тому попередньо використовується стандардизація.
+
+Для вибору к-ті кластрів використано elbow метод, рисунок наведений нижче. За цим алгоритмом
+оптимальним виглядає 25 кластрів. Це досить високе число, де відрізняються й малі відмінності
+груп по типу - ті самі категорії але значно інші часи. На мою думку це реалістично відрізняє
+типи людей тому залишаю так.
+
+
+# Люди що люблять гірську туристику кластри 1, 7, 16
+
+Приблизно 200 сесій відносяться до кластрів повзяних з гірсьокою тематикою.
+Кожен з них відрізняється рівнем складності подорожі, від навчальних (переважає з CLIMBING_SCHOOL)
+до тих де переважає HIKING зі 120 сесіями, та складні подорожі з топік CHALLENGING_EXPEDITION/
+
+--- Cluster 1 ---
+Sessions count: 126 (2.5%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+HIKING             710.952381
+TOURISM             79.285714
+ALPS                32.142857
+VHT                 30.476190
+CLIMBING_SCHOOL     25.714286
+Name: 1, dtype: float64
+
+
+
+--- Cluster 7 ---
+Sessions count: 13 (0.3%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+CLIMBING_SCHOOL    604.615385
+HIKING              96.923077
+ALPS                57.692308
+VHT                 30.000000
+TOURISM             23.076923
+Name: 7, dtype: float64
+
+--- Cluster 16 ---
+Sessions count: 47 (0.9%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+VHT                       688.085106
+HIKING                    125.106383
+TOURISM                    32.553191
+CHALLENGING_EXPEDITION     30.638298
+EXOTICA                    24.893617
+Name: 16, dtype: float64
+
+
+--- Cluster 24 ---
+Sessions count: 7 (0.1%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+ALPS                              1474.285714
+TOURS_WITH_LIGHTWEIGHT_TOURISM     231.428571
+TOURS_WITH_ACCOMMODATION           111.428571
+Name: 24, dtype: float64
+
+
+# люди що люблять активний відпочинок з конкретними видами спорту
+# активний
+--- Cluster 17 ---
+Sessions count: 48 (1.0%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+RAFTING    245.625
+HIKING      36.875
+TOURISM     28.750
+WATER       26.875
+VHT         18.750
+
+Name: 17, dtype: float64
+
+-- Cluster 6 ---
+Sessions count: 9 (0.2%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+RAFTING    866.666667
+HIKING     183.333333
+CYCLO      113.333333
+TOURIST     46.666667
+Name: 6, dtype: float64
+
+-- Cluster 10 ---
+Sessions count: 67 (1.3%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+CYCLO               741.044776
+STAYS_WITH_TRIPS     25.522388
+TOURISM              23.283582
+EXOTICA              21.044776
+HIKING               18.358209
+Name: 10, dtype: float64
+
+--- Cluster 15 ---
+Sessions count: 30 (0.6%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+SKI                395.0
+HIKING              33.0
+VHT                 24.0
+CLIMBING_SCHOOL     17.0
+
+
+
+# Люди що надають перевагу звичайній туристиці/лише швидкі перегляди випадкових турів
+--- Cluster 22 ---
+Sessions count: 3855 (76.7%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+TOURISM                     24.715953
+TOURS_WITH_ACCOMMODATION    22.108949
+HIKING                      17.276265
+EXOTICA                     15.766537
+Name: 22, dtype: float64

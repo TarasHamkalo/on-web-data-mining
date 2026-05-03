@@ -1,0 +1,262 @@
+
+--- Cluster 0 ---
+Sessions count: 15 (0.3%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+MONTENEGRO                        874.0
+CHALLENGING_EXPEDITION             60.0
+TOURS_WITH_LIGHTWEIGHT_TOURISM     44.0
+STAYS_WITH_TRIPS                   42.0
+TOURIST                            40.0
+Name: 0, dtype: float64
+
+--- Cluster 1 ---
+Sessions count: 126 (2.5%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+HIKING             710.952381
+TOURISM             79.285714
+ALPS                32.142857
+VHT                 30.476190
+CLIMBING_SCHOOL     25.714286
+Name: 1, dtype: float64
+
+--- Cluster 2 ---
+Sessions count: 6 (0.1%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+GOLF    550.0
+SKI      85.0
+Name: 2, dtype: float64
+
+--- Cluster 3 ---
+Sessions count: 174 (3.5%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+TOURISM                           777.586207
+TOURS_WITH_ACCOMMODATION           44.827586
+HIKING                             31.206897
+EXOTICA                            23.103448
+TOURS_WITH_LIGHTWEIGHT_TOURISM     15.344828
+Name: 3, dtype: float64
+
+--- Cluster 4 ---
+Sessions count: 45 (0.9%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+TOURS_WITH_LIGHTWEIGHT_TOURISM    778.000000
+TOURISM                            73.333333
+TOURS_WITH_ACCOMMODATION           65.333333
+ALPS                               60.000000
+STAYS_WITH_TRIPS                   37.333333
+Name: 4, dtype: float64
+
+--- Cluster 5 ---
+Sessions count: 135 (2.7%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+EXOTICA                   668.888889
+TOURISM                    36.222222
+CHALLENGING_EXPEDITION     32.222222
+HIKING                     15.777778
+Name: 5, dtype: float64
+
+--- Cluster 6 ---
+Sessions count: 9 (0.2%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+RAFTING    866.666667
+HIKING     183.333333
+CYCLO      113.333333
+TOURIST     46.666667
+Name: 6, dtype: float64
+
+--- Cluster 7 ---
+Sessions count: 13 (0.3%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+CLIMBING_SCHOOL    604.615385
+HIKING              96.923077
+ALPS                57.692308
+VHT                 30.000000
+TOURISM             23.076923
+Name: 7, dtype: float64
+
+--- Cluster 8 ---
+Sessions count: 68 (1.4%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+CORSICA                     577.500000
+TOURISM                      66.617647
+EXOTICA                      45.000000
+TOURS_WITH_ACCOMMODATION     40.147059
+STAYS_WITH_TRIPS             29.558824
+Name: 8, dtype: float64
+
+--- Cluster 9 ---
+Sessions count: 40 (0.8%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+TOURIST             561.00
+STAYS_WITH_TRIPS    108.00
+CORSICA              30.75
+LIPARI               24.00
+BULGARIA             22.50
+Name: 9, dtype: float64
+
+--- Cluster 10 ---
+Sessions count: 67 (1.3%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+CYCLO               741.044776
+STAYS_WITH_TRIPS     25.522388
+TOURISM              23.283582
+EXOTICA              21.044776
+HIKING               18.358209
+Name: 10, dtype: float64
+
+--- Cluster 11 ---
+Sessions count: 6 (0.1%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+CHALLENGING_EXPEDITION    1515.0
+EXOTICA                    175.0
+Name: 11, dtype: float64
+
+--- Cluster 12 ---
+Sessions count: 53 (1.1%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+LIPARI                      516.792453
+TOURS_WITH_ACCOMMODATION     41.320755
+TOURIST                      25.471698
+TOURISM                      24.339623
+STAYS_WITH_TRIPS             23.207547
+Name: 12, dtype: float64
+
+--- Cluster 13 ---
+Sessions count: 8 (0.2%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+SCHOOL_TOURS    843.75
+TOURISM         210.00
+GOLF             45.00
+LIPARI           33.75
+Name: 13, dtype: float64
+
+--- Cluster 14 ---
+Sessions count: 22 (0.4%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+WATER                       480.000000
+HIKING                      137.727273
+TOURISM                      81.818182
+STAYS_WITH_TRIPS             72.272727
+TOURS_WITH_ACCOMMODATION     43.636364
+Name: 14, dtype: float64
+
+--- Cluster 15 ---
+Sessions count: 30 (0.6%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+SKI                395.0
+HIKING              33.0
+VHT                 24.0
+CLIMBING_SCHOOL     17.0
+Name: 15, dtype: float64
+
+--- Cluster 16 ---
+Sessions count: 47 (0.9%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+VHT                       688.085106
+HIKING                    125.106383
+TOURISM                    32.553191
+CHALLENGING_EXPEDITION     30.638298
+EXOTICA                    24.893617
+Name: 16, dtype: float64
+
+--- Cluster 17 ---
+Sessions count: 48 (1.0%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+RAFTING    245.625
+HIKING      36.875
+TOURISM     28.750
+WATER       26.875
+VHT         18.750
+Name: 17, dtype: float64
+
+--- Cluster 18 ---
+Sessions count: 36 (0.7%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+STAYS_WITH_TRIPS                  725.833333
+TOURS_WITH_ACCOMMODATION          121.666667
+TOURS_WITH_LIGHTWEIGHT_TOURISM    108.333333
+TOURISM                            87.500000
+ALPS                               40.833333
+Name: 18, dtype: float64
+
+--- Cluster 19 ---
+Sessions count: 73 (1.5%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+HOTELBUSES                        222.739726
+TOURISM                            73.561644
+TOURS_WITH_ACCOMMODATION           69.863014
+EXOTICA                            60.000000
+TOURS_WITH_LIGHTWEIGHT_TOURISM     41.095890
+Name: 19, dtype: float64
+
+--- Cluster 20 ---
+Sessions count: 106 (2.1%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+TOURS_WITH_ACCOMMODATION          865.471698
+TOURISM                            50.660377
+TOURS_WITH_LIGHTWEIGHT_TOURISM     37.075472
+EXOTICA                            16.132075
+STAYS_WITH_TRIPS                   15.283019
+Name: 20, dtype: float64
+
+--- Cluster 21 ---
+Sessions count: 13 (0.3%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+HOLIDAY_SHIPPING    754.615385
+ALPS                 83.076923
+CYCLO                64.615385
+LIPARI               50.769231
+TOURIST              43.846154
+Name: 21, dtype: float64
+
+--- Cluster 22 ---
+Sessions count: 3855 (76.7%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+TOURISM                     24.715953
+TOURS_WITH_ACCOMMODATION    22.108949
+HIKING                      17.276265
+EXOTICA                     15.766537
+Name: 22, dtype: float64
+
+--- Cluster 23 ---
+Sessions count: 27 (0.5%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+BULGARIA                    636.666667
+TOURS_WITH_ACCOMMODATION     66.666667
+LIPARI                       66.666667
+STAYS_WITH_TRIPS             22.222222
+EXOTICA                      16.666667
+Name: 23, dtype: float64
+
+--- Cluster 24 ---
+Sessions count: 7 (0.1%)
+Top 5 topics with avg time, filtered by min time=15 sec
+TopicName
+ALPS                              1474.285714
+TOURS_WITH_LIGHTWEIGHT_TOURISM     231.428571
+TOURS_WITH_ACCOMMODATION           111.428571
+Name: 24, dtype: float64

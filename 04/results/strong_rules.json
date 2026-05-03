@@ -1,0 +1,3846 @@
+[
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.8571428571428572,
+    "lift": 4.726530612244898
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.006716561120706199,
+    "confidence": 0.7777777777777778,
+    "lift": 4.288888888888889
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.7777777777777777,
+    "lift": 4.288888888888888
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.7666666666666667,
+    "lift": 3.1211718750000004
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.7500000000000001,
+    "lift": 3.638966480446928
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.7500000000000001,
+    "lift": 3.638966480446928
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.7407407407407407,
+    "lift": 4.084656084656085
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.7058823529411765,
+    "lift": 3.892436974789916
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.015927844943388985,
+    "confidence": 0.6747967479674797,
+    "lift": 3.721022067363531
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.6666666666666667,
+    "lift": 3.6761904761904765
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.6666666666666667,
+    "lift": 3.6761904761904765
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.6666666666666665,
+    "lift": 3.676190476190475
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.6571428571428571,
+    "lift": 3.623673469387755
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.6521739130434783,
+    "lift": 2.655061141304348
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.6470588235294117,
+    "lift": 3.5680672268907556
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.012281711763577048,
+    "confidence": 0.6464646464646464,
+    "lift": 3.5647907647907644
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0051813471502590676,
+    "confidence": 0.6428571428571429,
+    "lift": 7.976020408163267
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0051813471502590676,
+    "confidence": 0.6428571428571429,
+    "lift": 3.5448979591836736
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0057570523891767415,
+    "confidence": 0.6382978723404255,
+    "lift": 3.3768225510314283
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_BULGARIA"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.6341463414634145,
+    "lift": 8.979718981972427
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.6315789473684211,
+    "lift": 3.4827067669172935
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.625,
+    "lift": 3.032472067039106
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0063327576280944155,
+    "confidence": 0.6226415094339622,
+    "lift": 3.293994828081601
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.015544041450777202,
+    "confidence": 0.6136363636363636,
+    "lift": 7.419162623919005
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.6052631578947368,
+    "lift": 7.509586466165414
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.6052631578947368,
+    "lift": 2.9367097912378712
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.6000000000000001,
+    "lift": 2.4426562500000006
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.004797543657647284,
+    "confidence": 0.5952380952380952,
+    "lift": 7.196718594630428
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.5925925925925926,
+    "lift": 3.2677248677248674
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_MONTENEGRO"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.5909090909090909,
+    "lift": 12.466507177033494
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.5909090909090909,
+    "lift": 2.867064499746064
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.5833333333333334,
+    "lift": 2.830307262569833
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.5833333333333333,
+    "lift": 3.2166666666666663
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.5789473684210527,
+    "lift": 6.246158875449494
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.00422183841872961,
+    "confidence": 0.5789473684210527,
+    "lift": 3.1924812030075187
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.5789473684210527,
+    "lift": 2.809026756836225
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.576923076923077,
+    "lift": 2.799204984959175
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.017271157167530225,
+    "confidence": 0.5769230769230769,
+    "lift": 3.181318681318681
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOTELBUSES",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.5714285714285714,
+    "lift": 3.740847092605886
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.5714285714285714,
+    "lift": 3.151020408163265
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.5686274509803921,
+    "lift": 3.1355742296918767
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.5675675675675675,
+    "lift": 2.310620777027027
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.5666666666666667,
+    "lift": 3.1247619047619044
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.046632124352331605,
+    "confidence": 0.5638051044083527,
+    "lift": 3.108982432880345
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.5609756097560975,
+    "lift": 5.344138761314486
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.004797543657647284,
+    "confidence": 0.5555555555555555,
+    "lift": 5.993788819875776
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.5526315789473684,
+    "lift": 2.9236174191824738
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.015544041450777202,
+    "confidence": 0.5510204081632653,
+    "lift": 3.038483965014577
+  },
+  {
+    "antecedents": [
+      "VIEW_INSURANCE"
+    ],
+    "consequents": [
+      "VIEW_WHOWEARE"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.55,
+    "lift": 19.23523489932886
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.5471698113207547,
+    "lift": 2.227579599056604
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.004605641911341394,
+    "confidence": 0.5454545454545455,
+    "lift": 5.196277214558751
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.5454545454545455,
+    "lift": 3.007792207792208
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOTELBUSES",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.5428571428571428,
+    "lift": 2.2100223214285712
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.5405405405405406,
+    "lift": 2.6226785444662544
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.5384615384615385,
+    "lift": 2.848652869972667
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.5384615384615384,
+    "lift": 6.465260545905707
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.00422183841872961,
+    "confidence": 0.5365853658536585,
+    "lift": 5.911514463981849
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.011706006524659375,
+    "confidence": 0.5304347826086957,
+    "lift": 5.722765325411829
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.5277777777777778,
+    "lift": 2.7921319796954314
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.009403185568988677,
+    "confidence": 0.5268817204301075,
+    "lift": 2.787391517930244
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.5238095238095238,
+    "lift": 2.88843537414966
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.5217391304347826,
+    "lift": 3.4155560410749395
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.52,
+    "lift": 7.303827493261456
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.52,
+    "lift": 4.953784277879342
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.5172413793103449,
+    "lift": 6.417487684729065
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.5172413793103449,
+    "lift": 2.50963205548064
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.011514104778353483,
+    "confidence": 0.5172413793103449,
+    "lift": 2.105738146551724
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.009019382076376896,
+    "confidence": 0.5164835164835165,
+    "lift": 2.102652815934066
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.006524659374400307,
+    "confidence": 0.5151515151515151,
+    "lift": 2.0972301136363636
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.013049318748800614,
+    "confidence": 0.5112781954887218,
+    "lift": 3.3470737144368456
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.004797543657647284,
+    "confidence": 0.5102040816326531,
+    "lift": 2.6991608826271625
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.008635578583765112,
+    "confidence": 0.5056179775280898,
+    "lift": 6.2732744783306575
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_BULGARIA"
+    ],
+    "support": 0.00422183841872961,
+    "confidence": 0.5,
+    "lift": 7.080163043478261
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.00422183841872961,
+    "confidence": 0.5,
+    "lift": 6.0034562211981575
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_RAFTING"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.5,
+    "lift": 5.394409937888199
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_RAFTING"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.5,
+    "lift": 2.757142857142857
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.5,
+    "lift": 2.6451776649746193
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.5,
+    "lift": 2.6451776649746193
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.5,
+    "lift": 2.6451776649746193
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.5,
+    "lift": 2.425977653631285
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.0057570523891767415,
+    "confidence": 0.5,
+    "lift": 2.035546875
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.5,
+    "lift": 2.035546875
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_TOURISM"
+    ],
+    "support": 0.004797543657647284,
+    "confidence": 0.5,
+    "lift": 2.035546875
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.010938399539435808,
+    "confidence": 0.49565217391304345,
+    "lift": 2.7331677018633536
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.010938399539435808,
+    "confidence": 0.49137931034482757,
+    "lift": 5.941015281222498
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.005373248896564959,
+    "confidence": 0.4912280701754387,
+    "lift": 2.5987710392733105
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_MONTENEGRO"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.49056603773584906,
+    "lift": 10.349553128103278
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_BULGARIA"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.49056603773584906,
+    "lift": 6.946575061525841
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.48936170212765956,
+    "lift": 2.698480243161094
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.4878048780487804,
+    "lift": 5.857030459705518
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.4878048780487804,
+    "lift": 2.689895470383275
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.4878048780487804,
+    "lift": 2.580661136560604
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.4878048780487804,
+    "lift": 2.366807466957351
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.48648648648648646,
+    "lift": 2.6826254826254825
+  },
+  {
+    "antecedents": [
+      "TOPIC_LIPARI",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.4848484848484848,
+    "lift": 2.5650207660359943
+  },
+  {
+    "antecedents": [
+      "TOPIC_LIPARI",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.48275862068965525,
+    "lift": 2.342323251781931
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.48148148148148145,
+    "lift": 5.821345707656612
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.48148148148148145,
+    "lift": 2.336126629422719
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.47826086956521735,
+    "lift": 3.130926370985361
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.47826086956521735,
+    "lift": 2.637267080745341
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.47826086956521735,
+    "lift": 2.3205003643429682
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.47727272727272724,
+    "lift": 5.921590909090909
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.47727272727272724,
+    "lift": 4.546742562738906
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_BULGARIA"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.4761904761904762,
+    "lift": 5.717577353522055
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_BULGARIA"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.4761904761904762,
+    "lift": 4.5364324889004966
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0051813471502590676,
+    "confidence": 0.4736842105263158,
+    "lift": 5.877067669172933
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.004605641911341394,
+    "confidence": 0.4705882352941177,
+    "lift": 5.184429797288895
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HOLIDAY_SHIPPING"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.4666666666666667,
+    "lift": 2.4688324873096446
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.007484168105929764,
+    "confidence": 0.46428571428571436,
+    "lift": 2.4562364031907182
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.008635578583765112,
+    "confidence": 0.4639175257731959,
+    "lift": 2.45428855513109
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.4615384615384615,
+    "lift": 4.396849950780481
+  },
+  {
+    "antecedents": [
+      "TOPIC_LIPARI",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.45833333333333326,
+    "lift": 2.223812849162011
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.4571428571428571,
+    "lift": 5.671836734693877
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.007100364613317981,
+    "confidence": 0.45679012345679015,
+    "lift": 4.351614868982328
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.45454545454545453,
+    "lift": 6.384464592011762
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.45454545454545453,
+    "lift": 2.975673823663773
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.45454545454545453,
+    "lift": 2.2054342305738954
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.004605641911341394,
+    "confidence": 0.4528301886792453,
+    "lift": 6.360372272796623
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_BULGARIA"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.45238095238095244,
+    "lift": 6.354062379668849
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_RAFTING"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.45238095238095244,
+    "lift": 2.494557823129252
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.45098039215686275,
+    "lift": 5.452572676402348
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.45,
+    "lift": 2.1833798882681568
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.006524659374400307,
+    "confidence": 0.4473684210526316,
+    "lift": 2.3667379107667648
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.4468085106382978,
+    "lift": 5.543617021276595
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.4444444444444445,
+    "lift": 5.37354988399072
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.4444444444444445,
+    "lift": 2.909547738693467
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.4444444444444444,
+    "lift": 4.795031055900621
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.00422183841872961,
+    "confidence": 0.44,
+    "lift": 5.283041474654378
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.43750000000000006,
+    "lift": 2.122730446927375
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.008635578583765112,
+    "confidence": 0.4368932038834951,
+    "lift": 2.3113202897836476
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_BULGARIA"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.4358974358974359,
+    "lift": 6.17244983277592
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.4358974358974359,
+    "lift": 2.4036630036630036
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.007100364613317981,
+    "confidence": 0.4352941176470588,
+    "lift": 6.114063738703027
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.007100364613317981,
+    "confidence": 0.4352941176470588,
+    "lift": 2.3028605553896684
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.43478260869565216,
+    "lift": 2.846296700895783
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.012089810017271158,
+    "confidence": 0.4344827586206897,
+    "lift": 2.298568177840014
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.4339622641509434,
+    "lift": 6.095356761430097
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.4339622641509434,
+    "lift": 5.210546908964439
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HOLIDAY_SHIPPING"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.43333333333333335,
+    "lift": 5.20299539170507
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.43333333333333335,
+    "lift": 2.1025139664804473
+  },
+  {
+    "antecedents": [
+      "VIEW_LASTMINUTE",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.43283582089552236,
+    "lift": 2.2898552920675805
+  },
+  {
+    "antecedents": [
+      "VIEW_LASTMINUTE",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.011706006524659375,
+    "confidence": 0.4326241134751773,
+    "lift": 2.8321661498984283
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.006140855881788524,
+    "confidence": 0.4324324324324324,
+    "lift": 5.192178353468676
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.4318181818181818,
+    "lift": 5.357629870129871
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.00422183841872961,
+    "confidence": 0.43137254901960786,
+    "lift": 2.0930003286230696
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.42857142857142855,
+    "lift": 4.721534279673815
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.42857142857142855,
+    "lift": 2.2672951414068163
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "VIEW_CATALOG"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.42857142857142855,
+    "lift": 2.2672951414068163
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.42857142857142855,
+    "lift": 2.079409417398244
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.008059873344847437,
+    "confidence": 0.4242424242424242,
+    "lift": 4.577075098814229
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0069084628670120895,
+    "confidence": 0.4235294117647058,
+    "lift": 5.254789915966386
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.0069084628670120895,
+    "confidence": 0.4235294117647058,
+    "lift": 5.085280563838438
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.4230769230769231,
+    "lift": 5.249175824175825
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.4230769230769231,
+    "lift": 4.661001788908766
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.4230769230769231,
+    "lift": 2.052750322303395
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.42105263157894735,
+    "lift": 4.542661000326904
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.02801765496066014,
+    "confidence": 0.4207492795389049,
+    "lift": 2.0414566998856922
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.42,
+    "lift": 2.2219492385786803
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.005948954135482633,
+    "confidence": 0.4189189189189189,
+    "lift": 3.9908345273975985
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.4166666666666667,
+    "lift": 5.169642857142858
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "VIEW_LASTMINUTE"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.41666666666666663,
+    "lift": 2.0216480446927374
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.011706006524659375,
+    "confidence": 0.41496598639455784,
+    "lift": 2.716567531535227
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.009211283822682787,
+    "confidence": 0.4137931034482759,
+    "lift": 4.464339258941958
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.4137931034482759,
+    "lift": 2.2817733990147784
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.4137931034482759,
+    "lift": 2.189112550323823
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.411764705882353,
+    "lift": 5.108823529411765
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.40909090909090906,
+    "lift": 5.075649350649351
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.40909090909090906,
+    "lift": 3.8972079109190623
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.40909090909090906,
+    "lift": 2.16423627134287
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.008635578583765112,
+    "confidence": 0.40909090909090906,
+    "lift": 2.16423627134287
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_WATER"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.40816326530612246,
+    "lift": 2.250728862973761
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.4074074074074074,
+    "lift": 4.395445134575569
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.4074074074074074,
+    "lift": 4.395445134575569
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.4074074074074074,
+    "lift": 2.2465608465608464
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.4074074074074074,
+    "lift": 2.1553299492385785
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.40625,
+    "lift": 3.870143967093236
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.40540540540540543,
+    "lift": 3.862097929739612
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_BULGARIA"
+    ],
+    "consequents": [
+      "TOPIC_MONTENEGRO"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.4047619047619048,
+    "lift": 8.539329091960672
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.40425531914893614,
+    "lift": 4.453645809905088
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.40425531914893614,
+    "lift": 2.1386542823199046
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.007100364613317981,
+    "confidence": 0.40217391304347827,
+    "lift": 4.828866960528953
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.4,
+    "lift": 2.1161421319796956
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.3962264150943396,
+    "lift": 4.7574558734023125
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.3962264150943396,
+    "lift": 4.365192069887112
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.3958333333333333,
+    "lift": 4.270574534161491
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.006140855881788524,
+    "confidence": 0.3950617283950617,
+    "lift": 4.901587301587302
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.39473684210526316,
+    "lift": 4.7725607522286
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_RAFTING"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3928571428571428,
+    "lift": 11.065830115830114
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3928571428571428,
+    "lift": 2.078353879622915
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_WATER"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.39215686274509803,
+    "lift": 10.755417956656347
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.39215686274509803,
+    "lift": 4.865546218487395
+  },
+  {
+    "antecedents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.03626943005181347,
+    "confidence": 0.3913043478260869,
+    "lift": 2.5616670308062046
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.017846862406447898,
+    "confidence": 0.39075630252100835,
+    "lift": 2.1547418967587033
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.38888888888888895,
+    "lift": 2.057360406091371
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.006716561120706199,
+    "confidence": 0.3888888888888889,
+    "lift": 4.7018561484918795
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "support": 0.004029936672423719,
+    "confidence": 0.38888888888888884,
+    "lift": 2.0573604060913704
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.3846153846153846,
+    "lift": 3.6640416256504005
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.38297872340425526,
+    "lift": 4.751671732522796
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.38235294117647056,
+    "lift": 2.1084033613445374
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.38,
+    "lift": 4.186427061310782
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3793103448275862,
+    "lift": 3.613503120469016
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_RAFTING"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.3773584905660377,
+    "lift": 10.629270780214174
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.3773584905660377,
+    "lift": 4.681940700808625
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.3773584905660377,
+    "lift": 4.53091035562125
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.375,
+    "lift": 4.53393271461717
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_CYCLO"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.37499999999999994,
+    "lift": 2.0678571428571426
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.007100364613317981,
+    "confidence": 0.3737373737373737,
+    "lift": 2.4466651439013245
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.004797543657647284,
+    "confidence": 0.3731343283582089,
+    "lift": 2.057569296375266
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3714285714285714,
+    "lift": 3.5384173413423867
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3714285714285714,
+    "lift": 3.5384173413423867
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_RAFTING"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.37037037037037035,
+    "lift": 2.0423280423280423
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.009403185568988677,
+    "confidence": 0.36842105263157887,
+    "lift": 4.058862801824858
+  },
+  {
+    "antecedents": [
+      "VIEW_LASTMINUTE",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.006140855881788524,
+    "confidence": 0.36781609195402293,
+    "lift": 4.416335610996345
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.36666666666666664,
+    "lift": 2.4003768844221103
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.007100364613317981,
+    "confidence": 0.36633663366336633,
+    "lift": 4.545190947666195
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.3658536585365853,
+    "lift": 5.138715403326539
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.3658536585365853,
+    "lift": 4.539198606271777
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_ALPS"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.3658536585365853,
+    "lift": 4.392772844779139
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.3658536585365853,
+    "lift": 4.392772844779139
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.005948954135482633,
+    "confidence": 0.36470588235294116,
+    "lift": 5.122593943237672
+  },
+  {
+    "antecedents": [
+      "TOPIC_LIPARI",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.36363636363636365,
+    "lift": 4.511688311688312
+  },
+  {
+    "antecedents": [
+      "TOPIC_LIPARI",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.36363636363636365,
+    "lift": 3.4641848097058334
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.009211283822682787,
+    "confidence": 0.36363636363636365,
+    "lift": 2.3805390589310185
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_HIKING"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.36363636363636365,
+    "lift": 2.005194805194805
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3611111111111111,
+    "lift": 4.335829493087558
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3611111111111111,
+    "lift": 3.978329809725159
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_MONTENEGRO"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.358974358974359,
+    "lift": 7.573341638118966
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.358974358974359,
+    "lift": 5.042089985486212
+  },
+  {
+    "antecedents": [
+      "TOPIC_SKI",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.35802469135802467,
+    "lift": 4.328692962103635
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.00844367683745922,
+    "confidence": 0.35772357723577236,
+    "lift": 2.3418311067532787
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.0036461331798119364,
+    "confidence": 0.35185185185185186,
+    "lift": 2.303391959798995
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.012281711763577048,
+    "confidence": 0.3516483516483517,
+    "lift": 4.251599908212438
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.35135135135135137,
+    "lift": 4.248009029911582
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.34782608695652173,
+    "lift": 4.176317371268283
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0063327576280944155,
+    "confidence": 0.3473684210526316,
+    "lift": 4.309849624060151
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.34615384615384615,
+    "lift": 4.156238922367955
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.34523809523809523,
+    "lift": 4.14524358130349
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_BULGARIA"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.34375,
+    "lift": 4.867612092391304
+  },
+  {
+    "antecedents": [
+      "VIEW_LASTMINUTE",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.004413740165035502,
+    "confidence": 0.34328358208955223,
+    "lift": 2.2472999324983123
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_SKI"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.34210526315789475,
+    "lift": 5.13749431214925
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_SKI"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.34210526315789475,
+    "lift": 4.13621931859812
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.34210526315789475,
+    "lift": 3.7689440302659403
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.34210526315789475,
+    "lift": 3.259068603867988
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_WATER"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.3414634146341463,
+    "lift": 9.365083440308087
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.3414634146341463,
+    "lift": 4.236585365853658
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.008059873344847437,
+    "confidence": 0.3414634146341463,
+    "lift": 3.683987274655355
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.34117647058823525,
+    "lift": 3.758711603034448
+  },
+  {
+    "antecedents": [
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.028209556706966035,
+    "confidence": 0.34106728538283065,
+    "lift": 3.679713507515384
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.34042553191489355,
+    "lift": 3.2430666303629074
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.34,
+    "lift": 4.218428571428572
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.34,
+    "lift": 3.2390127970749547
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.33962264150943394,
+    "lift": 4.213746630727763
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.33962264150943394,
+    "lift": 2.22333364937897
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.008635578583765112,
+    "confidence": 0.3383458646616541,
+    "lift": 4.062489172239355
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.005948954135482633,
+    "confidence": 0.33695652173913043,
+    "lift": 4.180667701863355
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.006524659374400307,
+    "confidence": 0.3366336633663366,
+    "lift": 3.7086638896447783
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.33333333333333337,
+    "lift": 4.681940700808625
+  },
+  {
+    "antecedents": [
+      "VIEW_WHOWEARE",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.33333333333333337,
+    "lift": 4.559055118110236
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0051813471502590676,
+    "confidence": 0.33333333333333337,
+    "lift": 4.135714285714286
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_BULGARIA"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.33333333333333337,
+    "lift": 3.6723044397463007
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.013049318748800614,
+    "confidence": 0.33333333333333337,
+    "lift": 3.596273291925466
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.33333333333333337,
+    "lift": 3.1755027422303477
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.33333333333333337,
+    "lift": 2.1821608040201004
+  },
+  {
+    "antecedents": [
+      "TOPIC_CYCLO",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.33333333333333337,
+    "lift": 2.1821608040201004
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_HOLIDAY_SHIPPING"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3333333333333333,
+    "lift": 4.681940700808625
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3333333333333333,
+    "lift": 4.681940700808625
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3333333333333333,
+    "lift": 4.135714285714286
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_HOLIDAY_SHIPPING"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3333333333333333,
+    "lift": 4.002304147465438
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3333333333333333,
+    "lift": 4.002304147465438
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.015544041450777202,
+    "confidence": 0.3333333333333333,
+    "lift": 3.5962732919254656
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.3333333333333333,
+    "lift": 3.1755027422303472
+  },
+  {
+    "antecedents": [
+      "TOPIC_LIPARI",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3333333333333333,
+    "lift": 2.1821608040201004
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.006524659374400307,
+    "confidence": 0.33009708737864074,
+    "lift": 2.160974776796604
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.0057570523891767415,
+    "confidence": 0.3296703296703297,
+    "lift": 3.631949445902935
+  },
+  {
+    "antecedents": [
+      "TOPIC_ALPS",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.00422183841872961,
+    "confidence": 0.3283582089552239,
+    "lift": 4.073987206823028
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0069084628670120895,
+    "confidence": 0.3272727272727272,
+    "lift": 3.1177663287352497
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.3269230769230769,
+    "lift": 3.1144353818028407
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_BULGARIA"
+    ],
+    "support": 0.0028785261945883708,
+    "confidence": 0.32608695652173914,
+    "lift": 4.61749763705104
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "VIEW_DISCOUNT"
+    ],
+    "consequents": [
+      "VIEW_CATALOG"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.32558139534883723,
+    "lift": 4.453030580479766
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.32558139534883723,
+    "lift": 4.039534883720931
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_MONTENEGRO"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.32352941176470584,
+    "lift": 6.825553703262681
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.011706006524659375,
+    "confidence": 0.3227513227513228,
+    "lift": 3.902220749088499
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.32098765432098764,
+    "lift": 3.8540706605222734
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.32098765432098764,
+    "lift": 3.057891529555149
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_TOURIST"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.32,
+    "lift": 3.8422119815668205
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.005948954135482633,
+    "confidence": 0.3195876288659794,
+    "lift": 3.520869205117587
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_RAFTING"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.31818181818181823,
+    "lift": 8.962407862407863
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_CYCLO"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.31818181818181823,
+    "lift": 3.3160909090909096
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.009403185568988677,
+    "confidence": 0.3181818181818181,
+    "lift": 3.9477272727272723
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.31707317073170727,
+    "lift": 3.833569124554354
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.31707317073170727,
+    "lift": 3.0206001694386226
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.31578947368421056,
+    "lift": 3.9180451127819556
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.31578947368421056,
+    "lift": 3.0083710189550663
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.3157894736842105,
+    "lift": 4.435522769187118
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.008059873344847437,
+    "confidence": 0.3157894736842105,
+    "lift": 3.8180486017828796
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURS_WITH_ACCOMMODATION",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.0057570523891767415,
+    "confidence": 0.3157894736842105,
+    "lift": 3.479025258707021
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.0034542314335060447,
+    "confidence": 0.3157894736842105,
+    "lift": 3.479025258707021
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_EXOTICA"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0032623296872001536,
+    "confidence": 0.3148148148148148,
+    "lift": 3.9059523809523813
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_TOURS_WITH_ACCOMMODATION"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.005373248896564959,
+    "confidence": 0.3146067415730337,
+    "lift": 2.997103711767968
+  },
+  {
+    "antecedents": [
+      "TOPIC_RAFTING",
+      "TOPIC_VHT"
+    ],
+    "consequents": [
+      "TOPIC_WATER"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3142857142857143,
+    "lift": 8.6196992481203
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "VIEW_CATALOG"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3142857142857143,
+    "lift": 4.41440123219099
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3142857142857143,
+    "lift": 3.8993877551020413
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "VIEW_CATALOG"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3142857142857143,
+    "lift": 2.9940454426743273
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_EXOTICA"
+    ],
+    "support": 0.002110919209364805,
+    "confidence": 0.3142857142857143,
+    "lift": 2.0574659009332374
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.3118279569892473,
+    "lift": 2.970631597570325
+  },
+  {
+    "antecedents": [
+      "VIEW_CATALOG",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.30952380952380953,
+    "lift": 4.347516365036581
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_RAFTING"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.30952380952380953,
+    "lift": 3.7422936692078226
+  },
+  {
+    "antecedents": [
+      "TOPIC_BULGARIA",
+      "TOPIC_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.3076923076923077,
+    "lift": 3.8175824175824182
+  },
+  {
+    "antecedents": [
+      "TOPIC_STAYS_WITH_TRIPS",
+      "TOPIC_MONTENEGRO"
+    ],
+    "consequents": [
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.3076923076923077,
+    "lift": 3.3898194828427393
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_TOURIST"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.3076923076923077,
+    "lift": 2.931233300520321
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURIST",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.006140855881788524,
+    "confidence": 0.30769230769230765,
+    "lift": 4.321791416131038
+  },
+  {
+    "antecedents": [
+      "TOPIC_CORSICA",
+      "TOPIC_TOURS_WITH_LIGHTWEIGHT_TOURISM"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.00556515064287085,
+    "confidence": 0.30526315789473685,
+    "lift": 3.787443609022557
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "VIEW_LASTMINUTE"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.30434782608695654,
+    "lift": 4.274815422477441
+  },
+  {
+    "antecedents": [
+      "TOPIC_HIKING",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_STAYS_WITH_TRIPS"
+    ],
+    "support": 0.0026866244482824796,
+    "confidence": 0.30434782608695654,
+    "lift": 3.77608695652174
+  },
+  {
+    "antecedents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.028209556706966035,
+    "confidence": 0.30434782608695654,
+    "lift": 3.6797135075153844
+  },
+  {
+    "antecedents": [
+      "TOPIC_EXOTICA",
+      "TOPIC_HOTELBUSES"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.0038380349261178275,
+    "confidence": 0.30303030303030304,
+    "lift": 3.269339356295878
+  },
+  {
+    "antecedents": [
+      "TOPIC_HOLIDAY_SHIPPING",
+      "TOPIC_CORSICA"
+    ],
+    "consequents": [
+      "TOPIC_LIPARI"
+    ],
+    "support": 0.002494722701976588,
+    "confidence": 0.3023255813953489,
+    "lift": 4.246411333291545
+  },
+  {
+    "antecedents": [
+      "TOPIC_TOURISM",
+      "TOPIC_LIPARI"
+    ],
+    "consequents": [
+      "TOPIC_CORSICA"
+    ],
+    "support": 0.004989445403953176,
+    "confidence": 0.3023255813953489,
+    "lift": 2.8801071383019434
+  },
+  {
+    "antecedents": [
+      "TOPIC_WATER",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_VHT"
+    ],
+    "support": 0.003070427940894262,
+    "confidence": 0.3018867924528302,
+    "lift": 3.649958411767281
+  },
+  {
+    "antecedents": [
+      "TOPIC_MONTENEGRO",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_BULGARIA"
+    ],
+    "support": 0.002302820955670697,
+    "confidence": 0.30000000000000004,
+    "lift": 4.248097826086957
+  },
+  {
+    "antecedents": [
+      "TOPIC_CLIMBING_SCHOOL",
+      "TOPIC_HIKING"
+    ],
+    "consequents": [
+      "TOPIC_CHALLENGING_EXPEDITION"
+    ],
+    "support": 0.0051813471502590676,
+    "confidence": 0.3,
+    "lift": 3.2366459627329194
+  }
+]
