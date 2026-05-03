@@ -14,7 +14,12 @@ https://courses.fit.cvut.cz/NI-DDW/hw/04/files/wum-dataset-hw.zip[wum-dataset-hw
 * *search_engine_map*:
 ** мапування реферера на тип джерела
 
+
+Подальші секції продовжують опис датасету та використані методи, весь поступ роботи також можна слідкувати
+в `notebooks/main.ipynb`
+
 ---
+
 
 === Аналіз даних та вибір релевантних атрибутів
 
@@ -399,3 +404,27 @@ support = 0.0286, confidence = 0.289, lift = 3.95
 |===
 
 
+
+=== Spuštění a MLflow
+
+Pro nastavení prostředí:
+
+[source,bash]
+----
+pyenv install 3.12.11
+pyenv local 3.12.11
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+----
+
+Pro spuštění použijte Jupyter soubory v adresáři `notebooks`.
+
+IMPORTANT: Při spuštění `main.ipynb` musí být MLflow dostupný na `http://localhost:5000/`.
+
+До млфлов додані к-ті сесій, к-ть трансакцій після очистки, к-ть конверзій типу Application та каталог.
+Також к-ть micro конверсій та їх відсоток відно усіх сесій.
+Додано також фільтрування сильних правил, його параметри також додано в mlflow.
+До артефактів додано всі знайдені правила, сильні правила, правила відносно application та каталог у форматі json.
+
+До артефактів також додано результати кластеризації, png elbow методу, утворені кластри як презентовано в роботі.
