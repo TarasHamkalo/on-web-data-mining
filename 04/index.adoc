@@ -1,71 +1,69 @@
 == 4. Web Analytics / Web Usage Mining
-
-Для виконання завдання було використано наданий датасет:
+Pro splnění úlohy byl použit poskytnutý dataset:
 https://courses.fit.cvut.cz/NI-DDW/hw/04/files/wum-dataset-hw.zip[wum-dataset-hw.zip].
 
-Датасет містить три таблиці:
+Dataset obsahuje tři tabulky:
 
 * *clicks*:
-** інформація про перегляди сторінок в рамках сесій
-** атрибути: PageName, CatName, ExtCatName, TopicName, TimeOnPage, SequenceNumber, ...
+** informace o zobrazeních stránek v rámci relací
+** atributy: PageName, CatName, ExtCatName, TopicName, TimeOnPage, SequenceNumber, ...
 * *visitors*:
-** інформація про сесії
-** атрибути: Length_seconds, Length_pagecount, Referrer, Day, Hour
+** informace o relacích
+** atributy: Length_seconds, Length_pagecount, Referrer, Day, Hour
 * *search_engine_map*:
-** мапування реферера на тип джерела
+** mapování referreru na typ zdroje
 
 
-Подальші секції продовжують опис датасету та використані методи, весь поступ роботи також можна слідкувати
-в `notebooks/main.ipynb`
-
----
-
-
-=== Аналіз даних та вибір релевантних атрибутів
-
-Дані містять приблизно:
-
-* 15 559 сесій (VisitID)
-* 38 451 взаємодій (clicks)
-
-Ключовими атрибутами для аналізу є:
-
-* VisitID — ідентифікатор сесії
-* PageName — назва сторінки
-* CatName — загальна категорія
-* ExtCatName — деталізована категорія
-* TopicName — тематична категорія
-* SequenceNumber — порядок переходів
-
-Допоміжні атрибути (PageID, CatID, TopicID, LocalID) є лише внутрішніми ідентифікаторами та не несуть аналітичної цінності, тому були видалені.
+Další sekce pokračují popisem datasetu a použitých metod, celý průběh práce je také možné sledovat
+v `notebooks/main.ipynb`
 
 ---
 
-==== Аналіз атрибуту PageName
+=== Analýza dat a výběr relevantních atributů
 
-Атрибут *PageName* містить приблизно 800 унікальних значень.
+Data obsahují přibližně:
 
-Через високу кардинальність:
+* 15 559 relací (VisitID)
+* 38 451 interakcí (clicks)
 
-* не підходить напряму для association rule mining (низький support)
-* містить багато шумових або технічних сторінок
+Klíčovými atributy pro analýzu jsou:
 
-Проте він використовується для ідентифікації конверсій.
+* VisitID — identifikátor relace
+* PageName — název stránky
+* CatName — obecná kategorie
+* ExtCatName — detailnější kategorie
+* TopicName — tematická kategorie
+* SequenceNumber — pořadí přechodů
 
-===== Визначені конверсії
+Pomocné atributy (PageID, CatID, TopicID, LocalID) jsou pouze interní identifikátory a nenesou analytickou hodnotu, proto byly odstraněny.
+
+---
+
+==== Analýza atributu PageName
+
+Atribut *PageName* obsahuje přibližně 800 unikátních hodnot.
+
+Kvůli vysoké kardinalitě:
+
+* není vhodný pro přímé použití v association rule mining (nízký support)
+* obsahuje mnoho šumových nebo technických stránek
+
+Přesto je využit pro identifikaci konverzí.
+
+===== Definované konverze
 
 [cols="1,2"]
 |===
-|Тип |Сторінки
+|Typ |Konverze
 
-|Макро конверсії
+|Makro konverze
 |APPLICATION, CATALOG
 
-|Мікро конверсії
+|Mikro konverze
 |INSURANCE, DISCOUNT, WHOWEARE, HOWTOJOIN, LASTMINUTE
 |===
 
-Мапування:
+Mapování:
 
 [source,python]
 ----
@@ -83,11 +81,11 @@ PAGE_TO_APRIORI_CONVERSION = {
 
 ---
 
-==== Аналіз категорій сторінок
+==== Analýza kategorií stránek
 
 ===== CatName
 
-Містить лише 5 значень:
+Obsahuje pouze 5 hodnot:
 
 [cols="1"]
 |===
@@ -95,16 +93,16 @@ PAGE_TO_APRIORI_CONVERSION = {
 | Info, Search, Trip, Application, undetected
 |===
 
-Недоліки:
+Nevýhody:
 
-* занадто узагальнені
-* низька інформативність
+* příliš obecné
+* nízká informativnost
 
 ---
 
 ===== ExtCatName
 
-Містить більш деталізовані категорії:
+Obsahuje detailnější kategorie:
 
 [cols="1"]
 |===
@@ -113,161 +111,138 @@ PAGE_TO_APRIORI_CONVERSION = {
 |homepage, Application, Insurance Catalog, Send catalog, Sales, Who we are, extension, list_tour, KW, Country ...
 |===
 
-Проблеми:
+Problémy:
 
-* багато значень з дуже низькою частотою (< 100)
-* частина є технічними або незрозумілими (`extension`, `KW`)
-* значна частина дублює інформацію з PageName
+* mnoho hodnot s velmi nízkou četností (< 100)
+* část je technická nebo nejasná (`extension`, `KW`)
+* velká část duplikuje informaci z PageName
 
 
-
-Отже, CatName та ExtCatName не додають суттєвої інформації при наявності PageName і не використовуються далі.
+Proto CatName a ExtCatName nepřidávají podstatnou informaci při ználosti PageName a dále se nepoužívají.
 
 ---
 
-==== Аналіз TopicName
+==== Analýza TopicName
 
-TopicName є найбільш інформативним атрибутом, що відображає ціль користувача.
+TopicName je nejvíce informativní atribut, který odráží záměr uživatele.
 
-Список релевантних значень:
+Seznam relevantních hodnot:
 
 * Tourism, Hiking, VHT, Water, rafting, exotica, Corsica, Stays with trips, hotelbuses, Lastminute, Tours with accommodation, challenging expedition, Ski, Lipari, cyclo, Bulgaria, Tours with lightweight tourism, School tours, Holiday Shipping, Tourist, climbing school, Montenegro, Alps, Golf.
 
-Видалені (неінформативні):
+Odstraněné (neinformativní):
 
 * In general, Neni, undetected.
 
-Причина:
+Důvod:
 
-* не несуть чіткого змісту
-* відповідають інформаційним або шумовим сторінкам
+* nenesou jasný význam
+* odpovídají informačním nebo šumovým stránkám
 
 ---
 
-==== Обробка часу сесій
+==== Zpracování času relací
 
-Час сесії доступний з двох джерел:
+Čas relace je dostupný ze dvou zdrojů:
 
-* сума TimeOnPage (clicks)
+* součet TimeOnPage (clicks)
 * Length_seconds (visitors)
 
-Було виявлено неконсистентність:
-
-* значна частина сесій (~9 992) має Length_seconds = 0
-* при цьому окремі сторінки можуть мати ненульовий час
-
-В якості "джерела істини" використовується *visitors*.
+Byla zjištěna nekonzistence, že značná část relací (~9 992) má Length_seconds = 0, přitom jednotlivé stránky mohou mít nenulový čas
+Takže jako "zdroj pravdy" je použita tabulka *visitors*.
 
 ---
 
-==== Фільтрація сесій
-
-Було застосовано наступні умови:
-
-[source,python]
-----
-Length_pagecount >= 2
-Length_seconds > 0
-----
-
-Обґрунтування:
-
-* сесії з однією сторінкою не дають асоціацій
-* нульовий час свідчить про неякісні або неповні дані
-
----
-
-==== Підсумкова статистика після фільтрації
+==== Souhrnná statistika po filtrování
 
 [cols="2,1"]
 |===
-|Метрика |Кількість
+|Metrika |Počet
 
-|Сесії з >=2 сторінками
+|Relace s >=2 stránkami
 |~6600
 
-|Сесії після фільтрації
+|Relace po filtrování
 |~5600
 
-|Сесії з VIEW_APPLICATION
+|Relace s VIEW_APPLICATION
 |16
 
-|Сесії з VIEW_CATALOG
+|Relace s VIEW_CATALOG
 |455
 |===
 
 ---
 
-==== Висновки
+==== Závěry
 
-* Основними інформативними атрибутами є:
-** TopicName (intent)
-** PageName (конверсії)
+* Hlavní informativní atributy jsou:
+** TopicName (záměr)
+** PageName (konverze)
 
-* Категорії сторінок були відкинуті через:
-** низьку інформативність
-** дублювання інформації
-** шум
+* Kategorie stránek byly odstraněny kvůli:
+** nízké informativnosti
+** duplicitě informací
+** šumu
 
-* Дані містять значну кількість неконсистентностей, особливо у часі
+* Data obsahují значné množství nekonzistencí, zejména v čase
 
-* Конверсія APPLICATION є дуже рідкісною, що ускладнює побудову правил
+* Konverze APPLICATION je velmi vzácná, což komplikuje tvorbu pravidel
 
-* Конверсія CATALOG є основною ціллю для подальшого аналізу
+* Konverze CATALOG je hlavní cíl další analýzy
 
-=== Репрезентація даних та попереднє опрацювання
+=== Reprezentace dat a předzpracování
 
-Для побудови асоціативних правил було обрано семантичне представлення сесій.
-Замість класичних проміжних матриць (User-Pageview Matrix або Page Feature Matrix) безпосередньо конструюється Transaction-Feature Matrix (TFM),
-де кожна транзакція — це набір релевантних ознак сесії.
+Pro tvorbu asociačních pravidel byla zvolena "semantická" reprezentace relací.
+Místo klasických mezikroků (User-Pageview Matrix nebo Page Feature Matrix) je přímo vytvářena Transaction-Feature Matrix (TFM),
+kde každá transakce je množina relevantních znaků relace.
 
-Елементи транзакції формуються за такими правилами:
+Prvky transakce jsou vytvářeny podle těchto pravidel:
 
-* *Тематика сторінок*: значення з `TopicName` (префікс `TOPIC_`).
-* *Конверсії*: макро- та мікроконверсії (визначені раніше) (префікс `VIEW_`).
-* *Поведінкові патерни*: додано агреговані характеристики сесії, такі як кількість переглянутих унікальних тем (`TOPICS>=N`) та кількість виконаних пошуків (`SEARCH>=N`).
+* Témata stránek: hodnoty z `TopicName` (prefix `TOPIC_`)
+* Konverze: makro a mikro konverze (definované výše) (prefix `VIEW_`)
+* Behaviorální znaky: přidány agregované charakteristiky relace, jako počet unikátních témat (`TOPICS>=N`) a počet vyhledávání (`SEARCH>=N`)
 
-Приклад сформованої транзакції:
+Příklad transakce:
 ----
 {'TOPICS>=2', 'SEARCH>=3', 'TOPIC_LIPARI', 'VIEW_DISCOUNT', 'VIEW_CATALOG', 'TOPIC_STAYS_WITH_TRIPS'}
 ----
 
 
-Для очищення даних виконується
+Pro čištění dat se provádí:
 
-* видалення занадто коротких візитів
+* odstranění příliš krátkých návštěv
 ** `Length_pagecount >= 2 AND Length_seconds > 0`
-* нормалізація регістру,
-* заміна пробілів на пікреслення
-* видалення NaN
+* normalizace registru pro TopicName, PageName
+* nahrazení mezer podtržítkem
+* odstranění NaN
 
-Код для безпосередньої генерації транзакцій на основі цих даних знаходиться у... Після генерації, усі транзакції
-що містять одну дію (такі зявляються напр. з перехоу HOME -> CATALOG) видаляються.
+Po vytvoření transakcí jsou také odstraněny všechny, obsahující pouze jednu akci
+(takové vznikají např. z přechodu HOME do CATALOG a pod).
 
+=== Extrakce asociačních pravidel
 
-=== Екстракція правил асоціації
+Pro hledání asociačních pravidel byl použit algoritmus Apriori (knihovna `mlxtend`).
 
-Для пошуку асоціативних правил було використано алгоритм Apriori (бібліотека `mlxtend`).
+Cílem bylo najít vzory chování vedoucí k makrokonverzi `VIEW_CATALOG`.
+Konverze `VIEW_APPLICATION` je velmi vzácná, proto pro ni nebylo možné získat
+dostatek pravidel.
 
-Метою було знайти патерни поведінки, що ведуть до макроконверсії `VIEW_CATALOG`.
-Конверсія `VIEW_APPLICATION` є дуже рідкісною, тому для неї не вдалося отримати
-достатньо правил.
+Protože `VIEW_CATALOG` se vyskytuje přibližně v ~400 z ~5200 relací,
+byly použity nízké prahy:
 
-Оскільки `VIEW_CATALOG` зустрічається приблизно у ~400 з ~5200 сесій,
-було використано низькі пороги:
-
-* `min_support = 0.001` (~5 транзакцій)
+* `min_support = 0.001` (~5 transakcí)
 * `min_confidence = 0.2`
 
-У результаті отримано 37 правил з правою частиною `VIEW_CATALOG`.
+Výsledkem je 37 pravidel s pravou stranou `VIEW_CATALOG`.
 
 ---
 
-==== Найбільш значущі правила
+==== Nejvýznamnější pravidla
 
 [cols="3,1,1,1"]
 |===
-|Антецедент |Support |Confidence |Lift
+|Antecedent |Support |Confidence |Lift
 
 |(VIEW_WHOWEARE, TOPIC_ALPS)
 |0.0021
@@ -322,87 +297,95 @@ Length_seconds > 0
 
 ---
 
-==== Інтерпретація результатів
+==== Interpretace výsledků
 
-Отримані правила показують, що користувачі, які переглядають сторінку
-`VIEW_WHOWEARE`, значно частіше переходять до `VIEW_CATALOG`.
-Це підтверджується також простішим правилом:
+Získaná pravidla ukazují, že uživatelé, kteří navštíví stránku
+`VIEW_WHOWEARE`, výrazně častěji přecházejí na `VIEW_CATALOG`.
+To potvrzuje i jednoduché pravidlo:
 
 [source]
 ----
 (VIEW_WHOWEARE) → (VIEW_CATALOG)
 support = 0.0286, confidence = 0.289, lift = 3.95
 ----
+To naznačuje význam stránek, které budují důvěru k společnosti.
 
-Це свідчить про важливість сторінок, що формують довіру до компанії.
+Dále je vidět, že stránky se slevami (`VIEW_DISCOUNT`, `VIEW_LASTMINUTE`)
+zvyšují pravděpodobnost přechodu do katalogu. Uživatelé pravděpodobně hledají
+výhodné nabídky před rozhodnutím.
 
-Також видно, що сторінки зі знижками (`VIEW_DISCOUNT`, `VIEW_LASTMINUTE`)
-підвищують ймовірність переходу до каталогу. Ймовірно, користувачі шукають
-вигідні пропозиції перед прийняттям рішення.
-
-У правилах часто зустрічаються теми:
+V pravidlech se často objevují témata:
 
 * TOURS_WITH_ACCOMMODATION, ALPS, CYCLO, CORSICA, LIPARI
 
-Це означає, що певні типи подорожей мають більшу ймовірність завершитись
-переглядом каталогу.
+To znamená, že některé typy zájezdů mají vyšší pravděpodobnost, že povedou
+k prohlédnutí katalogu.
 
-Наприклад, комбінація інтересу до Альп та перегляду сторінки "Про нас"
-дає ймовірність переходу до каталогу понад 60%, що значно вище за середнє значення.
+Například kombinace zájmu o Alpy a návštěvy stránky "O nás"
+vede k pravděpodobnosti přechodu do katalogu přes 60 %.
 
-Усі правила додану до `results/catalog_rules.json`
+Všechna pravidla jsou uložena v `results/all_rules|catalog_rules.json`.
 
-=== Кластеризація сесій
-Додатково вирішено зробити кластеризацію сесій на основі поля топіків що в ній зявляються.
+Dále byla vybrána "silná pravidla", kde byla omezena velikost levé i pravé strany
+(pouze implikace {1, 2} => 1 a 1 => 1). Zároveň byla odstraněna nevhodná pravidla
+typu `SEARCH>=8 => TOPIC>=7` a aplikováno filtrování podle support, confidence a lift.
 
-Для кластеризації використовується k-mean, як домену ознак вибрано використовувати TimeOnPage, тому попередньо використовується стандардизація.
+Tato pravidla jsou uložena v `results/strong_rules.json`. Většina z nich však
+popisuje vztahy mezi tématy (topic => topic), proto nejsou v této sekci dále prezentována.
 
-Для вибору к-ті кластрів використано elbow метод, рисунок наведений нижче. За цим алгоритмом
-оптимальним виглядає 25 кластрів. Це досить високе число, де відрізняються й малі відмінності
-груп по типу - ті самі категорії але значно інші часи. На мою думку це реалістично відрізняє
-типи людей тому залишаю так.
+=== Shlukování relací
+Navíc bylo rozhodnuto provést shlukování relací na základě témat, která se v nich objevují.
 
-Нижче наведено стисле зведення найбільш показових кластерів, а усі знайдені кластри наведено у
-`results/clusters.txt`.
+Pro shlukování je použit algoritmus k-means, jako hodnoty příznaků je zvolen TimeOnPage, proto je předem provedena standardizace.
 
-=== Гірський туризм та експедиції
+Pro volbu počtu shluků byla použita elbow metoda, obrázek je uveden níže. Podle tohoto přístupu se jako vhodné jeví 25 shluků.
+Jde o poměrně vysoké číslo, které zachycuje i menší rozdíly mezi skupinami (např. stejné kategorie, ale výrazně odlišné časy).
+Pomocí tohoto přístupu však byly stanoveny rozumné kategorie, a proto k dálší ladění nebylo provaděno.
 
-Ці кластери об'єднують близько 200 сесій і чітко диференціюють аудиторію за
-рівнем підготовки: від класичного хайкінгу до серйозних альпійських викликів та шкіл скелелазіння.
+image::results/elbow.png[Elbow method, align=center]
+
+Níže je uveden stručný přehled nejvýraznějších shluků, všechny nalezené shluky jsou uvedeny v `results/clusters.txt`.
+
+=== Horská turistika a expedice
+
+Tyto shluky zahrnují přibližně 200 relací a jasně rozlišují uživatele podle úrovně zkušeností: od běžného hikingu až po náročné alpské aktivity a lezecké školy.
+
 [options="header"]
 |===
-| Кластер | Сесії | Частка | Топ-3 топіки за середнім часом (сек)
+| Shluk | Relace | Podíl | Top-3 témata podle průměrného času (s)
 | 1 | 126 | 2.5% | HIKING (711), TOURISM (79), ALPS (32)
 | 7 | 13 | 0.3% | CLIMBING_SCHOOL (605), HIKING (97), ALPS (58)
 | 16 | 47 | 0.9% | VHT (688), HIKING (125), TOURISM (33)
 | 24 | 7 | 0.1% | ALPS (1474), TOURS_WITH_LIGHTWEIGHT_TOURISM (231), TOURS_WITH_ACCOMMODATION (111)
 |===
 
+=== Úzce zaměřené aktivity
 
-=== Вузькопрофільні активності
+Skupiny uživatelů zaměřené na konkrétní druhy sportu.
+Lze si všimnout, že některé malé skupiny (např. shluk 6) vykazují výrazně hlubší
+zájem o rafting v kombinaci s dalšími aktivitami než větší skupiny (např. shluk 17).
 
-Аудиторія, яка приходить за конкретними видами спорту.
-Варто звернути увагу, що деякі групи (як кластер 6) демонструють значно глибше
-залучення в тему рафтингу у поєднанні з іншими активностями, ніж більш масові групи (як кластер 17).
 [options="header"]
 |===
-| Кластер | Сесії | Частка | Топ-3 топіки за середнім часом (сек)
+| Shluk | Relace | Podíl | Top-3 témata podle průměrného času (s)
 | 6 | 9 | 0.2% | RAFTING (867), HIKING (183), CYCLO (113)
 | 10 | 67 | 1.3% | CYCLO (741), STAYS_WITH_TRIPS (26), TOURISM (23)
 | 15 | 30 | 0.6% | SKI (395), HIKING (33), VHT (24)
 | 17 | 48 | 1.0% | RAFTING (246), HIKING (37), TOURISM (29)
 |===
 
-=== Масовий туризм (Фоновий трафік)
 Найбільший кластер, що становить понад три чверті всіх сесій. Це "холодна" аудиторія або користувачі, які швидко переглядають
 загальні пропозиції без зупинки на конкретних деталях
 
+=== Masový turismus (většina trafiku)
+Největší shluk, který tvoří více než tři čtvrtiny všech relací.
+Jde tady o část uživatelů, kteří rychle procházejí obecné nabídky bez hlubšího zájmu o konkrétní obsah.
+
 [options="header"]
 |===
-| Кластер | Сесії | Частка | Топ-3 топіки за середнім часом (сек)
+| Shluk | Relace | Podíl | Top-3 témata podle průměrného času (s)
 | 22 | 3855 | 76.7% | TOURISM (25), TOURS_WITH_ACCOMMODATION (22), HIKING (17)
 |===
-
 
 
 === Spuštění a MLflow
@@ -422,9 +405,11 @@ Pro spuštění použijte Jupyter soubory v adresáři `notebooks`.
 
 IMPORTANT: Při spuštění `main.ipynb` musí být MLflow dostupný na `http://localhost:5000/`.
 
-До млфлов додані к-ті сесій, к-ть трансакцій після очистки, к-ть конверзій типу Application та каталог.
-Також к-ть micro конверсій та їх відсоток відно усіх сесій.
-Додано також фільтрування сильних правил, його параметри також додано в mlflow.
-До артефактів додано всі знайдені правила, сильні правила, правила відносно application та каталог у форматі json.
+Do MLflow jsou logovány počty relací, počet transakcí po čištění, počet konverzí typu Application a Catalog.
+Dále počet micro konverzí a jejich podíl vůči všem relacím.
 
-До артефактів також додано результати кластеризації, png elbow методу, утворені кластри як презентовано в роботі.
+Jsou také logovány parametry filtrace silných pravidel.
+
+Do artefaktů jsou uložena všechna nalezená pravidla, silná pravidla a pravidla pro Application a Catalog ve formátu JSON.
+
+Do artefaktů jsou dále uloženy výsledky shlukování, PNG graf elbow metody a vytvořené shluky ve stejné podobě, jak jsou prezentovány v práci.
