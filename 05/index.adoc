@@ -109,7 +109,27 @@ To může být způsobeno zejména absencí pokročilejšího předzpracování 
 omezenou kvalitou použitého embedding modelu pro technickou doménu Cranfield datasetu
 nebo obecně obtížností samotné retrieval úlohy.
 
-==== Závěr
+==== Vyhodnocení dense reprezentací
 Využití dense modelu sice nepřineslo řádový skok v přesnosti oproti TF-IDF, ale zásadně zvyšuje efektivitu vyhledávání.
 Porovnávání vektorů o délce 384 namísto 20 524 dimenzí výrazně zrychluje výpočetní proces a snižuje paměťovou náročnost,
 což je v praxi při práci s velkými dokumentovými bázemi klíčové.
+
+
+=== Závěr
+
+V rámci úlohy byly porovnány sparse i dense reprezentace
+dokumentů pro retrieval nad Cranfield kolekcí.
+
+Sparse reprezentace založené na přesném překryvu termů
+dosahovaly použitelných výsledků pouze při použití kosinové podobnosti.
+Nejlepších výsledků mezi sparse metodami dosáhla reprezentace TF-IDF,
+která díky složce IDF efektivně zvýrazňuje vzácnější termy.
+
+Naopak euklidovská vzdálenost se ukázala jako nevhodná pro sparse
+vysokodimenzionální data, protože je silně negativně ovlivněna
+řídkostí a rozdílnou délkou vektorů.
+
+Nejlepších výsledků celkově dosáhly dense embeddingy založené na modelu
+Transformer. Výsledky sice nejsou drasticky lepší než u TF-IDF,
+ale díky použití nízkodimenzionálních vektorů dochází k výraznému zrychlení
+vyhledávání.
