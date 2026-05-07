@@ -1,89 +1,83 @@
 == 5. Indexing + Document Retrieval
 
-Для виконання завдання було використано попередньо спрацьовану версію cranfield датесету (https://courses.fit.cvut.cz/NI-DDW/hw/05/files/cranfield.zip[скачати]).
-Вона містить:
+Pro splnění úkolu byla použita předzpracovaná verze datasetu Cranfield (https://courses.fit.cvut.cz/NI-DDW/hw/05/files/cranfield.zip[stáhnout]).
+Ta obsahuje:
 
 * `/d`:
-    - тиксти з 1400 доступних документів
-    - lower case, пунктуація видалена, речення розділені крапкою
-* `/q`
-    - тексти 225 запитів у форматі як документи
-* `/r`
-    - списки релевантних документів для кожного з `q`
+- texty 1400 dostupných dokumentů
+- lower case, interpunkce odstraněna, věty oddělené tečkou
+* `/q`:
+- texty 225 dotazů ve stejném formátu jako dokumenty
+* `/r`:
+- seznamy relevantních dokumentů pro každý z `q`
 
-Після начитання документів не виконується подальше спрацювання по типу лематизації. Це веде до створення
-використання багато розмірних векторів (к-ть унікальних токенів приблизно 20 тис), проте такі
-дані чітко покажуть недоліки репрезентації (spasre, збільшення середньої відстані між подібними даними).
+Po načtení dokumentů se neprovádí žádné další zpracování, jako je například lematizace. To vede k použití vícerozměrných vektorů (počet unikátních tokenů je přibližně 20 tisíc). Taková data však jasně ukáží nevýhody reprezentace (řídkost dat/sparsity, zvětšení průměrné vzdálenosti mezi podobnými daty).
 
-=== Тестовані репрезентації та метрики
-В даній роботі будуть порівняно наступні резпрезентації:
+=== Testované reprezentace a metriky
+V této práci budou porovnány následující reprezentace:
 
 * Binary representation
-* Term Frequency
+* Term Frequency (TF)
 * TF-IDF
 * Dense ("sentence-transformers/all-MiniLM-L6-v2")
 
-Далі виконується рангування документів окремо відносно cosine similarity (1 - cos) та euclidean distance (покаже проблеми з ненормованістю векторів).
+Dále se provádí hodnocení (ranking) dokumentů odděleně pomocí cosine similarity (1 - cos) a euclidean distance (ta ukáže problémy s nenormalizovanými vektory).
 
-Оцінюватись дані підходи будуть за використання:
+Hodnocení těchto přístupů bude provedeno pomocí:
 
 * Precision@K
 * Recall@K
 * F1@K
 * MRR
 
-Причому для значень використовуються наступні:
+Přičemž pro `k` jsou použity následující hodnoty:
 
 * [1, 3, 5, 10, 15, 25, 35, 50]
 
-=== Sparse репрезентації
-Для імплементації використовується бібліотека `sklearn`, кінцева к-ть властивостей (příznaků) `20524`.
-З даної к-ті вже очікується що хороших результатів простим порівнянням векторів недосягти (напр. при IR в Lucene та подібних
-для запитів би використовувались напр. топ 25 найпопулярніших токенів запиту чи подібно), наступні результати ж це підтверджують
+=== Sparse reprezentace
+Pro implementaci je použita knihovna `sklearn`, konečný počet příznaků (features) je `20524`.
+Při tomto počtu se již dá očekávat, že dobrých výsledků jednoduchým porovnáním vektorů nelze dosáhnout (např. při IR v Lucene a podobných systémech by se pro dotazy využilo např. top 25 nejpopulárnějších tokenů dotazu apod.), což potvrzují i následující výsledky.
 
-Нижче наведено згадані метрики відносно типу репрезентації, MRR є наведено в пописці картинки.
+Níže jsou uvedeny zmíněné metriky v závislosti na typu reprezentace, MRR je uvedeno v popisku obrázku.
 
-==== Binary репрезентація
+==== Binary reprezentace
 [cols="a,a", frame=none, grid=none]
 |===
 | image::results/binary-cosine.png[width=100%]
 | image::results/binary-euclidean.png[width=100%]
 |===
 
-==== Tf репрезентація
+==== TF reprezentace
 [cols="a,a", frame=none, grid=none]
 |===
 | image::results/tf-cosine.png[width=100%]
 | image::results/tf-euclidean.png[width=100%]
 |===
 
-
-==== Tf-idf репрезентація
+==== TF-IDF reprezentace
 [cols="a,a", frame=none, grid=none]
 |===
 | image::results/tf-idf-cosine.png[width=100%]
 | image::results/tf-idf-euclidean.png[width=100%]
 |===
 
+==== Vyhodnocení sparse reprezentací
+Obecně lze u všech variant pozorovat nízkou úroveň jak precision, tak recallu, se zlepšením při "zkomplikování" metody reprezentace.
 
-==== Оцінка sparse репрезентацій
-В загальному в усіх варіантах прослідковується низький рівень як precision так і recall, з покращенням
-при "ускладненні" методу репрезентації. Найгірших результатів досягає TF з використання euclidean. Це спричинено
-тим, що при так великій к-ті просторів та небінарними значеннями компонент, загальні дистанції між векторами
-документів стають стабільно вискоими, незалишаючи жодних близьких (подібних векторів).
+Nejhorších výsledků dosahuje TF s použitím euklidovské vzdálenosti. To
+je způsobeno tím, že při tak velkém počtu dimenzí a nebinárních hodnotách komponent jsou celkové vzdálenosti mezi vektory dokumentů stabilně vysoké,
+což nezanechává žádné blízké (podobné) vektory.
 
-Найкращих результатів очікувано досягає tf-idf репрезентація з cosine мірою. Досягається це кращим
-ігноруванням невиважених документів (невиважених подібностей) та нормалізацією величин векторів (дільник формули cos).
+Euklidovská metrika totiž silně penalizuje tisíce nepřekrývajících se termů (nulových hodnot v dokumentu).
+Naproti tomu kosinová podobnost měří pouze úhel vektorů, čímž ignoruje jejich celkovou velikost a soustředí se čistě na sdílené termy.
+Pro řídká textová data je tedy lepší volbou.
 
-В усіх випадках з cosine подібністю, MRR приблизно дорівнює 0.5 (досягаючи піку в 0.67) що означає, що перший
-зі знайдених релевантних документів рідко мав найкращу ранкінг.
 
-Отже підсумовуючи, використання tf-idf на так погано спрацьованих даних може давати прийнятні результати з використанням
-k = 50, досягаючи приблизно 0.6 recall. Інші методи недають recall навіть близький 0.5.
-// ==== Dense репрезентація
-// [cols="a,a", frame=none, grid=none]
-// |===
-// | image::results/binary-cosine.png[width=100%]
-// | image::results/binary-euclidean.png[width=100%]
-// |===
-//
+Nejlepších výsledků podle očekávání dosahuje reprezentace TF-IDF s kosinovou mírou.
+Právě zde se plně projevuje vliv složky IDF (Inverse Document Frequency), která matematicky potlačuje všudypřítomná stop-slova a naopak zvýrazňuje (zvyšuje váhu)
+vzácné a specifické termy.
+
+Ve všech případech s kosinovou podobností je MRR přibližně 0,5 (dosahuje vrcholu 0,67 u TF-IDF), což znamená, že první nalezený relevantní dokument měl často dobrou pozici.
+
+Závěrem lze shrnout, že použití TF-IDF na takto špatně zpracovaných datech může přinést přijatelné výsledky při použití k = 50,
+kde recall dosahuje přibližně hodnoty 0,6. Ostatní metody nedosahují recallu ani blížícího se 0,5.
