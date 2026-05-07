@@ -81,3 +81,35 @@ Ve všech případech s kosinovou podobností je MRR přibližně 0,5 (dosahuje 
 
 Závěrem lze shrnout, že použití TF-IDF na takto špatně zpracovaných datech může přinést přijatelné výsledky při použití k = 50,
 kde recall dosahuje přibližně hodnoty 0,6. Ostatní metody nedosahují recallu ani blížícího se 0,5.
+
+=== Dense reprezentace
+
+Pro vytvoření dense (husté) reprezentace byl použit předtrénovaný transformerový model pro embeddingy
+vět "sentence-transformers/all-MiniLM-L6-v2" z Hugging Face. Výsledné embeddingy mají pouze 384 dimenzí, což je výrazně méně než u
+předchozích sparse reprezentací (přes 20 tisíc).
+
+Naměřené metriky jsou zobrazeny níže:
+
+[cols="a,a", frame=none, grid=none]
+|===
+| image::results/dense-cosine.png[width=100%]
+| image::results/dense-euclidean.png[width=100%]
+|===
+
+Při použití této reprezentace pozorujeme podle očekávání nejlepší výsledky.
+Všechny naměřené metriky jsou trvale vyšší než u sparse metod, přičemž trend křivek zůstává podobný jako u TF-IDF,
+ale s posunem k vyšším hodnotám (MRR vzrostlo z 0,67 na 0,73).
+
+Výsledky pro kosinovou podobnost i euklidovskou vzdálenost jsou u tohoto modelu identické.
+Je to dáno tím, že model `all-MiniLM-L6-v2` interně provádí L2 normalizaci výstupních vektorů. Pokud mají
+vektory jednotkovou délku, je maximalizace kosinové podobnosti matematicky ekvivalentní minimalizaci euklidovské vzdálenosti.
+
+Zajímáve je taky to, že recall ani při k = 50 nedosahuje hodnoty 1.
+To může být způsobeno zejména absencí pokročilejšího předzpracování dat,
+omezenou kvalitou použitého embedding modelu pro technickou doménu Cranfield datasetu
+nebo obecně obtížností samotné retrieval úlohy.
+
+==== Závěr
+Využití dense modelu sice nepřineslo řádový skok v přesnosti oproti TF-IDF, ale zásadně zvyšuje efektivitu vyhledávání.
+Porovnávání vektorů o délce 384 namísto 20 524 dimenzí výrazně zrychluje výpočetní proces a snižuje paměťovou náročnost,
+což je v praxi při práci s velkými dokumentovými bázemi klíčové.
