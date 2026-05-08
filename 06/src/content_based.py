@@ -1,18 +1,21 @@
 import numpy as np
-import pandas as pd
 from numpy.linalg import norm
+
+import pandas as pd
+
 from sentence_transformers import SentenceTransformer
 
+from recommender import Recommender
 
-class ContentBasedRec:
-    def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2"):
+class ContentBasedRec(Recommender):
+    def __init__(self, rating_like_threshold=3.5, model_name="sentence-transformers/all-MiniLM-L6-v2"):
         self.model = SentenceTransformer(model_name)
 
         self.movies_data = None
         self.ratings = None
         self.user_profiles = None
 
-        self.rating_like_threshold = 3.5
+        self.rating_like_threshold = rating_like_threshold
 
     def train(self, movies_data: pd.DataFrame, ratings: pd.DataFrame):
         self.movies_data = movies_data.copy()
