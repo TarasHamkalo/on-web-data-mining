@@ -3,38 +3,26 @@ from numpy.linalg import norm
 
 import pandas as pd
 
-from sentence_transformers import SentenceTransformer
 
+from embeddings import compute_movie_embeddings
 from recommender import Recommender
 
 class ContentBasedRec(Recommender):
     def __init__(self, rating_like_threshold=3.5, model_name="sentence-transformers/all-MiniLM-L6-v2"):
-        self.model = SentenceTransformer(model_name)
-
+        self.model_name = model_name
         self.movies_data = None
         self.ratings = None
         self.user_profiles = None
 
         self.rating_like_threshold = rating_like_threshold
 
-    def train(self, movies_data: pd.DataFrame, ratings: pd.DataFrame):
+    def train(self, movies_data: pd.DataFrame, ratings: pd.DataFrame, embeddings_precomputed=True):
         self.movies_data = movies_data.copy()
         self.ratings = ratings.copy()
-        texts = (
-            self.movies_data["title"].fillna("") +
-            " ; " +
-            self.movies_data["genres"]
-            .fillna("")
-            .str.split("|")
-            .apply(lambda genres: " ".join(genres))
-        ).tolist()
-
-        embeddings = self.model.encode(
-            texts,
-            show_progress_bar=False
-        )
-
-        self.movies_data["emb"] = list(embeddings)
+        if not embeddings_precomputed:
+            self.movies_data = compute_movie_embeddings(
+               movies_data=movies_data, model_name=self.model_name
+            )
 
         movie_emb_map = dict(
             zip(self.movies_data["movieId"], self.movies_data["emb"])
@@ -58,7 +46,7 @@ class ContentBasedRec(Recommender):
             if len(liked_embs) > 0:
                 user_profile_emb = np.mean(liked_embs, axis=0)
             else:
-                user_profile_emb = np.zeros_like(embeddings[0])
+                user_profile_emb = np.zeros_like(movies_data["emb"][0])
 
             user_profiles.append({
                 "userId": user_id,

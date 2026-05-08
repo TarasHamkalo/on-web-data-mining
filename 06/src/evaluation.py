@@ -4,8 +4,10 @@ import numpy as np
 import pandas as pd
 from pandas import DataFrame
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
 
 from recommender import Recommender
+
 
 def precision_at_k(retrieved, relevant, k):
     retrieved_k = retrieved[:k]
@@ -25,7 +27,7 @@ def recall_at_k(retrieved, relevant, k):
         if doc_id in relevant
     )
 
-    return relevant_retrieved / min(k, len(retrieved_k))
+    return relevant_retrieved / len(relevant)
 
 
 def f1_score(precision, recall):
@@ -35,7 +37,6 @@ def f1_score(precision, recall):
     return 2 * precision * recall / (precision + recall)
 
 
-# find position of first relevant document in results
 def reciprocal_rank(retrieved, relevant):
     for rank, doc_id in enumerate(retrieved, start=1):
         if doc_id in relevant:
@@ -44,93 +45,75 @@ def reciprocal_rank(retrieved, relevant):
     return 0
 
 
-# for each of ks compute avg precision, recall, f1 across all queries
-# def evaluate_similarity_matrix(
-#     document_ids,
-#     similarity_matrix,
-#     larger_is_better=True,
-#     ks=frozenset([1, 3, 5, 10, 15, 25, 35, 50, 100, 1000]),
-# ):
-#     precision_scores = {k: [] for k in ks}
-#     recall_scores = {k: [] for k in ks}
-#     f1_scores = {k: [] for k in ks}
-#
-#     reciprocal_ranks = []
-#
-#     for q_idx, (query_id, _, relevant_docs) in enumerate(queries):
-#         relevant_docs = set(relevant_docs)
-#         scores = similarity_matrix[q_idx]
-#
-#         if larger_is_better:
-#             ranked_indices = np.argsort(scores)[::-1]
-#         else:
-#             ranked_indices = np.argsort(scores)
-#
-#         ranked_doc_ids = [
-#             document_ids[idx]
-#             for idx in ranked_indices
-#         ]
-#
-#         for k in ks:
-#             precision = precision_at_k(
-#                 ranked_doc_ids,
-#                 relevant_docs,
-#                 k
-#             )
-#
-#             recall = recall_at_k(
-#                 ranked_doc_ids,
-#                 relevant_docs,
-#                 k
-#             )
-#
-#             f1 = f1_score(precision, recall)
-#
-#             precision_scores[k].append(precision)
-#             recall_scores[k].append(recall)
-#             f1_scores[k].append(f1)
-#
-#         reciprocal_ranks.append(
-#             reciprocal_rank(
-#                 ranked_doc_ids,
-#                 relevant_docs
-#             )
-#         )
-#
-#     avg_precision = [
-#         np.mean(precision_scores[k])
-#         for k in ks
-#     ]
-#
-#     avg_recall = [
-#         np.mean(recall_scores[k])
-#         for k in ks
-#     ]
-#
-#     avg_f1 = [
-#         np.mean(f1_scores[k])
-#         for k in ks
-#     ]
-#
-#     mrr = np.mean(reciprocal_ranks)
-#
-#     return {
-#         "ks": ks,
-#         "precision": avg_precision,
-#         "recall": avg_recall,
-#         "f1": avg_f1,
-#         "mrr": mrr
-#     }
+def dcg_at_k(retrieved, relevant, k):
+    retrieved_k = retrieved[:k]
+
+    dcg = 0
+
+    for idx, doc_id in enumerate(retrieved_k):
+        if doc_id in relevant:
+            dcg += 1 / np.log2(idx + 2)
+
+    return dcg
 
 
+def ndcg_at_k(retrieved, relevant, k):
+    dcg = dcg_at_k(retrieved, relevant, k)
 
-import matplotlib.pyplot as plt
+    ideal_hits = min(len(relevant), k)
+
+    if ideal_hits == 0:
+        return 0
+
+    idcg = sum(
+        1 / np.log2(i + 2)
+        for i in range(ideal_hits)
+    )
+
+    return dcg / idcg
+
+def diversity_at_k(recommended_movies_k, movies_data):
+    if len(recommended_movies_k) <= 1:
+        return 0
+
+    emb_map = dict(
+        zip(
+            movies_data["movieId"],
+            movies_data["emb"]
+        )
+    )
+
+    similarities = []
+
+    for i in range(len(recommended_movies_k)):
+        for j in range(i + 1, len(recommended_movies_k)):
+            movie_i = recommended_movies_k[i]
+            movie_j = recommended_movies_k[j]
+
+            emb_i = emb_map.get(movie_i)
+            emb_j = emb_map.get(movie_j)
+
+            if emb_i is None or emb_j is None:
+                continue
+
+            sim = np.dot(emb_i, emb_j) / (
+                np.linalg.norm(emb_i) *
+                np.linalg.norm(emb_j)
+            )
+
+            similarities.append(sim)
+
+    if len(similarities) == 0:
+        return 0
+
+    avg_similarity = np.mean(similarities)
+
+    return 1 - avg_similarity
 
 
 def plot_results(results, title, save_path=None):
     ks = results["ks"]
     plt.figure(figsize=(8, 5))
-    # [float(p) * 100 for p in results["precision"]],
 
     plt.plot(
         ks,
@@ -145,7 +128,6 @@ def plot_results(results, title, save_path=None):
         marker="o",
         label="Recall@k"
     )
-    # [float(p) * 100 for p in results["recall"]],
 
     plt.plot(
         ks,
@@ -153,18 +135,27 @@ def plot_results(results, title, save_path=None):
         marker="o",
         label="F1@k"
     )
-    # [float(p) * 100  for p in results["f1"]],
+
+    plt.plot(
+        ks,
+        results["ndcg"],
+        marker="o",
+        label="nDCG@k"
+    )
 
     plt.xlabel("k")
     plt.ylabel("Score")
 
     plt.title(
-        f"{title}"#\nMRR={results['mrr']:.4f}"
+        f"{title}\nMRR={results['mrr']:.4f}"
     )
+
     plt.grid(True)
     plt.legend()
+
     if save_path:
         plt.savefig(save_path)
+
     plt.show()
 
 
@@ -184,7 +175,9 @@ def train_test_split_ratings(ratings_data: DataFrame, test_size_per_user=0.3, se
 
     train_ratings = pd.concat(train_parts).reset_index(drop=True)
     test_ratings = pd.concat(test_parts).reset_index(drop=True)
+
     return train_ratings, test_ratings
+
 
 def evaluate(
     recommender: Recommender,
@@ -196,16 +189,20 @@ def evaluate(
     seed=42
 ):
     """
-    :param: relevance_threshold min ground truth rating to consider recommendation relevant
-    :return: ["movieId", "title", "genres", "score"]
+    :warn expects movies_data to have "emb" field with embeddings computed
     """
     precision_scores = {k: [] for k in ks}
     recall_scores = {k: [] for k in ks}
     f1_scores = {k: [] for k in ks}
-    query_times = {k: [] for k in ks}
+    ndcg_scores = {k: [] for k in ks}
+    diversity_scores = {k: [] for k in ks}
+
+    reciprocal_ranks = []
 
     train_ratings, test_ratings = train_test_split_ratings(
-        ratings_data, test_size_per_user=test_size_per_user, seed=seed
+        ratings_data,
+        test_size_per_user=test_size_per_user,
+        seed=seed
     )
 
     train_start_time = datetime.datetime.now()
@@ -214,33 +211,73 @@ def evaluate(
     train_duration = datetime.datetime.now() - train_start_time
 
     user_ids = list(ratings_data["userId"].unique())
+    max_k = max(ks)
 
+    query_times_1000 = []
+
+    dropped_users = []
     for user_id in user_ids:
         user_test = test_ratings[test_ratings["userId"] == user_id]
-        user_test = user_test[user_test["rating"] >= relevance_threshold].sort_values(by="rating")
+        user_test = user_test[user_test["rating"] >= relevance_threshold]
 
         relevant_movies_ordered = list(user_test["movieId"])
         if len(relevant_movies_ordered) == 0:
-            print(f"User {user_id} is dropped, as it has relevant movies len {len(relevant_movies_ordered)}")
+            dropped_users.append(user_id)
             continue
 
+        query_time_start = datetime.datetime.now()
+
+        recommendations = recommender.recommend(user_id, top_k=max_k)
+
+        query_time = datetime.datetime.now() - query_time_start
+
+        query_times_1000.append(query_time)
+
+        recommended_movies = list(recommendations["movieId"])
+
+        reciprocal_ranks.append(
+            reciprocal_rank(
+                recommended_movies,
+                relevant_movies_ordered
+            )
+        )
+
         for top_k in ks:
-            query_time_start = datetime.datetime.now()
-            recommendations = recommender.recommend(user_id, top_k=top_k)
-            query_time = datetime.datetime.now() - query_time_start
+            recommended_movies_k = recommended_movies[:top_k]
 
+            precision = precision_at_k(
+                recommended_movies_k,
+                relevant_movies_ordered,
+                k=top_k
+            )
 
-            recommended_movies = list(recommendations["movieId"])
+            recall = recall_at_k(
+                recommended_movies_k,
+                relevant_movies_ordered,
+                k=top_k
+            )
 
-            precision = precision_at_k(recommended_movies, relevant_movies_ordered, k=top_k)
-            recall = recall_at_k(recommended_movies, relevant_movies_ordered, k=top_k)
-            f1 = f1_score(precision, recall)
+            f1 = f1_score(
+                precision,
+                recall
+            )
+
+            ndcg = ndcg_at_k(
+                recommended_movies_k,
+                relevant_movies_ordered,
+                k=top_k
+            )
+
+            # diversity = diversity_at_k(
+            #     recommended_movies_k,
+            #     movies_data
+            # )
 
             precision_scores[top_k].append(precision)
             recall_scores[top_k].append(recall)
             f1_scores[top_k].append(f1)
-
-            query_times[top_k].append(query_time)
+            ndcg_scores[top_k].append(ndcg)
+            # diversity_scores[top_k].append(diversity)
 
     avg_precision = [
         np.mean(precision_scores[k])
@@ -257,23 +294,35 @@ def evaluate(
         for k in ks
     ]
 
-    avg_query_time = [
-        np.mean(query_times[k])
+    avg_ndcg = [
+        np.mean(ndcg_scores[k])
         for k in ks
     ]
 
+    avg_diversity = [
+        np.mean(diversity_scores[k])
+        for k in ks
+    ]
 
-    # mrr = np.mean(reciprocal_ranks)
+    mrr = np.mean(reciprocal_ranks)
+
+    avg_query_time_1000 = np.mean(query_times_1000)
 
     return {
         "train_size": len(train_ratings),
         "test_size": len(test_ratings),
+        "dropped_user_ids": dropped_users,
 
         "train_duration": train_duration,
+        "query_time_1000": avg_query_time_1000,
 
         "ks": ks,
+
         "precision": avg_precision,
         "recall": avg_recall,
         "f1": avg_f1,
-        "query_time": avg_query_time,
+        "ndcg": avg_ndcg,
+        "diversity": avg_diversity,
+
+        "mrr": mrr,
     }
