@@ -72,10 +72,11 @@ def ndcg_at_k(retrieved, relevant, k):
 
     return dcg / idcg
 
-def diversity_at_k(recommended_movies_k, movies_data):
-    if len(recommended_movies_k) <= 1:
-        return 0
-
+def diversity_scores_all_ks(
+    recommended_movies,
+    movies_data,
+    ks
+):
     emb_map = dict(
         zip(
             movies_data["movieId"],
@@ -83,33 +84,40 @@ def diversity_at_k(recommended_movies_k, movies_data):
         )
     )
 
-    similarities = []
+    embeddings = np.array([
+        emb_map[mid]
+        for mid in recommended_movies
+        if mid in emb_map
+    ])
 
-    for i in range(len(recommended_movies_k)):
-        for j in range(i + 1, len(recommended_movies_k)):
-            movie_i = recommended_movies_k[i]
-            movie_j = recommended_movies_k[j]
+    if len(embeddings) <= 1:
+        return {
+            k: 0
+            for k in ks
+        }
 
-            emb_i = emb_map.get(movie_i)
-            emb_j = emb_map.get(movie_j)
+    norms = np.linalg.norm(
+        embeddings,
+        axis=1,
+        keepdims=True
+    )
 
-            if emb_i is None or emb_j is None:
-                continue
+    normalized = embeddings / norms
+    similarity_matrix = normalized @ normalized.T
+    diversities = {}
+    for k in ks:
+        k = min(k, len(similarity_matrix))
+        sims = similarity_matrix[:k, :k]
+        upper = sims[
+            np.triu_indices(k, k=1)
+        ]
 
-            sim = np.dot(emb_i, emb_j) / (
-                np.linalg.norm(emb_i) *
-                np.linalg.norm(emb_j)
-            )
+        if len(upper) == 0:
+            diversities[k] = 0
+        else:
+            diversities[k] = 1 - np.mean(upper)
 
-            similarities.append(sim)
-
-    if len(similarities) == 0:
-        return 0
-
-    avg_similarity = np.mean(similarities)
-
-    return 1 - avg_similarity
-
+    return diversities
 
 def plot_results(results, title, save_path=None):
     ks = results["ks"]
@@ -184,7 +192,7 @@ def evaluate(
     movies_data: pd.DataFrame,
     ratings_data: pd.DataFrame,
     relevance_threshold=3.5,
-    ks=[1, 3, 5, 10, 15, 25, 35, 50, 100, 1000],
+    ks=[1, 3, 5, 10, 15, 25, 35, 50, 100, 500],
     test_size_per_user=0.3,
     seed=42
 ):
@@ -216,6 +224,9 @@ def evaluate(
     query_times_1000 = []
 
     dropped_users = []
+
+
+
     for user_id in user_ids:
         user_test = test_ratings[test_ratings["userId"] == user_id]
         user_test = user_test[user_test["rating"] >= relevance_threshold]
@@ -241,6 +252,13 @@ def evaluate(
                 relevant_movies_ordered
             )
         )
+
+        diversities = diversity_scores_all_ks(
+            recommended_movies,
+            movies_data,
+            ks
+        )
+
 
         for top_k in ks:
             recommended_movies_k = recommended_movies[:top_k]
@@ -268,16 +286,13 @@ def evaluate(
                 k=top_k
             )
 
-            # diversity = diversity_at_k(
-            #     recommended_movies_k,
-            #     movies_data
-            # )
-
             precision_scores[top_k].append(precision)
             recall_scores[top_k].append(recall)
             f1_scores[top_k].append(f1)
             ndcg_scores[top_k].append(ndcg)
-            # diversity_scores[top_k].append(diversity)
+            diversity_scores[top_k].append(
+                diversities[top_k]
+            )
 
     avg_precision = [
         np.mean(precision_scores[k])
