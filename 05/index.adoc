@@ -22,7 +22,7 @@ zvětšení průměrné vzdálenosti mezi podobnými daty).
 V této práci se vyhledávání dokumentů provádí jednoduchým rankingem 
 celého datového souboru podle dotazu, bez dalších optimalizací či heuristik.
 
-Ranking bude prováděn dvěma funkcemi -- kosinovou podobností (1 - cos) a euklidovskou 
+Ranking bude prováděn dvěma funkcemi -- kosinovou podobností a euklidovskou 
 (ta ukáže problémy s normalizací vektorů).
 Přitom bude ověřeno použití různých typů reprezentací uvedených níže:
 
@@ -142,3 +142,30 @@ Nejlepších výsledků celkově dosáhly dense embeddingy založené na modelu
 Transformer. Výsledky sice nejsou drasticky lepší než u TF-IDF,
 ale díky použití nízkodimenzionálních vektorů dochází k výraznému zrychlení
 vyhledávání.
+
+
+
+
+=== Spuštění a MLflow
+
+Pro nastavení prostředí:
+
+[source,bash]
+----
+pyenv install 3.12.11
+pyenv local 3.12.11
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+----
+
+Pro spuštění použijte Jupyter soubory v adresáři `notebooks`.
+
+IMPORTANT: Při spuštění `main.ipynb` musí být MLflow dostupný na `http://localhost:5000/`.
+
+Do MLflow byly zaznamenaný Precision@K, Recall@K, F1@K, MRR, uvedené grafy a vysledký
+podobnosti (hodnoty cosine, euclidean) pro každou dvojici (query, dokument) do CSV.
+
+Z důvodu velikosti výsledných dat (CSV souboru) byly cosine i euklidovská vzdálenost 
+ukládány společně do jednoho CSV + zaznamenávané v rámci jednoho MLflow spuštění.
+Názvy MLflow metrik pak mají prefixy "cosine_", "euclidean_".
