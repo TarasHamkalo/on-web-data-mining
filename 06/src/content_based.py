@@ -6,22 +6,24 @@ from sentence_transformers import SentenceTransformer
 
 class ContentBasedRec:
     def __init__(self, model_name="sentence-transformers/all-MiniLM-L6-v2"):
-        self.model_name = model_name
         self.model = SentenceTransformer(model_name)
 
         self.movies_data = None
         self.ratings = None
+        self.user_profiles = None
 
-        self.rating_like_threshold = 2.5
+        self.rating_like_threshold = 3.5
 
     def train(self, movies_data: pd.DataFrame, ratings: pd.DataFrame):
         self.movies_data = movies_data.copy()
         self.ratings = ratings.copy()
-
         texts = (
-            self.movies_data["title"] +
+            self.movies_data["title"].fillna("") +
             " ; " +
             self.movies_data["genres"]
+            .fillna("")
+            .str.split("|")
+            .apply(lambda genres: " ".join(genres))
         ).tolist()
 
         embeddings = self.model.encode(
@@ -31,30 +33,29 @@ class ContentBasedRec:
 
         self.movies_data["emb"] = list(embeddings)
 
-        user_ids = list(ratings["userId"].unique())
+        movie_emb_map = dict(
+            zip(self.movies_data["movieId"], self.movies_data["emb"])
+        )
+
         user_profiles = []
-        for user_id in user_ids:
+
+        for user_id in self.ratings["userId"].unique():
             user_ratings = self.ratings[self.ratings["userId"] == user_id]
-            liked_movie_ids = []
-            rated_movie_ids = []
+            rated_movie_ids = user_ratings["movieId"].tolist()
 
-            user_profile_emb = np.zeros_like(embeddings[0])
+            liked = user_ratings[user_ratings["rating"] >= self.rating_like_threshold]
+            liked_movie_ids = liked["movieId"].tolist()
 
-            for user_rating in user_ratings.iterrows():
-                movie_id = user_rating["movieId"].getValue()
-                rated_movie_ids.append(movie_id)
+            liked_embs = [
+                movie_emb_map[mid]
+                for mid in liked_movie_ids
+                if mid in movie_emb_map
+            ]
 
-                if user_rating["rating"].getValue() > self.rating_like_threshold:
-                    liked_movie_ids.append(movie_id)
-
-                    liked_movie_mask = [self.movies_data["movie_id"] ==  movie_id]
-
-                    user_profile_emb += self.movies_data["emb"][liked_movie_mask]
-
-            if len(liked_movie_ids) > 0:
-                # TODO: many users gonna have 0?
-                #  maybe we should account also those that wer not liked and at least recommend anything else
-                user_profile_emb /= len(liked_movie_ids)
+            if len(liked_embs) > 0:
+                user_profile_emb = np.mean(liked_embs, axis=0)
+            else:
+                user_profile_emb = np.zeros_like(embeddings[0])
 
             user_profiles.append({
                 "userId": user_id,
@@ -62,25 +63,37 @@ class ContentBasedRec:
                 "emb": user_profile_emb
             })
 
-
         self.user_profiles = pd.DataFrame(user_profiles)
 
     def cosine(self, A, B):
-        return np.dot(A, B) / (norm(A) * norm(B))
+        denom = norm(A) * norm(B)
+
+        if denom == 0:
+            return 0.0
+
+        return np.dot(A, B) / denom
 
     def recommend(self, user_id, top_k=10):
-        profile = self.user_profiles[self.user_profiles["userId"] == user_id]
+        profile_row = self.user_profiles[self.user_profiles["userId"] == user_id]
 
-        not_rated_mask = self.movies_data["movieId"].apply(
-            lambda x: x not in profile["rated_movie_ids"], axis=1
+        if len(profile_row) == 0:
+            return pd.DataFrame()
+
+        profile = profile_row.iloc[0]
+
+        rated_set = set(profile["rated_movie_ids"])
+        profile_emb = profile["emb"]
+
+        candidates = self.movies_data[
+            ~self.movies_data["movieId"].isin(rated_set)
+        ].copy()
+
+        candidates["score"] = candidates["emb"].apply(
+            lambda emb: self.cosine(profile_emb, emb)
         )
 
-        not_rated_movie_ids = self.movies_data[not_rated_mask == True]["movieId"].copy()
+        top = candidates.sort_values(by="score", ascending=False)
 
-        not_rated_movie_ids["score"] = not_rated_movie_ids.apply(
-           lambda x: self.cosine(profile["emb"], self.movies_data[x["movieId"].getValue()]["emb"]),
-           axis=1,
-        )
-
-        top = not_rated_movie_ids.sort_values(by="score", ascending=False)
-        return top[:top_k]
+        return top.head(top_k)[
+            ["movieId", "title", "genres", "score"]
+        ]
