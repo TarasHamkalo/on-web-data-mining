@@ -1,6 +1,7 @@
 == 5. Indexing + Document Retrieval
 
-Pro splnění úkolu byla použita předzpracovaná verze datasetu Cranfield (https://courses.fit.cvut.cz/NI-DDW/hw/05/files/cranfield.zip[stáhnout]).
+Pro splnění úkolu byla použita předzpracovaná verze 
+datasetu Cranfield (https://courses.fit.cvut.cz/NI-DDW/hw/05/files/cranfield.zip[stáhnout]).
 Ta obsahuje:
 
 * `/d`:
@@ -11,17 +12,25 @@ Ta obsahuje:
 * `/r`:
 - seznamy relevantních dokumentů pro každý z `q`
 
-Po načtení dokumentů se neprovádí žádné další zpracování, jako je například lematizace. To vede k použití vícerozměrných vektorů (počet unikátních tokenů je přibližně 20 tisíc). Taková data však jasně ukáží nevýhody reprezentace (řídkost dat/sparsity, zvětšení průměrné vzdálenosti mezi podobnými daty).
+Po načtení dokumentů se neprovádí žádné další zpracování,
+jako je například lematizace. To vede k použití vícerozměrných vektorů 
+(počet unikátních tokenů je přibližně 20 tisíc). 
+Taková data však jasně ukážu nevýhody reprezentace (řídkost dat, 
+zvětšení průměrné vzdálenosti mezi podobnými daty).
 
-=== Testované reprezentace a metriky
-V této práci budou porovnány následující reprezentace:
+=== Průběh testovaní a metriky
+V této práci se vyhledávání dokumentů provádí jednoduchým rankingem 
+celého datového souboru podle dotazu, bez dalších optimalizací či heuristik.
+
+Ranking bude prováděn dvěma funkcemi -- kosinovou podobností (1 - cos) a euklidovskou 
+(ta ukáže problémy s normalizací vektorů).
+Přitom bude ověřeno použití různých typů reprezentací uvedených níže:
 
 * Binary representation
 * Term Frequency (TF)
 * TF-IDF
 * Dense ("sentence-transformers/all-MiniLM-L6-v2")
 
-Dále se provádí hodnocení (ranking) dokumentů odděleně pomocí cosine similarity (1 - cos) a euclidean distance (ta ukáže problémy s nenormalizovanými vektory).
 
 Hodnocení těchto přístupů bude provedeno pomocí:
 
@@ -74,7 +83,7 @@ Pro řídká textová data je tedy lepší volbou.
 
 
 Nejlepších výsledků podle očekávání dosahuje reprezentace TF-IDF s kosinovou mírou.
-Právě zde se plně projevuje vliv složky IDF (Inverse Document Frequency), která matematicky potlačuje všudypřítomná stop-slova a naopak zvýrazňuje (zvyšuje váhu)
+Právě zde se plně projevuje vliv složky IDF, která matematicky potlačuje všudypřítomná stop-slova a naopak zvýrazňuje (zvyšuje váhu)
 vzácné a specifické termy.
 
 Ve všech případech s kosinovou podobností je MRR přibližně 0,5 (dosahuje vrcholu 0,67 u TF-IDF), což znamená, že první nalezený relevantní dokument měl často dobrou pozici.
@@ -111,8 +120,8 @@ nebo obecně obtížností samotné retrieval úlohy.
 
 ==== Vyhodnocení dense reprezentací
 Využití dense modelu sice nepřineslo řádový skok v přesnosti oproti TF-IDF, ale zásadně zvyšuje efektivitu vyhledávání.
-Porovnávání vektorů o délce 384 namísto 20 524 dimenzí výrazně zrychluje výpočetní proces a snižuje paměťovou náročnost,
-což je v praxi při práci s velkými dokumentovými bázemi klíčové.
+Porovnávání vektorů o délce 384 namísto 20 524 dimenzí výrazně snižuje jak výpočetní tak paměťovou náročnost.
+
 
 
 === Závěr
