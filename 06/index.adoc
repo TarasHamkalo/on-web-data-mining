@@ -1,1 +1,6 @@
 = HW6 - TBD!
+
+1. how many users
+2. how many movies
+3. how many ratings
+4. some users may be dropped during evaluation as they migth not have ratings higher than 3.5

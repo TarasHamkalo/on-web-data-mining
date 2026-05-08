@@ -166,6 +166,145 @@ def plot_results(results, title, save_path=None):
 
     plt.show()
 
+from matplotlib.ticker import ScalarFormatter
+
+
+def plot_results_2(results, title, save_path=None):
+    ks = results["ks"]
+
+    fig, axes = plt.subplots(
+        1,
+        3,
+        figsize=(18, 5)
+    )
+
+    axes[0].plot(
+        ks,
+        results["precision"],
+        marker="o",
+        label="Precision@k"
+    )
+
+    axes[0].plot(
+        ks,
+        results["recall"],
+        marker="o",
+        label="Recall@k"
+    )
+
+    axes[0].plot(
+        ks,
+        results["f1"],
+        marker="o",
+        label="F1@k"
+    )
+
+    axes[0].set_xscale("log", base=10)
+    axes[0].set_yscale("log", base=10)
+
+    axes[0].set_xticks(ks)
+
+    axes[0].set_yticks([
+        0.001,
+        0.003,
+        0.01,
+        0.03,
+        0.1,
+        0.3
+    ])
+
+    axes[0].xaxis.set_major_formatter(
+        ScalarFormatter()
+    )
+
+    axes[0].yaxis.set_major_formatter(
+        ScalarFormatter()
+    )
+
+    axes[0].set_xlabel("k")
+    axes[0].set_ylabel("Score")
+
+    axes[0].set_title(
+        "Precision / Recall / F1"
+    )
+
+    axes[0].grid(True, which="both")
+    axes[0].legend()
+
+    axes[1].plot(
+        ks,
+        results["ndcg"],
+        marker="o",
+        label="nDCG@k"
+    )
+
+    axes[1].axhline(
+        results["mrr"],
+        linestyle="--",
+        label=f"MRR={results['mrr']:.4f}"
+    )
+
+    axes[1].set_xscale("log", base=10)
+    # axes[1].set_yscale("log", base=10)
+
+    axes[1].set_xticks(ks)
+
+    axes[1].xaxis.set_major_formatter(
+        ScalarFormatter()
+    )
+
+    # axes[1].yaxis.set_major_formatter(
+    #     ScalarFormatter()
+    # )
+
+    axes[1].set_xlabel("k")
+    axes[1].set_ylabel("Score")
+
+    axes[1].set_title(
+        "Ranking Quality"
+    )
+
+    axes[1].grid(True, which="both")
+    axes[1].legend()
+
+    axes[2].plot(
+        ks,
+        results["diversity"],
+        marker="o",
+        label="Diversity@k"
+    )
+
+    axes[2].set_xscale("log", base=10)
+    # axes[2].set_yscale("log", base=10)
+
+    axes[2].set_xticks(ks)
+
+    axes[2].xaxis.set_major_formatter(
+        ScalarFormatter()
+    )
+    #
+    # axes[2].yaxis.set_major_formatter(
+    #     ScalarFormatter()
+    # )
+
+    axes[2].set_xlabel("k")
+    axes[2].set_ylabel("Score")
+
+    axes[2].set_title(
+        "Recommendation Diversity"
+    )
+
+    axes[2].grid(True, which="both")
+    axes[2].legend()
+
+    fig.suptitle(title)
+
+    plt.tight_layout()
+
+    if save_path:
+        plt.savefig(save_path)
+
+    plt.show()
 
 def train_test_split_ratings(ratings_data: DataFrame, test_size_per_user=0.3, seed=42):
     train_parts = []
