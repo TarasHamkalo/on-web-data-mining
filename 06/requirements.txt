@@ -1,0 +1,6 @@
+matplotlib
+pandas
+scikit-learn
+mlflow
+mlxtend
+sentence-transformers
