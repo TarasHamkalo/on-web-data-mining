@@ -4,3 +4,5 @@
 2. how many movies
 3. how many ratings
 4. some users may be dropped during evaluation as they migth not have ratings higher than 3.5
+5. all metrics apart from diversity penalize for actual_k < top_k
+    - diversity for queries is computed only for returned values
