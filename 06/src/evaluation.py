@@ -16,7 +16,6 @@ def precision_at_k(retrieved, relevant, k):
         1 for doc_id in retrieved_k
         if doc_id in relevant
     )
-
     return relevant_retrieved / k
 
 
@@ -105,17 +104,17 @@ def diversity_scores_all_ks(
     normalized = embeddings / norms
     similarity_matrix = normalized @ normalized.T
     diversities = {}
-    for k in ks:
-        k = min(k, len(similarity_matrix))
-        sims = similarity_matrix[:k, :k]
+    for expected_k in ks:
+        true_k = min(expected_k, len(similarity_matrix))
+        sims = similarity_matrix[:true_k, :true_k]
         upper = sims[
-            np.triu_indices(k, k=1)
+            np.triu_indices(true_k, k=1)
         ]
 
         if len(upper) == 0:
-            diversities[k] = 0
+            diversities[expected_k] = 0
         else:
-            diversities[k] = 1 - np.mean(upper)
+            diversities[expected_k] = 1 - np.mean(upper)
 
     return diversities
 
@@ -360,11 +359,11 @@ def evaluate(
     user_ids = list(ratings_data["userId"].unique())
     max_k = max(ks)
 
-    query_times_1000 = []
+    query_times_500 = []
 
     dropped_users = []
 
-
+    below_required_recommendations = 0
 
     for user_id in user_ids:
         user_test = test_ratings[test_ratings["userId"] == user_id]
@@ -378,10 +377,12 @@ def evaluate(
         query_time_start = datetime.datetime.now()
 
         recommendations = recommender.recommend(user_id, top_k=max_k)
+        if len(recommendations) < max_k:
+            below_required_recommendations += 1
 
         query_time = datetime.datetime.now() - query_time_start
 
-        query_times_1000.append(query_time)
+        query_times_500.append(query_time)
 
         recommended_movies = list(recommendations["movieId"])
 
@@ -401,7 +402,6 @@ def evaluate(
 
         for top_k in ks:
             recommended_movies_k = recommended_movies[:top_k]
-
             precision = precision_at_k(
                 recommended_movies_k,
                 relevant_movies_ordered,
@@ -460,15 +460,16 @@ def evaluate(
 
     mrr = np.mean(reciprocal_ranks)
 
-    avg_query_time_1000 = np.mean(query_times_1000)
+    avg_query_time_500 = np.mean(query_times_500)
 
     return {
         "train_size": len(train_ratings),
         "test_size": len(test_ratings),
         "dropped_user_ids": dropped_users,
+        "below_required_recommendations": below_required_recommendations,
 
         "train_duration": train_duration,
-        "query_time_1000": avg_query_time_1000,
+        "query_time_500": avg_query_time_500 ,
 
         "ks": ks,
 
