@@ -8,8 +8,11 @@ from recommender import Recommender
 
 
 class ContentBasedRec(Recommender):
-    def __init__(self, rating_like_threshold=3.5,
-                 model_name="sentence-transformers/all-MiniLM-L6-v2"):
+    def __init__(
+        self,
+        rating_like_threshold=3.5,
+        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    ):
         self.model_name = model_name
         self.movies_data = None
         self.ratings = None

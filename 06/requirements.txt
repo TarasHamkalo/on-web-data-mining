@@ -4,3 +4,8 @@ scikit-learn
 mlflow
 mlxtend
 sentence-transformers
+tensorflow-recommenders
+tensorflow-datasets
+tf-keras
+importlib-resources
+tensorflow
