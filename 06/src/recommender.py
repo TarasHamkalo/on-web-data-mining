@@ -10,3 +10,6 @@ class Recommender:
         :return: ["movieId", "title", "genres", "score"]
         """
         pass
+
+    def rank(self, user_id, movies_data: pd.DataFrame):
+        pass

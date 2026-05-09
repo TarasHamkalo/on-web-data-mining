@@ -194,7 +194,7 @@ class CollabFilteringRec(Recommender):
                 movie_scores[movie_id] = 0.0
                 continue
 
-            weighted_sum = np.sum(s * r for s, r in movie_user_ratings)
+            weighted_sum = np.sum([s * r for s, r in movie_user_ratings])
             similarity_sum = np.sum([s for s, _ in movie_user_ratings])
             if similarity_sum == 0:
                 movie_scores[movie_id] = 0.0
