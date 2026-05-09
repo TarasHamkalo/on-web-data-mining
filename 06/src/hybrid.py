@@ -17,7 +17,11 @@ class HybridRec(Recommender):
     ):
         self.cbr = cbr
         self.cfr = cfr
+
+        # True  -> Content-Based -> Collaborative re-ranking
+        # False -> Collaborative -> Content-Based re-ranking
         self.use_content_first = use_content_first
+
         self.enlarge_candidate_pool_times = enlarge_candidate_pool_times
         self.max_candidate_pool = max_candidate_pool
 
@@ -27,36 +31,56 @@ class HybridRec(Recommender):
 
     def recommend(self, user_id, top_k=10):
         if self.use_content_first:
-            r = self.recommend_cb_cf(user_id, top_k)
-        else:
-            r = self.recommend_cf_cb(user_id, top_k)
-        return r
+            return self._recommend_pipeline(
+                user_id=user_id,
+                top_k=top_k,
+                first_recommender=self.cbr,
+                second_recommender=self.cfr,
+                second_score_column="cfrScore"
+            )
 
-    # TODO: unify scoring
-    def recommend_cb_cf(self, user_id, top_k=10):
+        return self._recommend_pipeline(
+            user_id=user_id,
+            top_k=top_k,
+            first_recommender=self.cfr,
+            second_recommender=self.cbr,
+            second_score_column="cbrScore"
+        )
+
+    def _recommend_pipeline(
+        self,
+        user_id,
+        top_k,
+        first_recommender,
+        second_recommender,
+        second_score_column
+    ):
+        candidate_top_k = self._compute_candidate_pool_size(top_k)
+        candidates = first_recommender.recommend(user_id=user_id, top_k=candidate_top_k)
+        if candidates.empty:
+            return candidates
+
+        candidates = second_recommender.rank(user_id=user_id, movies_data=candidates)
+
+        candidates = candidates.sort_values(by=second_score_column, ascending=False)
+        return candidates.head(top_k)
+
+    def _compute_candidate_pool_size(
+        self,
+        top_k
+    ):
         candidate_top_k = top_k
+        if ((self.max_candidate_pool is not None) and
+            (candidate_top_k >= self.max_candidate_pool)):
+            return candidate_top_k
 
         if self.enlarge_candidate_pool_times is not None:
             candidate_top_k *= self.enlarge_candidate_pool_times
-            candidate_top_k = min(candidate_top_k, self.max_candidate_pool)
 
-        recommendations = self.cbr.recommend(user_id=user_id, top_k=candidate_top_k)
-        recommendations = self.cfr.rank(user_id=user_id, movies_data=recommendations)
+        if self.max_candidate_pool is not None:
+            candidate_top_k = min(
+                candidate_top_k,
+                self.max_candidate_pool
+            )
 
-        recommendations = recommendations.sort_values(by="cfrScore", ascending=False)
-
-        return recommendations.head(top_k)
-
-    def recommend_cf_cb(self, user_id, top_k=10):
-        candidate_top_k = top_k
-
-        if self.enlarge_candidate_pool_times is not None:
-            candidate_top_k *= self.enlarge_candidate_pool_times
-            candidate_top_k = min(candidate_top_k, self.max_candidate_pool)
-
-        recommendations = self.cfr.recommend(user_id=user_id, top_k=candidate_top_k)
-        recommendations = self.cbr.rank(user_id=user_id, movies_data=recommendations)
-
-        recommendations = recommendations.sort_values(by="cbrScore", ascending=False)
-
-        return recommendations.head(top_k)
+        return candidate_top_k
