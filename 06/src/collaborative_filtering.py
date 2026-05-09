@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy.sparse import csr_matrix
 from sklearn.metrics.pairwise import cosine_similarity
+from scipy.stats import pearsonr
 
 from recommender import Recommender
 
@@ -10,7 +11,8 @@ class CollabFilteringRec(Recommender):
 
     def __init__(
         self,
-        top_users_to_consider=10
+        top_users_to_consider=10,
+        use_pearson=False
     ):
         self.top_users_to_consider = top_users_to_consider
 
@@ -22,6 +24,7 @@ class CollabFilteringRec(Recommender):
         self.ratings = None
 
         self.user_ids = None
+        self.use_pearson = use_pearson
 
     def train(
         self,
@@ -41,7 +44,31 @@ class CollabFilteringRec(Recommender):
         self.user_movie_matrix = user_movie_matrix
         self.user_ids = list(user_movie_matrix.index)
         self.sparse_matrix = csr_matrix(user_movie_matrix.values)
-        self.user_similarity = cosine_similarity(self.sparse_matrix)
+
+        if not self.use_pearson:
+            self.user_similarity = cosine_similarity(self.sparse_matrix)
+            return
+
+        self.user_similarity = np.zeros(
+            (len(self.user_ids), len(self.user_ids))
+        )
+
+        for i in range(len(self.user_ids)):
+            for j in range(i, len(self.user_ids)):
+                ratings_i = self.user_movie_matrix.iloc[i].values
+                ratings_j = self.user_movie_matrix.iloc[j].values
+
+                common_mask = ((ratings_i > 0) & (ratings_j > 0))
+
+                if np.sum(common_mask) < 2:
+                    sim = 0
+                else:
+                    sim, _ = pearsonr(ratings_i[common_mask], ratings_j[common_mask])
+                    if np.isnan(sim):
+                        sim = 0
+
+                self.user_similarity[i, j] = sim
+                self.user_similarity[j, i] = sim
 
     def recommend(
         self,
@@ -76,7 +103,6 @@ class CollabFilteringRec(Recommender):
         for similar_idx in similar_user_indices:
 
             similar_user_id = self.user_ids[similar_idx]
-            # to compute weighted cosine prediction (not pearson yet)
             similarity = similarities[similar_idx]
 
             similar_user_ratings = (self.user_movie_matrix.loc[similar_user_id])
