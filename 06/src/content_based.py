@@ -3,12 +3,13 @@ from numpy.linalg import norm
 
 import pandas as pd
 
-
 from embeddings import compute_movie_embeddings
 from recommender import Recommender
 
+
 class ContentBasedRec(Recommender):
-    def __init__(self, rating_like_threshold=3.5, model_name="sentence-transformers/all-MiniLM-L6-v2"):
+    def __init__(self, rating_like_threshold=3.5,
+                 model_name="sentence-transformers/all-MiniLM-L6-v2"):
         self.model_name = model_name
         self.movies_data = None
         self.ratings = None
@@ -21,7 +22,7 @@ class ContentBasedRec(Recommender):
         self.ratings = ratings.copy()
         if not embeddings_precomputed:
             self.movies_data = compute_movie_embeddings(
-               movies_data=movies_data, model_name=self.model_name
+                movies_data=movies_data, model_name=self.model_name
             )
 
         movie_emb_map = dict(
@@ -88,3 +89,31 @@ class ContentBasedRec(Recommender):
         return top.head(top_k)[
             ["movieId", "title", "genres", "score"]
         ]
+
+    def rank(self, user_id, movies_data: pd.DataFrame):
+        profile_row = self.user_profiles[self.user_profiles["userId"] == user_id]
+
+        if len(profile_row) == 0:
+            return pd.DataFrame()
+
+        profile = profile_row.iloc[0]
+
+        profile_emb = profile["emb"]
+
+        movie_emb_map = dict(
+            zip(
+                self.movies_data["movieId"],
+                self.movies_data["emb"]
+            )
+        )
+
+        movies_data = movies_data.copy()
+
+        movies_data["cbrScore"] = movies_data["movieId"].apply(
+            lambda movie_id: self.cosine(
+                profile_emb,
+                movie_emb_map[movie_id]
+            ) if movie_id in movie_emb_map else 0.0
+        )
+
+        return movies_data

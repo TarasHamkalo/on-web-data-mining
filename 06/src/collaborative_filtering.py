@@ -100,6 +100,7 @@ class CollabFilteringRec(Recommender):
         rated_movies = set(user_ratings[user_ratings > 0].index)
 
         movie_scores = {}
+        # iterate of internal indices (remapping to ids and similarity)
         for similar_idx in similar_user_indices:
 
             similar_user_id = self.user_ids[similar_idx]
@@ -140,3 +141,54 @@ class CollabFilteringRec(Recommender):
         )
 
         return pd.DataFrame(recommendations[:top_k])
+
+    def rank(self, user_id, movies_data: pd.DataFrame):
+        # find all people that have those movies, assess their similarity
+        # to ours and compute same as above
+
+        user_idx = self.user_ids.index(user_id) # get index of column
+        user_user_similarity = self.user_similarity[user_idx]
+
+        user_id_to_similarity_map = {}
+
+        movie_scores = {}
+        for _, movie_data in movies_data.iterrows():
+            movie_id = movie_data["movieId"]
+            if not movie_id in self.user_movie_matrix.columns:
+                movie_scores[movie_id] = 0
+                continue
+
+            user_ratings = self.user_movie_matrix.loc[:, movie_id]
+
+            movie_user_ratings = []
+            for user_id, rating in user_ratings.items():
+                if rating <= 0:
+                    continue
+
+                if movie_id not in movie_scores:
+                    movie_scores[movie_id] = []
+
+                # cache looks in list
+                if user_id not in user_id_to_similarity_map:
+                    target_user_idx = self.user_ids.index(user_id)
+                    similarity = user_user_similarity[target_user_idx]
+                    user_id_to_similarity_map[user_id] = similarity
+                else:
+                    similarity = user_id_to_similarity_map[user_id]
+
+                movie_user_ratings.append((similarity, rating)) # store both to filter later
+
+            movie_user_ratings = sorted(movie_user_ratings, key=lambda x: x[0], reverse=True)
+
+            # mean rating across top users
+            if len(movie_user_ratings) == 0:
+                movie_scores[movie_id] = 0
+            else:
+                movie_score = np.mean(movie_user_ratings[:self.top_users_to_consider])
+                movie_scores[movie_id] = movie_score
+
+        movies_data["cfrScore"] = movies_data["movieId"].apply(
+            lambda movie_id: movie_scores[movie_id],
+        )
+
+        return movies_data
