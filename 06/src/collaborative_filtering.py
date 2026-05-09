@@ -83,16 +83,16 @@ class CollabFilteringRec(Recommender):
                 columns=["movieId", "title", "genres", "score"]
             )
 
-        user_idx = self.user_ids.index(user_id) # get index of column
+        user_idx = self.user_ids.index(user_id)  # get index of column
 
         # filter self.top_users_to_consider similar to users to given one (just internal indices)
         similarities = self.user_similarity[user_idx]
-        similar_user_indices = np.argsort(similarities)[::-1] # reversing array
+        similar_user_indices = np.argsort(similarities)[::-1]  # reversing array
 
         similar_user_indices = [
             idx
             for idx in similar_user_indices
-            if idx != user_idx
+            if idx != user_idx and similarities[idx] > 0  # filter those having negative similarity
         ][:self.top_users_to_consider]
 
         user_ratings = self.user_movie_matrix.loc[user_id]
@@ -118,12 +118,17 @@ class CollabFilteringRec(Recommender):
                 if movie_id not in movie_scores:
                     movie_scores[movie_id] = []
 
-                movie_scores[movie_id].append(similarity * rating) # add weighted score
+                movie_scores[movie_id].append((similarity, rating))  # add weighted score
 
         recommendations = []
 
         for movie_id, scores in movie_scores.items():
-            avg_score = np.mean(scores)
+            similarity_sum = np.sum([s for s, _ in scores])
+            weighted_sum = np.sum([s * r for s, r in scores])
+            if similarity_sum == 0:
+                score = 0
+            else:
+                score = weighted_sum / similarity_sum
 
             movie_row = self.movies_data[self.movies_data["movieId"] == movie_id].iloc[0]
 
@@ -131,7 +136,7 @@ class CollabFilteringRec(Recommender):
                 "movieId": movie_id,
                 "title": movie_row["title"],
                 "genres": movie_row["genres"],
-                "score": avg_score
+                "score": score
             })
 
         recommendations = sorted(
@@ -143,52 +148,63 @@ class CollabFilteringRec(Recommender):
         return pd.DataFrame(recommendations[:top_k])
 
     def rank(self, user_id, movies_data: pd.DataFrame):
-        # find all people that have those movies, assess their similarity
-        # to ours and compute same as above
+        if user_id not in self.user_ids:
+            movies_data = movies_data.copy()
+            movies_data["cfrScore"] = 0.0
+            return movies_data
 
-        user_idx = self.user_ids.index(user_id) # get index of column
+        user_idx = self.user_ids.index(user_id)
         user_user_similarity = self.user_similarity[user_idx]
 
         user_id_to_similarity_map = {}
-
         movie_scores = {}
         for _, movie_data in movies_data.iterrows():
             movie_id = movie_data["movieId"]
-            if not movie_id in self.user_movie_matrix.columns:
-                movie_scores[movie_id] = 0
+            if movie_id not in self.user_movie_matrix.columns:
+                movie_scores[movie_id] = 0.0
                 continue
 
             user_ratings = self.user_movie_matrix.loc[:, movie_id]
 
             movie_user_ratings = []
-            for user_id, rating in user_ratings.items():
+            for other_user_id, rating in user_ratings.items():
                 if rating <= 0:
                     continue
 
-                if movie_id not in movie_scores:
-                    movie_scores[movie_id] = []
+                if other_user_id == user_id:
+                    continue
 
-                # cache looks in list
-                if user_id not in user_id_to_similarity_map:
-                    target_user_idx = self.user_ids.index(user_id)
+                if other_user_id not in user_id_to_similarity_map:
+                    target_user_idx = self.user_ids.index(other_user_id)
                     similarity = user_user_similarity[target_user_idx]
-                    user_id_to_similarity_map[user_id] = similarity
+                    user_id_to_similarity_map[other_user_id] = similarity
                 else:
-                    similarity = user_id_to_similarity_map[user_id]
+                    similarity = user_id_to_similarity_map[other_user_id]
 
-                movie_user_ratings.append((similarity, rating)) # store both to filter later
+                movie_user_ratings.append((similarity, rating))
 
-            movie_user_ratings = sorted(movie_user_ratings, key=lambda x: x[0], reverse=True)
+            movie_user_ratings = sorted(
+                movie_user_ratings,
+                key=lambda x: x[0],
+                reverse=True
+            )
 
-            # mean rating across top users
+            movie_user_ratings = movie_user_ratings[:self.top_users_to_consider]
             if len(movie_user_ratings) == 0:
-                movie_scores[movie_id] = 0
+                movie_scores[movie_id] = 0.0
+                continue
+
+            weighted_sum = np.sum(s * r for s, r in movie_user_ratings)
+            similarity_sum = np.sum([s for s, _ in movie_user_ratings])
+            if similarity_sum == 0:
+                movie_scores[movie_id] = 0.0
             else:
-                movie_score = np.mean(movie_user_ratings[:self.top_users_to_consider])
-                movie_scores[movie_id] = movie_score
+                movie_scores[movie_id] = (weighted_sum / similarity_sum)
+
+        movies_data = movies_data.copy()
 
         movies_data["cfrScore"] = movies_data["movieId"].apply(
-            lambda movie_id: movie_scores[movie_id],
+            lambda movie_id: movie_scores.get(movie_id, 0.0)
         )
 
         return movies_data
