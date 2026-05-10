@@ -109,6 +109,41 @@ a vráceno je prvních `top_k` položek.
 
 Implementace daného přístupu nalezneté v `src/hybrid.py`.
 
+=== TensorFlow Recommenders
+
+Pro implementaci tohoto přístupu byla použita knihovna
+TensorFlow Recommenders (TFRS) a její základní retrieval model
+podle oficiálních příkladů v dokumentaci.
+
+Cílem trénování modelu je naučit embeddingy uživatelů a filmů tak,
+aby uživatel, kterému se určitý film líbí, měl vysokou podobnost
+s embeddingem tohoto filmu.
+
+Trénovací data tvoří dvojice `(userId, movieId)`,
+které reprezentují pozitivní interakce.
+Do trénování jsou zahrnuta pouze hodnocení splňující podmínku:
+
+* `rating_like_threshold = 3.5`
+
+To znamená, že model pracuje pouze s filmy,
+které uživatel hodnotil pozitivně.
+
+Použité parametry trénování:
+
+* `embedding_dim = 64`
+* `epochs = 5`
+* `batch_size = 1024`
+* `learning_rate = 0.05`
+
+Tyto parametry byly zvoleny na základě jednoduchých experimentů
+a byly zaznamenány také do systému MLflow.
+
+Při doporučování filmů se následně postupuje podobně jako u content-based přístupu.
+Pro každého uživatele je nejprve získán jeho naučený embedding a pro všechny kandidátní
+filmy jsou vypočteny skóre jako skalární součin embeddingu uživatele a embeddingu filmu.
+
+
+
 // Výhodou tohoto přístupu je, že druhý model pracuje s větším množstvím kandidátů,
 // a má tedy větší možnost ovlivnit finální pořadí doporučení.
 // V praxi tento postup vedl k lepším výsledkům než použití samotného
