@@ -1,4 +1,43 @@
-= HW6 - TBD!
+== 6. Recommender systems
+
+Pro splnění úlohy byl použit dataset MovieLens (small varianta, dostupný
+http://files.grouplens.org/datasets/movielens/ml-latest-small.zip[tady].
+
+Dataset obsahuje následující soubory:
+
+* `links.csv` -- mapování filmů na externí databáze, například IMDb.
+* `ratings.csv`
+** uživatelská hodnocení filmů v rozsahu od 0.5 do 5.0,
+** celkový počet uživatelů: 610,
+** počet filmů, které mají alespoň jedno hodnocení: 9724.
+* `movies.csv`
+** metadata o filmech,
+** název filmu a seznam žánrů,
+** celkový počet filmů: 9742.
+* `tags.csv`
+** uživatelské tagy, například `funny`, `scary`, `classic`.
+
+V této práci byly využity pouze soubory `ratings.csv` a `movies.csv`.
+(data z `links.csv` a `tags.csv` jsou ignorovaná).
+
+=== Content-based recommender
+Content-based recommender vychází výhradně z obsahu filmů.
+
+Pro každý film je vytvořen vektorový embedding na základě textové reprezentace,
+která vznikne spojením názvu filmu a jeho žánrů. Použitý model pro embeddings je
+`sentence-transformers/all-MiniLM-L6-v2`.
+
+Profil uživatele je vytvořen jako průměr embeddingů všech filmů,
+které daný uživatel ohodnotil alespoň hodnotou `rating_like_threshold`.
+V této práci byla použita hodnota `3.5`.
+
+Při generování doporučení je pro každý kandidátní film vypočtena kosinová podobnost
+mezi embeddingem uživatele a embeddingem filmu.
+Filmy jsou následně seřazeny sestupně podle této podobnosti a vracen top K seznam.
+
+Implementace daného přístupu nalezneté v `src/content_based.py`.
+
+// TODO: pros/cons
 
 1. how many users
 2. how many movies
@@ -6,3 +45,4 @@
 4. some users may be dropped during evaluation as they migth not have ratings higher than 3.5
 5. all metrics apart from diversity penalize for actual_k < top_k
     - diversity for queries is computed only for returned values
+6. dropped_users -> users that don't have any relevant ratings (test side)
