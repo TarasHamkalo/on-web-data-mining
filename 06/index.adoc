@@ -19,7 +19,8 @@ Dataset obsahuje následující soubory:
 V této práci byly využity pouze soubory `ratings.csv` a `movies.csv`.
 (data z `links.csv` a `tags.csv` jsou ignorovaná).
 
-=== Content-based recommender
+=== Implementace
+==== Content-based recommender
 Content-based recommender vychází výhradně z obsahu filmů.
 
 Pro každý film je vytvořen vektorový embedding na základě textové reprezentace,
@@ -38,7 +39,7 @@ Implementace daného přístupu nalezneté v `src/content_based.py`.
 // TODO: pros/cons
 // always generates enough results, can recommend newer movies (as representations does not have to change)
 
-=== Collaborative filtering recommender
+==== Collaborative filtering recommender
 
 Pro implementaci collaborative filtering recommenderu byl použit přístup User-User podobnosti.
 
@@ -84,7 +85,7 @@ Filmy jsou následně seřazeny podle vypočteného skóre sestupně.
 
 Implementace daného přístupu nalezneté v `src/collaborative_filtering.py`.
 
-=== Hybrid recommender
+==== Hybrid recommender
 
 Pro implementaci hybridního recommendru byly použity dva přístupy
 doporučené v zadání:
@@ -109,7 +110,7 @@ a vráceno je prvních `top_k` položek.
 
 Implementace daného přístupu nalezneté v `src/hybrid.py`.
 
-=== TensorFlow Recommenders
+==== TensorFlow Recommenders
 
 Pro implementaci tohoto přístupu byla použita knihovna
 TensorFlow Recommenders (TFRS) a její základní retrieval model
@@ -142,6 +143,34 @@ Při doporučování filmů se následně postupuje podobně jako u content-base
 Pro každého uživatele je nejprve získán jeho naučený embedding a pro všechny kandidátní
 filmy jsou vypočteny skóre jako skalární součin embeddingu uživatele a embeddingu filmu.
 
+
+=== Metríky hodnocení modelů
+
+Pro vyhodnocení kvality doporučovačů byly použity následující metriky:
+
+* Precision@ -- podíl relevantních filmů mezi prvními `K` doporučenými položkami.
+* Recall@K -- podíl relevantních filmů z testovací množiny, které se objevily mezi prvními `K` doporučeními.
+* F1@K -- harmonický průměr Precision@K a Recall@K.
+* MRR -- průměrná převrácená hodnota pozice prvního relevantního filmu.
+* nDCG@K  -- hodnotí kvalitu pořadí doporučení, přičemž relevantní položky na vyšších pozicích mají větší váhu.
+* Diversity@K -- (1 - průměrná podobnosť doporučených filmů),
+* Coverage@K
+ -- podíl unikátních filmů, které se objevily v doporučeních alespoň jednoho uživatele, vůči celkovému počtu filmů v datasetu.
+
+
+Diveristy byla vypočtena jako `1 - cosine similarity` mezi embeddingy filmů vytvořenými z názvu a žánrů. Byl použit
+stejný model jako při Content based přístupu.
+
+Všechny metriky kromě MRR byly počítány pro více hodnot `K`:
+`1, 3, 5, 10, 15, 25, 35, 50, 100, 500`.
+
+
+NOTE: Relevantními položkami byly filmy z testovací části datasetu s hodnocením alespoň `3.5`.
+
+NOTE: Někteří uživatelé byli z evaluace vyřazeni, pokud v testovací množině neměli žádný relevantní film.
+
+NOTE: Pokud doporučovač vrátil méně než požadovaných `K` výsledků, byly metriky Precision@K, Recall@K, F1@K, nDCG@K i Coverage@K
+  počítány vzhledem k požadovanému `K`, což takové případy penalizuje. U metriky Diversity@K byla použita pouze skutečně vrácená doporučení.
 
 
 // Výhodou tohoto přístupu je, že druhý model pracuje s větším množstvím kandidátů,
