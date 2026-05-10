@@ -59,6 +59,7 @@ které cílový uživatel dosud nehodnotil. Predikované skóre filmu je vypočt
 hodnocení podobných uživatelů, kde vahou je podobnost daného uživatele
 k cílovému uživateli (vzorec z přednašky):
 
+
 [latexmath]
 ++++
 \hat{r}(u, i) =
@@ -80,6 +81,40 @@ kde:
 * `r(v, i)` je hodnocení filmu `i` uživatelem `v`.
 
 Filmy jsou následně seřazeny podle vypočteného skóre sestupně.
+
+Implementace daného přístupu nalezneté v `src/collaborative_filtering.py`.
+
+=== Hybrid recommender
+
+Pro implementaci hybridního recommendru byly použity dva přístupy
+doporučené v zadání:
+
+. primární doporučení pomocí content-based recommenderu a následné přeřazení výsledků pomocí collaborative filtering,
+. změná pořadí přístupů v 1.
+
+Při použití pouze jednoduchého přeřazení `top_k` výsledků z prvního doporučovače
+nebylo dosaženo výrazného zlepšení oproti samostatným modelům.
+Důvodem je omezený počet kandidátů, mezi nimiž může druhý model měnit pořadí.
+
+Z tohoto důvodu byla implementace rozšířena o parametr `enlarge_candidate_pool_times` (použita hodnota `3.5`)
+Požadovaný počet doporučení `top_k` je před spuštěním prvního modelu
+vynásoben tímto koeficientem.
+
+Tyto kandidáty jsou následně ohodnoceny druhým modelem.
+Výsledné skóre každého filmu je určeno jako aritmetický průměr
+normalizovaných skóre (do <0, 1>) obou modelů.
+
+Filmy jsou poté seřazeny podle výsledného kombinovaného skóre
+a vráceno je prvních `top_k` položek.
+
+Implementace daného přístupu nalezneté v `src/hybrid.py`.
+
+// Výhodou tohoto přístupu je, že druhý model pracuje s větším množstvím kandidátů,
+// a má tedy větší možnost ovlivnit finální pořadí doporučení.
+// V praxi tento postup vedl k lepším výsledkům než použití samotného
+// content-based nebo collaborative filtering modelu.
+
+
 
 // TODO: pros/cons
 // Výhodou collaborative filtering přístupu je využití kolektivního chování
