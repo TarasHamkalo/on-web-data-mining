@@ -209,7 +209,8 @@ def plot_results_2(results, title, save_path=None):
         0.01,
         0.03,
         0.1,
-        0.3
+        0.3,
+        0.5
     ])
 
     axes[0].xaxis.set_major_formatter(
@@ -345,6 +346,11 @@ def evaluate(
 
     reciprocal_ranks = []
 
+    coverage_movie_sets = {
+        k: set()
+        for k in ks
+    }
+
     train_ratings, test_ratings = train_test_split_ratings(
         ratings_data,
         test_size_per_user=test_size_per_user,
@@ -402,6 +408,11 @@ def evaluate(
 
         for top_k in ks:
             recommended_movies_k = recommended_movies[:top_k]
+
+            coverage_movie_sets[top_k].update(
+                recommended_movies_k
+            )
+
             precision = precision_at_k(
                 recommended_movies_k,
                 relevant_movies_ordered,
@@ -460,6 +471,13 @@ def evaluate(
 
     mrr = np.mean(reciprocal_ranks)
 
+    total_movies = len(movies_data["movieId"].unique())
+
+    coverage = [
+        len(coverage_movie_sets[k]) / total_movies
+        for k in ks
+    ]
+
     avg_query_time_500 = np.mean(query_times_500)
 
     return {
@@ -478,6 +496,6 @@ def evaluate(
         "f1": avg_f1,
         "ndcg": avg_ndcg,
         "diversity": avg_diversity,
-
+        "coverage": coverage,
         "mrr": mrr,
     }
