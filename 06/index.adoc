@@ -16,7 +16,6 @@ Dataset obsahuje následující soubory:
 ** celkový počet filmů: 9742.
 * `tags.csv`
 ** uživatelské tagy, například `funny`, `scary`, `classic`.
-
 V této práci byly využity pouze soubory `ratings.csv` a `movies.csv`.
 (data z `links.csv` a `tags.csv` jsou ignorovaná).
 
@@ -36,13 +35,68 @@ mezi embeddingem uživatele a embeddingem filmu.
 Filmy jsou následně seřazeny sestupně podle této podobnosti a vracen top K seznam.
 
 Implementace daného přístupu nalezneté v `src/content_based.py`.
+// TODO: pros/cons
+// always generates enough results, can recommend newer movies (as representations does not have to change)
+
+=== Collaborative filtering recommender
+
+Pro implementaci collaborative filtering recommenderu byl použit přístup User-User podobnosti.
+
+Každý uživatel je reprezentován vektorem hodnocení všech filmů v datasetu (doplnené na nuly).
+Podobnost mezi dvojicí uživatelů je následně počítána pomocí kosinové podobnosti.
+
+Během implementace byla experimentálně ověřena také Pearsonova korelace.
+Ta však nevedla ke zlepšení výsledků, proto byla finální implementace
+omezena pouze na kosinovou podobnost.
+
+Při generování doporučení se nejprve vybere
+`top_users_to_consider` nejpodobnějších uživatelů k cílovému uživateli (`10`).
+Příčemž živatelé s podobností menší nebo rovnou nule jsou ignorováni,
+proto může být skutečný počet použitých sousedů menší než zadaná hodnota.
+
+Z hodnocení těchto podobných uživatelů jsou následně vybrány filmy,
+které cílový uživatel dosud nehodnotil. Predikované skóre filmu je vypočteno jako vážený průměr
+hodnocení podobných uživatelů, kde vahou je podobnost daného uživatele
+k cílovému uživateli (vzorec z přednašky):
+
+[latexmath]
+++++
+\hat{r}(u, i) =
+\frac{
+\sum\limits_{v \in N(u)}
+s(u, v) \cdot r(v, i)
+}{
+\sum\limits_{v \in N(u)}
+s(u, v)
+}
+++++
+
+kde:
+
+* `u` je cílový uživatel,
+* `i` je doporučovaný film,
+* `N(u)` je množina nejpodobnějších uživatelů,
+* `s(u, v)` je podobnost mezi uživateli `u` a `v`,
+* `r(v, i)` je hodnocení filmu `i` uživatelem `v`.
+
+Filmy jsou následně seřazeny podle vypočteného skóre sestupně.
 
 // TODO: pros/cons
+// Výhodou collaborative filtering přístupu je využití kolektivního chování
+// ostatních uživatelů a schopnost zachytit preference,
+// které nejsou explicitně obsaženy v metadatech filmů.
+// Nevýhodou je zejména problém sparsity dat a omezená schopnost doporučovat
+// nové nebo málo hodnocené filmy.
+// Can generate less than required recommendations
 
-1. how many users
-2. how many movies
-3. how many ratings
-4. some users may be dropped during evaluation as they migth not have ratings higher than 3.5
-5. all metrics apart from diversity penalize for actual_k < top_k
-    - diversity for queries is computed only for returned values
-6. dropped_users -> users that don't have any relevant ratings (test side)
+
+
+// та для всіх фільмів що не було
+// 1. how many users
+// 2. how many movies
+// 3. how many ratings
+// 4. some users may be dropped during evaluation as they migth not have ratings higher than 3.5
+// 5. all metrics apart from diversity penalize for actual_k < top_k
+//     - diversity for queries is computed only for returned values
+// 6. dropped_users -> users that don't have any relevant ratings (test side)
+//
