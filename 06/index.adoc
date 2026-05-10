@@ -143,6 +143,7 @@ Při doporučování filmů se následně postupuje podobně jako u content-base
 Pro každého uživatele je nejprve získán jeho naučený embedding a pro všechny kandidátní
 filmy jsou vypočteny skóre jako skalární součin embeddingu uživatele a embeddingu filmu.
 
+Implementace daného přístupu nalezneté v `src/tf_framework.py`.
 
 === Hodnocení modelů
 
@@ -180,7 +181,7 @@ V každé buňce jsou uvedeny dvě hodnoty ve formátu `@10 / @25`.
 Dané metriky taky můžete sledovat v MLflow. Grafy metrik @K a kompletní výsledky (v JSON) jsou 
 přídané do adresaru `results` a MLflow artefaktů.
 
-
+Kód pro ohodnocení modelů -- train/test split, vypočet metrík a další pomocné funkce pro hodnocení nelezneté v `src/evaluation.py`.
 
 [cols="2,1,1,1,1,1,1", options="header"]
 |===

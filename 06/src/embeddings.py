@@ -6,6 +6,10 @@ def compute_movie_embeddings(
     movies_data: pd.DataFrame,
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 ):
+    """
+        Helper method which computes movie embeddings and stores "emb"
+        column in returned dataframe
+    """
     model = SentenceTransformer(model_name)
     texts = (
         movies_data["title"].fillna("") +

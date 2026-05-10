@@ -336,8 +336,14 @@ def evaluate(
     seed=42
 ):
     """
+    1. Split data into train and test.
+    2. Train given model
+    3. Evaluate for @K in ks
+    4. Average metrics across all users and build results dict
     :warn expects movies_data to have "emb" field with embeddings computed
+    :return dict of all metrics computed
     """
+
     precision_scores = {k: [] for k in ks}
     recall_scores = {k: [] for k in ks}
     f1_scores = {k: [] for k in ks}
