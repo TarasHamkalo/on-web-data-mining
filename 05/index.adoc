@@ -163,7 +163,7 @@ Pro spuštění použijte Jupyter soubory v adresáři `notebooks`.
 
 IMPORTANT: Při spuštění `main.ipynb` musí být MLflow dostupný na `http://localhost:5000/`.
 
-Do MLflow byly zaznamenaný Precision@K, Recall@K, F1@K, MRR, uvedené grafy a vysledký
+Do MLflow byly zaznamenaný Precision@K, Recall@K, F1@K, MRR, uvedené grafy a výsledky
 podobnosti (hodnoty cosine, euclidean) pro každou dvojici (query, dokument) do CSV.
 
 Z důvodu velikosti výsledných dat (CSV souboru) byly cosine i euklidovská vzdálenost 
