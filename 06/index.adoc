@@ -172,30 +172,145 @@ NOTE: Někteří uživatelé byli z evaluace vyřazeni, pokud v testovací množ
 NOTE: Pokud doporučovač vrátil méně než požadovaných `K` výsledků, byly metriky Precision@K, Recall@K, F1@K, nDCG@K i Coverage@K
   počítány vzhledem k požadovanému `K`, což takové případy penalizuje. U metriky Diversity@K byla použita pouze skutečně vrácená doporučení.
 
+=== Výsledky evaluace
 
-// Výhodou tohoto přístupu je, že druhý model pracuje s větším množstvím kandidátů,
-// a má tedy větší možnost ovlivnit finální pořadí doporučení.
-// V praxi tento postup vedl k lepším výsledkům než použití samotného
-// content-based nebo collaborative filtering modelu.
-
-
-
-// TODO: pros/cons
-// Výhodou collaborative filtering přístupu je využití kolektivního chování
-// ostatních uživatelů a schopnost zachytit preference,
-// které nejsou explicitně obsaženy v metadatech filmů.
-// Nevýhodou je zejména problém sparsity dat a omezená schopnost doporučovat
-// nové nebo málo hodnocené filmy.
-// Can generate less than required recommendations
+Tabulka níže shrnuje hlavní výsledky všech implementovaných přístupů pro hodnoty `K = 10` a `K = 25`.
+V každé buňce jsou uvedeny dvě hodnoty ve formátu `@10 / @25`. 
+Dané metriky taky můžete sledovat v MLflow. Grafy metrik @K a kompletní výsledky (v JSON) jsou 
+přídané do adresaru `results` a MLflow artefaktů.
 
 
 
-// та для всіх фільмів що не було
-// 1. how many users
-// 2. how many movies
-// 3. how many ratings
-// 4. some users may be dropped during evaluation as they migth not have ratings higher than 3.5
-// 5. all metrics apart from diversity penalize for actual_k < top_k
-//     - diversity for queries is computed only for returned values
-// 6. dropped_users -> users that don't have any relevant ratings (test side)
-//
+[cols="2,1,1,1,1,1,1", options="header"]
+|===
+|Metoda
+|Precision
+|Recall
+|F1
+|nDCG
+|Diversity
+|Coverage
+
+|Content-Based
+|0.0271 / 0.0216
+|0.0190 / 0.0387
+|0.0182 / 0.0221
+|0.0327 / 0.0368
+|0.3936 / 0.4226
+|0.0882 / 0.1594
+
+|Collaborative Filtering
+|0.0388 / 0.0383
+|0.0310 / 0.0803
+|0.0276 / 0.0423
+|0.0458 / 0.0619
+|0.6780 / 0.6826
+|0.1355 / 0.1918
+
+|Hybrid (Content -> Collaborative)
+|0.0340 / 0.0278
+|0.0270 / 0.0531
+|0.0239 / 0.0290
+|0.0429 / 0.0497
+|0.4312 / 0.4552
+|0.0656 / 0.1211
+
+|Hybrid (Collaborative -> Content)
+|0.0734 / 0.0674
+|0.0682 / 0.1363
+|0.0584 / 0.0749
+|0.0895 / 0.1151
+|0.5346 / 0.5639
+|0.1100 / 0.1821
+
+|TensorFlow Recommenders
+|0.1150 / 0.0921
+|0.0735 / 0.1391
+|0.0740 / 0.0897
+|0.1288 / 0.1405
+|0.6198 / 0.6335
+|0.1294 / 0.1922
+|===
+
+==== Shrnutí výsledků
+
+Z dosažených výsledků je patrné, že nejlepší kvality doporučení dosáhl model implementovaný pomocí TensorFlow Recommenders.
+Tento přístup dosáhl nejvyšších hodnot metrik Precision, F1 i nDCG a zároveň si zachoval vysokou diverzitu doporučení.
+Průběh metrik dle @K je vidět na obr níže:
+
+image::results/tf_framework_results_plot.png[width=100%]
+
+Z grafu je patrný výrazný růst metriky nDCG s rostoucí hodnotou `K`.
+To naznačuje, že model sice relevantní filmy často nalézá, ale ne vždy je umisťuje na úplně nejvyšší pozice doporučeného seznamu.
+S rostoucím počtem vrácených výsledků se proto zvyšuje pravděpodobnost, že se relevantní filmy objeví.
+
+Je vhodné zdůraznit, že dosažené hodnoty metrik nejsou přímo srovnatelné s klasifikačními úlohami.
+Výběr relevantních filmů je relativně obtížný problém, protože pro každého uživatele je z několika tisíc filmů relevantní pouze malá podmnožina.
+V testovací množině měl typický uživatel pouze několik desítek filmů s hodnocením alespoň `3.5`,
+zatímco celkový počet filmů v datasetu přesahuje 9700.
+
+Model TensorFlow Recommenders byl navíc trénován pouze na binární informaci o tom,
+zda uživatel film hodnotil kladně (`rating >= 3.5`) či nikoliv. Pro zlepšení výsledků
+určíte by se dalo využit informace o uživateli (tagů na filmy) a metadat filmů.
+
+Velmi dobrých výsledků dosáhl také hybridní přístup ve variantě Collaborative pak Content, 
+který ve všech sledovaných metrikách výrazně překonal samostatné content-based i collaborative filtering modely.
+Pro porovnaní níže uvádím grafy metrik pro daný model.
+
+image::results/hybrid_collab_content_results_plot.png[width=100%]
+
+Samostatný collaborative filtering poskytl lepší výsledky než content-based přístup, zejména z pohledu recall, diversity a coverage.
+
+Hybridní varianta Content -> Collaborative nepřinesla významné zlepšení oproti samotnému content-based modelu. 
+To pravděpodobně souvisí s tím, že první fáze generovala omezenou množinu kandidátů, která již neobsahovala dostatek relevantních filmů.
+
+
+=== Spuštění a MLflow
+
+Pro vytvoření prostředí a instalaci závislostí:
+
+[source,bash]
+----
+pyenv install 3.12.11
+pyenv local 3.12.11
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+----
+
+Pro spuštění experimentů slouží Jupyter notebooky v adresáři `notebooks/`.
+Hlavní notebook `main.ipynb` postupně natrénuje všechny implementované doporučovací
+systémy, vyhodnotí je a uloží výsledky do adresáře `outputs/`.
+
+IMPORTANT: Před spuštěním `main.ipynb` musí být dostupný MLflow server na adrese `http://localhost:5000/`.
+
+Pro každý model jsou zaznamenány:
+
+* parametry experimentu:
+** `model_type`
+** `dataset_name`
+** `split_strategy`
+** parametry konkrétního modelu (např. `embedding_dim`, `epochs`, `learning_rate`)
+* metriky:
+** Precision@K
+** Recall@K
+** F1@K
+** nDCG@K
+** Diversity@K
+** Coverage@K
+** MRR
+* pomocné statistiky:
+** `train_size` (70316)
+** `test_size` (30520)
+** `below_required_recommendations`
+** `dropped_users_count` -- více v sekci o hodnocení (nemají relevantních filmů v test sadě)
+** `train_duration_seconds`
+** `avg_query_time_500_seconds`
+* artefakty:
+** JSON soubory s kompletními výsledky
+** grafy metrik
+
+Do MLflow byly dále uloženy i případné další metriky relevantní pro konkrétní model.
+
+Kompletní výsledky všech experimentů jsou dostupné jak v MLflow, tak ve formátu JSON
+v adresáři `results/`.
